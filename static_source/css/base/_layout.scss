@@ -1,0 +1,24 @@
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+#container{
+    max-width: $max-width;
+    box-sizing: border-box;
+    margin: auto;
+    width: 100%;
+    padding: $d_margin;
+    flex: 1 0 auto;
+}
+.header{
+    flex-shrink: 0;
+    max-width: $max-width;
+    width: 100%;
+    flex-shrink: 0;
+}
+.footer {
+    flex-shrink: 0;
+}

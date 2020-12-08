@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="{{ locale }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if metadata.title %}
+      <title>{{ metadata.title }} | {{ site[locale].basetitle }}</title>
+    {% else %}
+      <title>{{ site[locale].basetitle }}</title>
+    {% endif %}
+    <meta name="description" content="{{ metadata.description or site[locale].description }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ site.root }}{{ page.url }}">
+
+    <!-- Open graph tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.root }}{{ page.url }}">
+    <meta property="og:title" content="{{ metadata.title or site[locale].basetitle }}">
+    <meta property="og:description" content="{{ metadata.description or site[locale].description }}">
+    <meta property="og:image" content="{{ metadata.image or site.logo }}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/static/css/main.min.css">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/img/favicon/site.webmanifest">
+    <meta name="msapplication-config" content="/static/img/favicon/browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="ffffff">
+    <meta name="theme-color" content="ffffff">
+
+    {# <script> 
+      // Google analytics (lite version)
+      (function(e,t,n,i,s,a,c){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)}
+      ;a=t.createElement(i);c=t.getElementsByTagName(i)[0];a.async=true;a.src=s
+      ;c.parentNode.insertBefore(a,c)
+      })(window,document,"galite","script","https://cdn.jsdelivr.net/npm/ga-lite@2/dist/ga-lite.min.js");
+
+      galite('create', 'XXXXXXXXXXX', 'auto');
+      galite('send', 'pageview', {
+        'anonymizeIp': true
+      });
+    </script>  #}
+  </head>
+  <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
+    {% include "header.njk" %}
+    {% block pre_container %}{% endblock %}
+    <div id="container">      
+      {{ content | safe }}
+    </div>
+    {% include "footer.njk" %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin.min.js"></script> 
+    <script src="/static/js/main.min.js"></script>
+  </body>
+</html>

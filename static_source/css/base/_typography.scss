@@ -1,0 +1,58 @@
+//********* typography *********/
+
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 900;
+    font-display: swap;
+    src:
+        local('Inter'),
+        url("/static/font/inter-black/InterDisplay-Black.woff2") format("woff2"),
+        url("/static/font/inter-black/InterDisplay-Black.woff") format("woff");
+  }
+
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+        local('Inter'), 
+        url("/static/font/inter-regular/InterDisplay-Regular.woff2") format("woff2"),
+        url("/static/font/inter-regular/InterDisplay-Regular.woff") format("woff");
+  }
+
+  $font-stack: 'Inter', Helvetica, Arial, sans-serif;
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+    font-family: $font-stack;
+}
+
+h1 {
+    font-size: $h1-font-size;
+    line-height: $h1-line-height;
+    margin: 0;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: $h2-font-size;
+    line-height: $h2-line-height;
+    margin: 0;
+    font-weight: 900;
+
+}
+
+
+body, span, p, li {
+    font-size: $p-font-size;
+    line-height: $p-line-height;
+    margin: 0;
+    font-weight: 400;
+}

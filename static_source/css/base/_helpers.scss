@@ -1,0 +1,23 @@
+.text-right{
+    text-align: right;
+}
+
+.float-right{
+    float: right;
+}
+
+.back-arrow::before{
+    content: "<- ";
+    color: $green;
+}
+
+.url-arrow::after{
+    content: "↗";
+    display: inline-block;
+    vertical-align: -3px;
+    height: 15px;
+}
+
+.upfirst:first-letter{
+    text-transform: uppercase;
+}

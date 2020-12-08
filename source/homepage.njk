@@ -1,0 +1,75 @@
+---
+pagination:
+  data: site.languages
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+layout: base.njk
+permalink: "/{{lang.locale}}/"
+noLangUrl: /
+sitemap:
+  priority: 1
+  changefreq: daily
+eleventyComputed:
+  locale: "{{ lang.locale }}"
+---
+
+<div class="home-intro" id="home-intro">
+  <div id="animation-container">
+    {# <h1>we build the world’s fastest bikes</h1> #}
+    <img id="intro-text" src="/static/img/home-intro.svg" alt="we build the fastest bikes in the world"/>
+  </div>
+</div>
+
+<div class="spacer-4"></div>
+
+<h1>Chi siamo</h1>
+<div class="spacer-1"></div>
+<div class="row home-team">
+  <img src="/static/img/team.jpg" class="col-7"/>
+  <p class="col-3 align-bottom">
+    Siamo un team studentesco del Politecnico di Torino formato da circa 60 persone. Ogni anno partecipiamo alla WHPSC con un prototipo creato da noi.
+    <br/>
+    <br/>
+    <a href="/{{locale}}/team/" class="home-link">Scopri di più</a>
+  </p>
+  <div class="col-2">
+  </div>
+</div>
+
+<div class="spacer-5"></div>
+
+<div class="indented-3">
+  <h1>I prototipi</h1>
+  <div class="spacer-2"></div>
+  <div class="row">
+    <div class="prototype-preview col-6">
+      <a href="/{{ locale }}/prototypes/taurus/">
+        <img src="/static/img/uploads/Taurus.jpg"/>
+        <span>Taurus</span>
+      </a>
+    </div>
+    <div class="prototype-preview col-6">
+      <a href="/{{ locale }}/prototypes/taurus-x/">
+        <img src="/static/img/uploads/taurusX.jpg"/>
+        <span>Taurus X</span>
+      </a>
+    </div>
+  </div>
+  <div class="spacer-2"></div>
+  <a href="/{{locale}}/prototypes/" class="text-right float-right home-link">Guardali tutti</a>
+</div>
+
+<div class="spacer-5"></div>
+
+<h1>Blog</h1>
+<div class="spacer-2"></div>
+
+{% for post in collections.posts %}
+  {% include "post_preview.njk" %}
+{% endfor %}
+
+<div class="spacer-2"></div>
+<a href="/{{locale}}/blog/" class="home-link float-right">Scopri di più</a>
+
+<div class="spacer-4"></div>

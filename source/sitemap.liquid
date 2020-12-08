@@ -1,0 +1,60 @@
+---
+permalink: "/sitemap.xml"
+layout: null
+sitemap:
+  ignore: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {%- for item in collections.all %}
+    {%- unless item.data.sitemap.ignore == true %}
+          <url>
+              <loc>{{ site.root }}{{ item.url }}</loc>
+              {% if item.data.pagination.alias == "post" %}
+                {% comment %} If item is a post then manage different slug language {% endcomment %}
+                {% comment %} TODO:  Also manage the fact that english version is not mandatory {% endcomment %}
+                {% if item.data.locale == "it" %}
+                  <xhtml:link 
+                  rel="alternate"
+                  hreflang="en"
+                  href="{{ site.root }}/en/blog/{{ item.data.post.data.en.title | slug }}"/>
+                {% else %}
+                  <xhtml:link 
+                  rel="alternate"
+                  hreflang="it"
+                  href="{{ site.root }}/it/blog/{{ item.data.post.data.it.title | slug }}"/>
+                {% endif %}                
+                <xhtml:link 
+                  rel="alternate"
+                  hreflang="x-default"
+                  href="{{ site.root }}/it/blog/{{ item.data.post.data.it.title | slug }}"/>
+              {% else %}
+                {% comment %} If item is not a post simply replace /lang / prefix {% endcomment %}
+                {% for lang2 in site.languages %}
+                  {% if lang2.locale != item.data.locale %}
+                    <xhtml:link 
+                    rel="alternate"
+                    hreflang="{{ lang2.locale }}"
+                    href="{{ site.root }}/{{ lang2.locale }}{{ item.url | slice: 3, item.url.size }}"/>
+                  {% endif %}
+                {% endfor %}
+                <xhtml:link 
+                  rel="alternate"
+                  hreflang="x-default"
+                  href="{{ site.root }}/it{{ item.url | slice: 3, item.url.size }}"/>
+              {% endif %}
+              {%- if item.data.updated -%}
+                <lastmod>{{ item.data.updated | date: '%Y-%m-%d' }}</lastmod>
+              {%- else -%}
+                <lastmod>{{ item.date | date: '%Y-%m-%d' }}</lastmod>
+              {%- endif -%}
+              {%- if item.data.sitemap.changefreq -%}
+                <changefreq>{{ item.data.sitemap.changefreq }}</changefreq>
+              {%- endif -%}
+              {%- if item.data.sitemap.priority -%}
+                <priority>{{ item.data.sitemap.priority }}</priority>
+              {%- endif -%}
+            </url>
+    {%- endunless %}
+  {%- endfor %}
+</urlset>

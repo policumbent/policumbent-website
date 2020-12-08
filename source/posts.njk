@@ -1,0 +1,23 @@
+---
+pagination:
+  data: site.languages
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+layout: base.njk
+permalink: "/{{ lang.locale }}/blog/"
+noLangUrl: /blog/
+sitemap:
+  priority: 0.9
+  changefreq: daily
+eleventyComputed:
+  locale: "{{lang.locale}}"
+---
+
+<h1>{{ 'articles' | i18n }}:</h1>
+<div class="spacer-4"></div>
+<div class="postlist-wrapper">
+  {% for post in collections.posts %}
+    {% include "post_preview.njk" %}
+  {% endfor %}
+</div>

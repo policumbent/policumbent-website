@@ -1,0 +1,4 @@
+/       /en/                301         Language=en
+/       /it/                301
+/en/*   /en/404.html        404
+/*      /404.html           404

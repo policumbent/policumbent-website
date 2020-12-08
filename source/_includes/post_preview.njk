@@ -1,0 +1,12 @@
+{% set url="/"~locale~"/blog/"~post.data[locale].title | slug~"/" %}
+<div class="post-preview">
+  <a href="{{ url }}"><img src="{{ post.data[locale].featuredImage }}"/></a>
+  <div class="post-preview__infos">
+    <p class="post-preview__date">{{ post.date | dateReadable  }}</p>
+    <h2 class="post-preview__title"><a href="{{ url }}">{{ post.data[locale].title }}</a></h2>
+    <p class="post-preview__desc">
+      {{ post.data[locale].description | striptags(true) | truncate(250) }}
+    </p>
+    <a class="post-preview__link align-bottom" href="{{ url }}">{{ "read" | i18n }}</a>
+  </div>
+</div>

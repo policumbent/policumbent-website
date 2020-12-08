@@ -1,0 +1,11 @@
+.prototypes-wrapper{
+    margin-left: calculate_width_extra_gutter($d_columns, 3, $d_margin);
+    display: flex;
+    flex-wrap: wrap;
+    & .prototype-preview{
+        margin-bottom: $d_gutter;
+    }
+    & .prototype-preview:nth-child(odd){
+        margin-right: $d_margin;
+    }
+}

@@ -1,0 +1,19 @@
+.post-content{
+    
+    & a{
+        text-decoration: underline;
+        color: $green;
+        &::after{
+            content: "↗";
+            display: inline-block;
+            vertical-align: -3px;
+            height: 15px;
+        }
+    }
+}
+
+.featured-image{
+    object-fit: cover;
+    width: calculate_width($d_columns, 10, $d_margin);
+    height: #{$d_margin*14};
+}

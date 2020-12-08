@@ -1,0 +1,13 @@
+---
+layout: base.njk
+---
+
+<a class="back-arrow" href="/{{ locale }}/blog">{{ 'back_to_articles' | i18n }}</a>
+<div class="spacer-2"></div>
+<p><time datetime="{{ post.data[locale].date | dateISO }}">{{ post.data[locale].date | dateReadable }}</time></p>
+<div class="spacer-1"></div>
+<h1>{{ post.data[locale].title }}</h1>
+<div class="spacer-2"></div>
+<img src="{{ post.data[locale].featuredImage }}" alt="{{ post.data[locale].featuderImage }}" class="featured-image"></img>
+<div class="spacer-2"></div>
+<div class="post-content col-10 float-right">{{ content | safe }}</div>

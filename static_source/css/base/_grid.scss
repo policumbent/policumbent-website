@@ -1,0 +1,52 @@
+/******** GRID ********/
+
+//this function returns the width (column + inner gutter ) based on the column number, the required column and the gutter
+@function calculate_width($total_column, $required_column, $gutter) {
+    $width: calc((((100% - (#{$gutter} * #{$total_column - 1})) / #{$total_column}) * #{$required_column}) + (#{$gutter} * #{$required_column - 1}));
+    @return $width;
+}
+
+
+// same as the upper one, but with one extra gutter
+@function calculate_width_extra_gutter($total_column, $required_column, $gutter) {
+    $width: calc((((100% - (#{$gutter} * #{$total_column - 1})) / #{$total_column}) * #{$required_column}) + (#{$gutter} * #{$required_column}));
+    @return $width;
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.justify-end{
+    justify-content: flex-end !important;
+}
+
+.align-bottom{
+    align-self: flex-end !important;
+}
+
+@for $width from 1 through $d_columns {
+	.col-#{$width} {
+        width: calculate_width($d_columns, $width, $d_margin);
+        box-sizing: border-box;
+        align-self: flex-start;
+    }
+
+    .indented-#{$width}{
+        width: calculate_width($d_columns, $d_columns - $width, $d_margin);
+        margin-left: calculate_width_extra_gutter($d_columns, $width, $d_margin);
+    }
+}
+
+//spacers
+@for $i from 1 through 8 {
+    .spacer-#{$i} {
+        height: $d-p_line_height*$i;
+        width: 100%;
+        clear: both;
+    }
+}
+

@@ -1,0 +1,7 @@
+{
+    "tags": "posts",
+    "permalink": false,
+    "sitemap": {
+        "ignore": true
+    }
+}
