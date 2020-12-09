@@ -5,7 +5,7 @@
   "main": ".eleventy.js",
   "scripts": {
     "prebuild:css": "node-sass static_source/css/main.scss > static/css/main.css",
-    "build:css": "postcss --use autoprefixer -b 'last 2 versions' < static/css/main.css | postcss --no-map --use cssnano > static/css/main.min.css",
+    "build:css": "postcss --use autoprefixer -b \"last 2 versions\" < static/css/main.css | postcss --no-map --use cssnano > static/css/main.min.css",
     "js": "uglifyjs static_source/js/*.js -m -c -o static/js/main.min.js",
     "css:watch": "onchange 'static_source/css/*/*.scss' -- npm run build:css",
     "js:watch": "onchange 'static_source/js/*.js' -- npm run js",
