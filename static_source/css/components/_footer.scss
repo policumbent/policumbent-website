@@ -13,8 +13,8 @@
     margin: auto;
     display: flex;
     align-items: center;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: $d_margin;
+    padding-right: $d_margin;
 
     h2, p, a{
         color: white;
@@ -26,9 +26,6 @@
     a::after{
         content: "->";
     }
-    & div{
-        height: 250px;
-    }
 }
 
 .footer__address{
@@ -36,6 +33,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-self: flex-end;
     p::first-letter{
         text-transform: uppercase;
     }
@@ -45,7 +43,7 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    align-self: flex-end;
     a::first-letter{
         text-transform: uppercase;
     }
@@ -55,5 +53,41 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    align-self: flex-end;
+}
+
+@mixin footer--1200(){
+    .footer .content h2{
+        font-size: 42px;
+    }
+}
+
+
+@mixin footer--768(){
+    .footer{
+        height: auto;
+        .content{
+            padding-left: $m_margin;
+            padding-right: $m_margin;
+            height: auto;
+            flex-direction: column;
+            align-items: flex-start;
+            div {
+                width: 100%;
+                padding-bottom: $m_margin;
+                padding-top: $m_margin;
+                &:not(:last-child) { 
+                    border-bottom: 1px solid white;    
+                }
+                &:last-child{
+                    margin-bottom: #{2*$m_margin};
+                }
+            }
+            h2{
+                font-size: 38px;
+                line-height: 44px;
+                margin-bottom: $m_margin;
+            }
+        }
+    }
 }

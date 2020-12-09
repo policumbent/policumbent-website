@@ -6,34 +6,35 @@ $green: #009400;
 
 // DESKTOP
 // -- typography desktop
-$h1-font-size: 72px;
-$h1-line-height: 56px;
+$d_h1-font-size: 72px;
+$d_h1-line-height: 56px;
 
-$h2-font-size: 38px;
-$h2-line-height: 56px;
-
-$p-font-size: 28px;
-$p-line-height: 32px;
+$d_h2-font-size: 38px;
+$d_h2-line-height: 56px;
 
 $max-width: 1440px;
 
-// -- grid desktop
 $d_columns: 12;
 $d_margin: 24px;
 $d_gutter: 32px;
 $d_p-line-height: 32px;
+$d_p-font-size: 28px;
 
 
 // MOBILE
 
 // -- typography mobile
-// $m_h1-font-size: 40px;
-// $m_h1-line-height: 44px;
+$m_h1-font-size: 38px;
+$m_h1-line-height: 44px;
 
-// $m_h2-font-size: $m_h1-font-size;
-// $m_h2-line-height: $m_h1-line-height;
+$m_h2-font-size: 22px;
+$m_h2-line-height: 44px;
 
-// $m_p-font-size: 16px;
-// $m_p-line-height: 18px;
+$m_p-font-size: 18px;
+$m_p-line-height: 22px;
+
+$m_margin: 18px;
+$m_gutter: 22px;
+
 
 

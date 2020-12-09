@@ -35,24 +35,39 @@ body {
 }
 
 h1 {
-    font-size: $h1-font-size;
-    line-height: $h1-line-height;
+    font-size: $d_h1-font-size;
+    line-height: $d_h1-line-height;
     margin: 0;
     font-weight: 900;
 }
 
 h2 {
-    font-size: $h2-font-size;
-    line-height: $h2-line-height;
+    font-size: $d_h2-font-size;
+    line-height: $d_h2-line-height;
     margin: 0;
     font-weight: 900;
-
 }
 
-
 body, span, p, li {
-    font-size: $p-font-size;
-    line-height: $p-line-height;
+    font-size: $d_p-font-size;
+    line-height: $d_p-line-height;
     margin: 0;
     font-weight: 400;
+}
+
+@mixin typography--mobile() {
+    h1 {
+        font-size: $m_h1-font-size;
+        line-height: $m_h1-line-height;
+    }
+
+    h2 {
+        font-size: $m_h2-font-size;
+        line-height: $m_h2-line-height;
+    }
+
+    body, span, p, li  {
+        font-size: $m_p-font-size;
+        line-height: $m_p-line-height;
+    }
 }

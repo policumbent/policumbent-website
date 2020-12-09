@@ -1,3 +1,15 @@
+document.getElementById("header__open-menu").onclick = function(){
+	document.getElementById("header__overlay").classList.remove("header__overlay--hidden");
+	this.classList.add("hidden");
+	document.getElementById("header__close-menu").classList.remove("hidden");
+};
+
+document.getElementById("header__close-menu").onclick = function(){
+	document.getElementById("header__overlay").classList.add("header__overlay--hidden");
+	this.classList.add("hidden");
+	document.getElementById("header__open-menu").classList.remove("hidden");
+};
+
 var winHeight = window.innerHeight;
 var animDuration = winHeight * 3;
 document.getElementById('home-intro').style.height = (animDuration+winHeight) +'px';

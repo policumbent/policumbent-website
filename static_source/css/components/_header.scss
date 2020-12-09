@@ -3,12 +3,23 @@ $switcher-width: 60px;
 $max-width-links: 800px;
 $header-height: 140px;
 
-.header{
+#container{
+    margin-top: 140px;
+}
+
+
+.header--desktop{
     height: $header-height;
     margin: auto;
     display: flex;
     align-items: center;
     z-index: 10;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 999;
+    max-width: 1440px;
 
     span, a {
         font-size: 22px;
@@ -50,6 +61,8 @@ $header-height: 140px;
         justify-content: space-between;
         align-items: center;
         margin: auto;
+        padding-left: 15px;
+        padding-right: 15px;
 
         & a{
             text-transform: uppercase;
@@ -67,5 +80,99 @@ $header-height: 140px;
     }
     .active {
         color: black;
+    }
+}
+
+.header--mobile{
+    display: none;
+}
+
+@mixin header--1024(){
+    #container{
+        margin-top: 65px;
+    }
+    .header--desktop{
+        display: none;
+    }
+    .header--mobile{
+        display: block;
+
+        .header__bar{
+            height: 65px;
+            display: flex;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 18px;
+            box-sizing: border-box;
+            border-bottom: 1px solid black;
+            align-items: center;
+            position: fixed;
+            left: 0;
+            right: 0;
+            background-color: white;
+            z-index: 999;
+        }
+
+        .active {
+            color: $green;
+        }
+
+        .header__logo{
+            width: 160px;
+        }
+
+        .header__buttons{
+            display: flex;
+            align-items: center;
+
+            span {
+                margin-right: 14px;
+            }
+            svg{
+                width: 47px;
+                padding: 7px;
+                padding-left: 14px;
+                border-left: 1px solid #000;
+                box-sizing: border-box;
+                cursor: pointer;
+            }
+        }
+
+        .header__overlay{
+            @include basic-transition;
+            &--hidden{
+                top: #{-559px - $m_margin};
+            }
+            position: absolute;
+            top: 65px;
+            left: 0;
+            padding-top: $m_gutter;
+            padding-left: $m_margin;
+            right: 0;
+            padding-right: $m_margin;
+            z-index: 998;
+            background-color: white;
+            border-bottom: 1px solid #000;
+
+            & .row{
+                margin-bottom: $m_p-line-height;
+            }
+
+            & .label{
+                color: #6B6B6B;
+                width: calc(50% - #{$m_gutter/2});
+                text-align: right;
+            }
+            
+            & .right-block{
+                width: calc(50% - #{$m_gutter/2});
+                align-items: flex-start;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        
     }
 }
