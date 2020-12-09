@@ -627,6 +627,9 @@ a {
 #container {
   margin-top: 140px; }
 
+header {
+  user-select: none; }
+
 .header--desktop {
   height: 140px;
   margin: auto;
@@ -838,7 +841,7 @@ a {
       -o-transition: all .3s ease;
       -ms-transition: all .3s ease;
       transition: all .3s ease;
-      position: absolute;
+      position: fixed;
       top: 65px;
       left: 0;
       padding-top: 22px;
