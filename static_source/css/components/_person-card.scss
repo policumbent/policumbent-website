@@ -1,0 +1,23 @@
+.person-card{
+    width: calculate_width($d_columns, 3, $d_margin);
+    margin-bottom: $d-p_line_height;
+    margin-right: $d_margin;
+    &:nth-child(4){
+        margin-right: 0px;
+    }
+    img{
+        object-fit: cover;
+        border-radius: 8px;
+        width: 100%;
+    }
+    a{
+        text-decoration: underline;
+        color: $green;
+        &::after{
+            content: "↗";
+            display: inline-block;
+            vertical-align: -3px;
+            height: 15px;
+        }
+    }
+}

@@ -8,6 +8,9 @@
 @import 'base/layout';
 
 @import 'components/components';
+@import 'components/person-card';
+@import 'components/contact';
+@import 'components/sponsor';
 @import 'components/default-components';
 @import 'components/header';
 @import 'components/footer';
@@ -16,6 +19,8 @@
 @import 'pages/home';
 @import 'pages/postlist';
 @import 'pages/post';
+@import 'pages/team';
+@import 'pages/sponsors';
 @import 'pages/prototypeslist';
 
 @import 'queries/queries';

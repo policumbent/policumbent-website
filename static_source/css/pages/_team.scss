@@ -1,0 +1,20 @@
+.team-photo{
+    height: 550px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.department-container{
+    margin-bottom: #{3*$d-p_line_height};
+}
+
+.people-container{
+    h1{
+        margin-bottom: $d-p_line_height;
+    }
+    .cards-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}

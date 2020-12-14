@@ -1,0 +1,27 @@
+.contact{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: #{2*$d_margin};
+
+    img{
+        border-radius: 8px;
+        width: calc(50% - #{$d_margin/2});
+        height: 100%;
+    }
+    .contact-details{
+        width: calc(50% - #{$d_margin/2});
+        a {
+            text-decoration: underline;
+            color: $green;
+            &::after{
+                content: "↗";
+                display: inline-block;
+                vertical-align: -3px;
+                height: 15px;
+            }
+        }
+    }
+    .contacts-list{
+        margin-top: #{1*$d_margin};
+    }
+}

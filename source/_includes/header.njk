@@ -14,9 +14,9 @@
         <div class="header__links">
             <a class="{{ 'active' if page.url | length == 4 }}" href="/{{locale}}/">Home</a>
             <a class="{{ 'active' if '/prototypes' in page.url }}" href="/{{locale}}/prototypes/">{{ "prototypes" | i18n }}</a>
-            <a class="{{ 'active' if '/team' in page.url }}" href="/{{locale}}/team/">{{ "about_us" | i18n }}</a>
-            <a class="{{ 'active' if '/whpsc' in page.url }}" href="/{{locale}}/whpsc/">{{ "the_race" | i18n }}</a>
-            <a class="{{ 'active' if '/sponsor' in page.url }}" href="/{{locale}}/sponsor/">sponsor</a>
+            <a class="{{ 'active' if '/team' in page.url }}" href="/{{locale}}/team/">Team</a>
+            <a class="{{ 'active' if '/whpsc' in page.url }}" href="/{{locale}}/whpsc/">WHPSC</a>
+            <a class="{{ 'active' if '/sponsors' in page.url }}" href="/{{locale}}/sponsors/">sponsors</a>
             <a class="{{ 'active' if '/blog' in page.url }}" href="/{{locale}}/blog/">Blog</a>
             <a class="{{ 'active' if '/contacts' in page.url }}" href="/{{locale}}/contacts/">{{ "contacts" | i18n }}</a>
         </div>
@@ -49,9 +49,9 @@
                 <span class="upfirst">
                 {{ 'home' if page.url | length == 4 }}
                 {{ "prototypes" | i18n if '/prototypes' in page.url }}
-                {{ "about_us" | i18n if '/team' in page.url }}
-                {{ "the_race" | i18n if '/whpsc' in page.url }}
-                {{ 'Sponsor' if '/sponsor' in page.url }}
+                {{ 'Team' if '/team' in page.url }}
+                {{ "WHPSC" if '/whpsc' in page.url }}
+                {{ 'sponsors' if '/sponsors' in page.url }}
                 {{ 'Blog' if '/blog' in page.url }}
                 {{ "contacts" | i18n if '/contacts' in page.url }}
                 </span>
@@ -75,9 +75,9 @@
                 <div class="header__links right-block">
                     <a class="upfirst {{ 'active' if page.url | length == 4 }}" href="/{{locale}}/">Home</a>
                     <a class="upfirst {{ 'active' if '/prototypes' in page.url }}" href="/{{locale}}/prototypes/">{{ "prototypes" | i18n }}</a>
-                    <a class="upfirst {{ 'active' if '/team' in page.url }}" href="/{{locale}}/team/">{{ "about_us" | i18n }}</a>
-                    <a class="upfirst {{ 'active' if '/whpsc' in page.url }}" href="/{{locale}}/whpsc/">{{ "the_race" | i18n }}</a>
-                    <a class="upfirst {{ 'active' if '/sponsor' in page.url }}" href="/{{locale}}/sponsor/">sponsor</a>
+                    <a class="upfirst {{ 'active' if '/team' in page.url }}" href="/{{locale}}/team/">Team</a>
+                    <a class="upfirst {{ 'active' if '/whpsc' in page.url }}" href="/{{locale}}/whpsc/">WHPSC</a>
+                    <a class="upfirst {{ 'active' if '/sponsors' in page.url }}" href="/{{locale}}/sponsors/">sponsors</a>
                     <a class="upfirst {{ 'active' if '/blog' in page.url }}" href="/{{locale}}/blog/">Blog</a>
                     <a class="upfirst {{ 'active' if '/contacts' in page.url }}" href="/{{locale}}/contacts/">{{ "contacts" | i18n }}</a>
                 </div>
