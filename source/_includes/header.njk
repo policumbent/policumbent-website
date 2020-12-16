@@ -70,7 +70,7 @@
         
 
         <div id="header__overlay" class="header__overlay header__overlay--hidden">
-            <div class="row">
+            <div class="pages">
                 <span class="label">Pagina:</span>
                 <div class="header__links right-block">
                     <a class="upfirst {{ 'active' if page.url | length == 4 }}" href="/{{locale}}/">Home</a>
@@ -82,7 +82,7 @@
                     <a class="upfirst {{ 'active' if '/contacts' in page.url }}" href="/{{locale}}/contacts/">{{ "contacts" | i18n }}</a>
                 </div>
             </div>
-            <div class="row">
+            <div class="languages">
                 <span class="label">Lingua:</span>
                 <div class="header__switcher right-block">
                     {% if locale=="it" %}

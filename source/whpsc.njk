@@ -1,0 +1,19 @@
+---
+pagination:
+  data: site.languages
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+layout: base.njk
+permalink: "/{{ lang.locale }}/whpsc/"
+noLangUrl: /whpsc/
+sitemap:
+  priority: 0.8
+  changefreq: daily
+eleventyComputed:
+  locale: "{{lang.locale}}"
+---
+
+<h1 class="upfirst">WHPSC</h1>
+<div class="spacer-2"></div>
+

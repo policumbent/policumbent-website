@@ -21,3 +21,13 @@
         }
     }
 }
+
+@mixin person-card--mobile{
+    .person-card{
+        margin-right: $m_margin;
+        width: calculate_width(2, 1, $m_margin);
+    }
+    &:nth-child(even){
+        margin-right: 0px;
+    }
+}

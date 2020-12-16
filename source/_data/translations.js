@@ -13,8 +13,8 @@ module.exports = {
     'en': "prototypes"
   },
   about_us:{
-    'it': "chi siamo",
-    'en': "about us"
+    'it': "Il team",
+    'en': "The team"
   },
   the_race:{
     'it': "La gara",

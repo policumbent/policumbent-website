@@ -1,0 +1,36 @@
+.prototype-preview{
+    position: relative;
+    &:hover img {
+        -webkit-filter: brightness(70%);
+        @include basic-transition;
+    }
+
+    span{
+        color: white;
+        z-index: 2;
+        position: absolute;
+        right: 15px;
+        bottom: 25px;
+        color: white;
+
+        &::after{
+            content: "->";
+            margin-left: 10px;
+        }
+    }
+    img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+}
+
+@mixin prototype-preview--mobile(){
+    .prototype-preview{
+        margin-bottom: $m_p-line-height;
+        img{
+            height: 320px;
+        }
+    }
+}

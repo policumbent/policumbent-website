@@ -50,3 +50,36 @@
     }
 }
 
+@mixin grid--mobile(){
+    .row{
+        flex-direction: column;
+    }
+
+    .mrow{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    // basic two layout system on mobile
+    .colm-1 {
+        width: calculate_width(2, 1, 18px);
+    }
+
+    @for $width from 1 through $d_columns {
+        .col-#{$width} {
+            width: 100%;
+        }
+        .indented-#{$width}{
+            width: 100%;
+            margin-left: 0px;
+        }
+    }
+
+    @for $i from 1 through 8 {
+        .spacer-#{$i} {
+            height: $m-p_line_height*$i;
+        }
+    }
+}

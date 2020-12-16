@@ -50,6 +50,7 @@
     <div id="container">      
       {{ content | safe }}
     </div>
+    {% block post_container %}{% endblock %}
     {% include "footer.njk" %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin.min.js"></script> 

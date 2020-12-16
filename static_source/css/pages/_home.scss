@@ -39,3 +39,15 @@
     }
     
 }
+
+@mixin home--mobile(){
+    .home-team{
+        img{
+            margin-bottom: $m_p-line-height;
+        }
+    }
+    .home-link{
+        font-size: 26px;
+        float: right;
+    }
+}

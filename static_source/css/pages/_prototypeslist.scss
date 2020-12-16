@@ -9,3 +9,16 @@
         margin-right: $d_margin;
     }
 }
+
+@mixin prototypes-list--mobile(){
+    .prototypes-wrapper{
+        margin-left: 0px;
+        flex-direction: column;
+        & .prototype-preview{
+            margin-bottom: $m_p-line-height;
+        }
+        & .prototype-preview:nth-child(odd){
+            margin-right: 0px;
+        }
+    }
+}
