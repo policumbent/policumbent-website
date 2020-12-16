@@ -17,6 +17,7 @@
     @include footer--768();
     @include typography--mobile();
     @include home--mobile();
+    @include whpsc--mobile();
     @include sponsors--mobile();
     @include grid--mobile();
     @include prototype-preview--mobile();

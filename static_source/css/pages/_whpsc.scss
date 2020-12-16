@@ -1,0 +1,127 @@
+.race-parts-wrapper{
+    > div{
+        margin-bottom: #{2*$d_p-line-height};
+    }
+    img{
+        border-radius: 8px;
+    }
+    .race-part-info{
+        p{
+            margin-bottom: $m_p-line-height;
+        }
+    }
+}
+
+.race{ 
+    border-top: 2px solid black;
+
+    .race__title{
+        label{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin: $d_p-line-height 0px $d_p-line-height 0px;
+            h1{
+                flex-grow: 1;
+            }
+        }
+        img{
+            float: right;
+        }
+    }
+
+    > input[type="checkbox"] {
+        position: absolute;
+        left: -100vw;
+    }
+  
+    &__content {
+        overflow-y: hidden;
+        height: 0;
+        div:nth-child(1){
+            margin-top: #{2*$d_p-line-height};
+            margin-bottom: $d_p-line-height;
+        }
+    }
+  
+    > input[type="checkbox"]:checked ~ .race__content {
+        height: auto;
+        overflow: visible;
+    }
+    
+    > input[type="checkbox"]:checked ~ .race__title {
+        .open-icon{
+            display: none;
+        }
+        .close-icon{
+            display: block;
+        }
+    }
+    
+    > input[type="checkbox"]:not(:checked) ~ .race__title {
+        .open-icon{
+            display: block;
+        }
+        .close-icon{
+            display: none;
+        }
+    }
+    
+    label {
+        display: block;
+    }
+
+    .race__gallery{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: $d_p-line-height;
+        img{
+            width: calc(33.3% - 16px);
+            margin-right: $d_margin;
+            margin-bottom: $d_margin;
+            height: 100%;
+            border-radius: 8px;
+            &:nth-child(3n){
+                margin-right: 0px;
+            }
+        }
+    }
+}
+
+@mixin whpsc--mobile{
+    .race-parts-wrapper{
+        > div{
+            margin-bottom: #{2*$m_p-line-height};
+        }
+    }
+    .open-icon, .close-icon{
+        height: 44px;
+    }
+    .race{ 
+        .race__title{
+            label{
+                margin: $m_p-line-height 0px $m_p-line-height 0px;
+            }
+        }
+        &__content {
+            div:nth-child(1){
+                margin-top: $m_p-line-height;
+                margin-bottom: $m_p-line-height;
+            }
+        }
+        .race__gallery{
+            margin-bottom: $m_p-line-height;
+            img{
+                width: calc(50% - #{$m_margin/2});
+                margin-right: $m_margin;
+                margin-bottom: $m_p-line-height;
+                &:nth-child(3n){
+                    margin-right: $m_margin;
+                }
+                &:nth-child(even){
+                    margin-right: 0px;
+                }
+            }
+        }
+    }
+}

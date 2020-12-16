@@ -2,7 +2,7 @@
     width: calculate_width($d_columns, 3, $d_margin);
     margin-bottom: $d-p_line_height;
     margin-right: $d_margin;
-    &:nth-child(4){
+    &:nth-child(4n){
         margin-right: 0px;
     }
     img{
