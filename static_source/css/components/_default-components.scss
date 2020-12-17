@@ -4,3 +4,16 @@ a{
     color: inherit;
 }
 
+p{
+    a{
+        text-decoration: underline;
+        color: $green;
+        &::after{
+            content: "↗";
+            display: inline-block;
+            vertical-align: -3px;
+            height: 15px;
+        }
+    }
+}
+

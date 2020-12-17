@@ -1,10 +1,12 @@
-$logo-width: 130px;
+$logo-width: 120px;
 $switcher-width: 60px;
 $max-width-links: 800px;
-$header-height: 140px;
+$header-height: 120px;
+$header-bg: rgba(255, 255, 255, 0.9);
+$header-blur: blur(7px);
 
 #container{
-    margin-top: 140px;
+    margin-top: $header-height;
 }
 
 header{
@@ -20,7 +22,9 @@ header{
     position: fixed;
     left: 0;
     right: 0;
-    background-color: white;
+    background-color: $header-bg;
+    backdrop-filter: $header-blur;
+    -webkit-backdrop-filter: $header-blur;
     z-index: 999;
     max-width: 1440px;
 

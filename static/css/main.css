@@ -695,14 +695,23 @@ a {
   text-decoration: none;
   color: inherit; }
 
+p a {
+  text-decoration: underline;
+  color: #009400; }
+  p a::after {
+    content: "↗";
+    display: inline-block;
+    vertical-align: -3px;
+    height: 15px; }
+
 #container {
-  margin-top: 140px; }
+  margin-top: 120px; }
 
 header {
   user-select: none; }
 
 .header--desktop {
-  height: 140px;
+  height: 120px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -710,7 +719,9 @@ header {
   position: fixed;
   left: 0;
   right: 0;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
   z-index: 999;
   max-width: 1440px; }
   .header--desktop span, .header--desktop a {
@@ -720,7 +731,7 @@ header {
   .header--desktop .active {
     color: #009400; }
   .header--desktop .header__logo {
-    flex: 0 0 130px;
+    flex: 0 0 120px;
     margin-left: 24px; }
   .header--desktop .header__switcher {
     flex: 0 0 60px;
