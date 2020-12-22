@@ -39,5 +39,9 @@ module.exports = {
   our_prototypes:{
     'it': "i nostri prototipi",
     'en': "our prototypes"
+  },
+  Features:{
+    'it': "Specifiche",
+    'en': "Features"
   }
 };
