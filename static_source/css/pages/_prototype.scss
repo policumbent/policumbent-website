@@ -50,3 +50,54 @@
         }
     }
 }
+
+@mixin prototype--mobile{
+    .prototype-intro{
+        display: initial;
+        .prototype-intro__text{
+            display: initial;
+            h1{
+                display: inline-block;
+                max-width: calc(80% - 24px);
+                vertical-align: middle;
+                margin-right: 24px;
+            }
+            img{
+                display: inline-block;
+                width: 60px;
+                vertical-align: text-top;
+                transform: rotate(270deg) scaleX(-1);
+            }
+            div{
+                display: none;
+            }
+            p{
+                min-width: 50%;
+                max-width: fit-content;
+                margin: 24px 0px 24px 0px;
+            }
+        }
+    }
+
+    .prototype-features, .prototype-history, .prototype-gallery{
+        .spacer-7, .spacer-8{
+            height: #{3*$m_p-line-height};
+        }
+    }
+
+    .prototype-gallery{
+        margin-bottom: $m_p-line-height;
+        img{
+            width: calc(50% - #{$m_margin/2});
+            margin-right: $m_margin;
+            margin-bottom: $m_p-line-height;
+            &:nth-child(3n){
+                margin-right: $m_margin;
+            }
+            &:nth-child(even){
+                margin-right: 0px;
+            }
+        }
+    }
+
+}

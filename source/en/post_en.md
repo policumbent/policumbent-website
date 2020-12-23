@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: post.njk
 pagination:
   data: collections.posts
   size: 1
