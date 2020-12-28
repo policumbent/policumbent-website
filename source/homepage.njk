@@ -65,8 +65,8 @@ eleventyComputed:
 <h1>Blog</h1>
 <div class="spacer-2"></div>
 
-{% for post in collections.posts %}
-  {% include "post_preview.njk" %}
+{% for article in articles %}
+  {% include "article_preview.njk" %}
 {% endfor %}
 
 <div class="spacer-1"></div>

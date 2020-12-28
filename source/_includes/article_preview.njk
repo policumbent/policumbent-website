@@ -1,0 +1,21 @@
+{% if locale=="it" %}
+  {% set article_url="/"~locale~"/blog/"~article.slug_it~"/" %}
+  {% set article_title=article.title_it %}
+  {% set article_desc=article.seo_it.description %}
+{% else %}
+  {% set article_url="/"~locale~"/blog/"~article.slug_en~"/" %}
+  {% set article_title=article.title_en %}
+  {% set article_desc=article.seo_en.description %}
+{% endif %}
+
+<div class="post-preview">
+  <a href="{{ article_url }}"><img src="{{ article.image.url }}"/></a>
+  <div class="post-preview__infos">
+    <p class="post-preview__date">{{ article.date | dateReadable  }}</p>
+    <h2 class="post-preview__title"><a href="{{ article_url }}">{{ article_title }}</a></h2>
+    <p class="post-preview__desc">
+      {{ article_desc | striptags(true) | truncate(200) }}
+    </p>
+    <a class="post-preview__link align-bottom" href="{{ article_url }}">{{ "read" | i18n }}</a>
+  </div>
+</div>
