@@ -868,7 +868,8 @@ header {
       float: right;
       margin-left: 24px; }
   .prototype-intro > img {
-    width: 100%; }
+    width: 100%;
+    border-radius: 8px; }
 
 .prototype-history h1, .prototype-features h1 {
   margin-bottom: 32px; }

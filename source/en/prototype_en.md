@@ -1,12 +1,13 @@
 ---
 layout: prototype.njk
 pagination:
-  data: collections.prototypes
+  data: prototypes
   size: 1
-  alias: proto
+  alias: proto # Important: it bugs when alias: prototype (don't know why)
   addAllPagesToCollections: true
-permalink: "/en/prototypes/{{ proto.data.en.name | slug }}/"
+permalink: "/en/prototypes/{{ proto.slug }}/"
 eleventyComputed:
-  title: "{{ proto.en.name }}"
-  noLangUrl: "/prototypes/{{ proto.data.en.name | slug }}/"
+  metadata:
+    title: "{{ proto.name }}"
+  noLangUrl: "/prototypes/{{ proto.slug }}/"
 ---

@@ -1,6 +1,6 @@
 <div class="prototype-preview col-6">
-  <a href="/{{ locale }}/prototypes/{{ prototype.data[locale].name | slug }}/">
-    <img src="{{ prototype.data[locale].featuredImage }}"/>
-    <span>{{ prototype.data[locale].name }}</span>
+  <a href="/{{ locale }}/prototypes/{{ prototype.name | slug }}/">
+    <img src="{{ prototype.image.url }}"/>
+    <span>{{ prototype.name }}</span>
   </a>
 </div>

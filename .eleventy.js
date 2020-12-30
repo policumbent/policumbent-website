@@ -19,6 +19,17 @@ module.exports = function (eleventyConfig) {
     //human readable date {{ page.date | dateReadable }}
     //TODO: language based dates
     eleventyConfig.addFilter('dateReadable', (date) => moment(date).locale('it').format('LL') )
+    // render value as markdown
+    eleventyConfig.addFilter('markdown', function(value) {
+        let markdown = require('markdown-it')({
+            html: true
+        });
+        return markdown.render(value);
+    });
+    // capitalize first char
+    eleventyConfig.addFilter('upfirst', function(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    });
     
     eleventyConfig.addPlugin(i18n, {
         translations,
