@@ -18,12 +18,12 @@
     @include typography--mobile();
     @include home--mobile();
     @include whpsc--mobile();
-    @include post--mobile();
+    @include article--mobile();
     @include prototype--mobile();
     @include sponsors--mobile();
     @include grid--mobile();
     @include prototype-preview--mobile();
     @include prototypes-list--mobile();
     @include person-card--mobile();
-    @include post-preview--mobile();
+    @include article-preview--mobile();
 }

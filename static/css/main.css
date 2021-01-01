@@ -600,20 +600,20 @@ body {
     object-fit: cover;
     border-radius: 8px; }
 
-.post-preview {
+.article-preview {
   min-height: 320px;
   margin-bottom: 32px;
   width: calc((((100% - (24px * 11)) / 12) * 10) + (24px * 9));
   display: flex;
   justify-content: space-between; }
-  .post-preview > a {
+  .article-preview > a {
     width: calc(40% - 12px);
     height: 320px; }
-    .post-preview > a img {
+    .article-preview > a img {
       width: 100%;
       object-fit: cover; }
 
-.post-preview__infos {
+.article-preview__infos {
   min-height: 320px;
   width: calc(60% - 12px);
   display: flex;
@@ -621,27 +621,27 @@ body {
   align-items: auto;
   justify-content: flex-start; }
 
-.post-preview__date {
+.article-preview__date {
   color: #6B6B6B; }
 
-.post-preview__title {
+.article-preview__title {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden; }
 
-.post-preview__link {
+.article-preview__link {
   align-self: flex-end;
   color: black;
   text-decoration: none; }
-  .post-preview__link::first-letter {
+  .article-preview__link::first-letter {
     text-transform: capitalize; }
-  .post-preview__link::after {
+  .article-preview__link::after {
     content: "->";
     margin-left: 10px;
     color: #009400; }
 
-.post-preview__desc {
+.article-preview__desc {
   flex-grow: 2; }
 
 .contact {
@@ -945,35 +945,39 @@ header {
       .race .race__gallery img:nth-child(3n) {
         margin-right: 0px; }
 
-.post-content {
+.article-content {
   margin-bottom: 180px; }
-  .post-content p {
+  .article-content p {
     margin-bottom: 32px; }
-    .post-content p img {
+    .article-content p img {
       margin-bottom: 32px; }
-      .post-content p img:last-child {
+      .article-content p img:last-child {
         margin-bottom: 0px; }
-  .post-content img {
+  .article-content img {
     margin: auto;
     display: block;
     max-width: 100%;
     max-height: 80vh; }
-  .post-content a {
+  .article-content a {
     text-decoration: underline;
     color: #009400; }
-    .post-content a::after {
+    .article-content a::after {
       content: "↗";
       display: inline-block;
       vertical-align: -3px;
       height: 15px; }
 
 .featured-image {
-  object-fit: cover;
-  width: calc((((100% - (24px * 11)) / 12) * 10) + (24px * 9));
-  min-height: 336px;
-  max-height: 500px; }
+  width: calc((((100% - (24px * 11)) / 12) * 10) + (24px * 9)); }
+  .featured-image picture {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%; }
+    .featured-image picture img {
+      width: 100%; }
 
-.postlist-wrapper {
+.articlelist-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-end; }
@@ -1165,12 +1169,12 @@ header {
     width: 100%;
     min-height: auto;
     max-height: 320px; }
-  .post-content {
+  .article-content {
     margin-bottom: 80px;
     width: 100%; }
-    .post-content p {
+    .article-content p {
       margin-bottom: 22px; }
-    .post-content img {
+    .article-content img {
       max-width: 100%; }
   .prototype-intro {
     display: initial; }
@@ -1309,21 +1313,24 @@ header {
     width: calc((((100% - (18px * 1)) / 2) * 1) + (18px * 0)); }
   :nth-child(even) {
     margin-right: 0px; }
-  .post-preview {
+  .article-preview {
     flex-direction: column;
     margin-bottom: 44px;
     width: 100%; }
-    .post-preview img {
+    .article-preview > a {
+      width: 100%;
+      height: auto; }
+    .article-preview img {
       height: 200px;
       width: 100%; }
-    .post-preview .post-preview__infos {
+    .article-preview .article-preview__infos {
       min-height: auto;
       width: 100%; }
-    .post-preview .post-preview__desc {
+    .article-preview .article-preview__desc {
       margin-bottom: 22px; }
-    .post-preview .post-preview__date {
+    .article-preview .article-preview__date {
       margin-top: 10px; }
-    .post-preview .post-preview__title {
+    .article-preview .article-preview__title {
       line-height: 22px;
       margin-bottom: 10px;
       margin-top: 10px; } }

@@ -8,6 +8,16 @@ layout: base.njk
 <div class="spacer-1"></div>
 <h1>{{ title }}</h1>
 <div class="spacer-2"></div>
-<img src="{{ article.image.url }}" alt="{{ article.image.alt }}" class="featured-image"></img>
+
+<div class="featured-image" style="position: relative; background-image: url({{ article.image.base64 }}); background-size: cover;">
+  <div style="padding-top: {{100.0 / article.image.aspectRatio}}%;">
+    <picture>
+        <source srcset="{{ article.image.webpSrcSet }}" type="image/webp" sizes="{{ article.image.sizes }}">
+        <source srcset="{{ article.image.srcSet }}" sizes="{{ article.image.sizes }}">
+        <img src="{{ article.image.src }}" alt="{{ article.image.alt }}" title="{{ article.image.title }}" loading="lazy">
+    </picture>
+  </div>
+</div>
+
 <div class="spacer-2"></div>
-<div class="post-content col-8 indented-3">{{ content | safe }}</div>
+<div class="article-content col-8 indented-3">{{ content | safe }}</div>

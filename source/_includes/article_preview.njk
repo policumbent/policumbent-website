@@ -8,14 +8,14 @@
   {% set article_desc=article.seo_en.description %}
 {% endif %}
 
-<div class="post-preview">
+<div class="article-preview">
   <a href="{{ article_url }}"><img src="{{ article.image.url }}"/></a>
-  <div class="post-preview__infos">
-    <p class="post-preview__date">{{ article.date | dateReadable  }}</p>
-    <h2 class="post-preview__title"><a href="{{ article_url }}">{{ article_title }}</a></h2>
-    <p class="post-preview__desc">
+  <div class="article-preview__infos">
+    <p class="article-preview__date">{{ article.date | dateReadable  }}</p>
+    <h2 class="article-preview__title"><a href="{{ article_url }}">{{ article_title }}</a></h2>
+    <p class="article-preview__desc">
       {{ article_desc | striptags(true) | truncate(200) }}
     </p>
-    <a class="post-preview__link align-bottom" href="{{ article_url }}">{{ "read" | i18n }}</a>
+    <a class="article-preview__link align-bottom" href="{{ article_url }}">{{ "read" | i18n }}</a>
   </div>
 </div>

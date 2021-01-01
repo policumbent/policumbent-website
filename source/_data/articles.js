@@ -39,8 +39,21 @@ async function getAllArticles() {
                 id
                 date
                 image {
-                  alt
-                  url
+                  responsiveImage(
+                    sizes: "(max-width: 768px) 100vw, (max-width: 1440px) 80vw, 1200px",
+                    imgixParams: {fm: jpg, fit: crop, w: 1200, h: 500 }
+                  ) {
+                    srcSet             # <- HTML5 src/srcset/sizes attributes
+                    webpSrcSet         #
+                    sizes              #
+                    src                #
+                    width              # <- size information
+                    height             #
+                    aspectRatio        #
+                    alt                # <- SEO attributes
+                    bgColor            # <- background color placeholder
+                    base64             # <- blur-up placeholder, base64-encoded JPEG
+                  }
                 }
                 title_it: title(locale: it)
                 title_en: title(locale: en)
@@ -101,10 +114,7 @@ async function getAllArticles() {
     return {
       id: item.id,
       date: item.date,
-      image: {
-        url: item.image.url,
-        alt: item.image.alt,
-      },
+      image: item.image.responsiveImage,
       title_en: item.title_en,
       title_it: item.title_it,
       slug_en: item.slug_en,

@@ -16,7 +16,7 @@ eleventyComputed:
 
 <h1>{{ 'articles' | i18n }}:</h1>
 <div class="spacer-2"></div>
-<div class="postlist-wrapper">
+<div class="articlelist-wrapper">
   {% for article in articles %}
     {% include "article_preview.njk" %}
   {% endfor %}
