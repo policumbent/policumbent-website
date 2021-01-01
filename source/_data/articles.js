@@ -38,6 +38,11 @@ async function getAllArticles() {
             allArticles(first: ${recordsPerQuery}, skip: ${recordsToSkip}, orderBy: date_DESC, filter: {_status: {eq: published}}) {
                 id
                 date
+                imagePreview: image {
+                  responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 600, h: 600}) {
+                    src
+                  }
+                }
                 image {
                   responsiveImage(
                     sizes: "(max-width: 768px) 100vw, (max-width: 1440px) 80vw, 1200px",
@@ -115,6 +120,7 @@ async function getAllArticles() {
       id: item.id,
       date: item.date,
       image: item.image.responsiveImage,
+      image_preview: item.imagePreview.responsiveImage,
       title_en: item.title_en,
       title_it: item.title_it,
       slug_en: item.slug_en,

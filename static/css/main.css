@@ -607,10 +607,10 @@ body {
   display: flex;
   justify-content: space-between; }
   .article-preview > a {
-    width: calc(40% - 12px);
-    height: 320px; }
+    width: calc(40% - 12px); }
     .article-preview > a img {
       width: 100%;
+      height: 320px;
       object-fit: cover; }
 
 .article-preview__infos {
@@ -1318,11 +1318,10 @@ header {
     margin-bottom: 44px;
     width: 100%; }
     .article-preview > a {
-      width: 100%;
-      height: auto; }
-    .article-preview img {
-      height: 200px;
       width: 100%; }
+      .article-preview > a img {
+        height: 200px;
+        width: 100%; }
     .article-preview .article-preview__infos {
       min-height: auto;
       width: 100%; }

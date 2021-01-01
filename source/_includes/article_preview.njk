@@ -9,7 +9,7 @@
 {% endif %}
 
 <div class="article-preview">
-  <a href="{{ article_url }}"><img src="{{ article.image.url }}"/></a>
+  <a href="{{ article_url }}"><img src="{{ article.image_preview.src }}"/></a>
   <div class="article-preview__infos">
     <p class="article-preview__date">{{ article.date | dateReadable  }}</p>
     <h2 class="article-preview__title"><a href="{{ article_url }}">{{ article_title }}</a></h2>
