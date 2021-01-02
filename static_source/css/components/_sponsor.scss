@@ -32,3 +32,25 @@
         }
     }
 }
+
+@mixin sponsor--mobile{
+    .sponsor{
+        flex-direction: column;
+        margin-bottom: #{3*$m-p_line_height};
+        .sponsor-image{
+            width: 100%;
+        }
+        .sponsor-details{
+            width: 100%;
+            p{
+                margin-top: $m-p_line_height;
+                margin-bottom: $m-p_line_height;
+            }
+            img{
+                margin-top: #{1*$m-p_line_height};
+                width: 100%;
+                max-height: 90px;
+            }
+        }
+    }
+}

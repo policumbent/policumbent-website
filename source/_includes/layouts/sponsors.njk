@@ -7,16 +7,15 @@
         <div class="partners-container">
             <h1>Partners</h1>
             <div class="logos-wrapper indented-2">
-                <img src="/static/img/partner.png" alt=""/>
-                <img src="https://via.placeholder.com/500x500" alt=""/>
-                <img src="https://via.placeholder.com/300x50" alt=""/>
-                <img src="https://via.placeholder.com/800x200" alt=""/>
-                <img src="https://via.placeholder.com/300x500" alt=""/>
-                <img src="/static/img/partner.png" alt=""/>
-                <img src="https://via.placeholder.com/500x500" alt=""/>
-                <img src="https://via.placeholder.com/300x50" alt=""/>
-                <img src="https://via.placeholder.com/800x200" alt=""/>
-                <img src="https://via.placeholder.com/300x500" alt=""/>
+                {% for partner in partners %}
+                    {% if partner.website %}
+                        <a href="{{ partner.website }}" target="_blank">
+                    {% endif %}
+                    <img src="{{ partner.logo.url }}" alt="{{ partner.name }} logo"/>
+                    {% if partner.website %}
+                        </a>
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
     </section>

@@ -43,5 +43,13 @@ module.exports = {
   Features:{
     'it': "Specifiche",
     'en': "Features"
+  },
+  visit_their_website:{
+    'it': "Visita il loro sito",
+    'en': "Visit their website"
+  },
+  image:{
+    'it': "immagine",
+    'en': "image"
   }
 };

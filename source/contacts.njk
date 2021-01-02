@@ -18,36 +18,19 @@ eleventyComputed:
 <div class="spacer-2"></div>
 
 <div class="indented-2 contacts-wrapper">
-  <div class="contact">
-    <img src="https://via.placeholder.com/500x500" alt=""/>
-    <div class="contact-details">
-      <p>Team leader</p>
-      <h2>Alberto Congedi</h2>
-      <div class="contacts-list">
-        <p>Email: <a href="mailto:info@policumbent.it">info@policumbent.it</a></p>
+  {% for referent in referents %}
+    <div class="contact">
+      <img src="{{ referent.image.url }}?fit=crop&w=500&h=500" alt="{{ referent.name }}"/>
+      <div class="contact-details">
+        <p>{{ referent.role_it if locale=="it" else referent.role_en }}</p>
+        <h2>{{ referent.name }}</h2>
+        <div class="contacts-list">
+          {% for contact in referent.contacts_it if locale=="it" else referent.contacts_en %}
+            <p>{{ contact.contactType }}: <a href="{{ contact.contactUrl }}">{{ contact.contactToShow }}</a></p>
+          {% endfor %}
+        </div>
       </div>
     </div>
-  </div>
-  <div class="contact">
-    <img src="https://via.placeholder.com/500x500" alt=""/>
-    <div class="contact-details">
-      <p>Thecnical advisor</p>
-      <h2>Ing. Paolo Baldissera</h2>
-      <div class="contacts-list">
-        <p>Tel: <a href="tel:+39349xxxxxxx">+39 349xxxxxxx</a></p>
-        <p>Email: <a href="mailto:paolo.baldissera@policumbent.it">paolo.baldissera@policumbent.it</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="contact">
-    <img src="https://via.placeholder.com/500x500" alt=""/>
-    <div class="contact-details">
-      <p>Academic advisor</p>
-      <h2>Prof. Cristina Delprete</h2>
-      <div class="contacts-list">
-        <p>Tel: <a href="tel:+39349xxxxxxx">+39 349xxxxxxx</a></p>
-        <p>Email: <a href="mailto:cristina.delprete@policumbent.it">cristina.delprete@policumbent.it</a></p>
-      </div>
-    </div>
-  </div>
+  {% endfor %}
+  
 </div>

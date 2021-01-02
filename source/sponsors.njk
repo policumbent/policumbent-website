@@ -19,68 +19,20 @@ eleventyComputed:
 <div class="spacer-3"></div>
 
 <section class="sponsors-container indented-2">
-  <div class="sponsor">
-    <img class="sponsor-image" src="https://via.placeholder.com/500x500" alt=""/>
-    <div class="sponsor-details">
-      <img src="https://via.placeholder.com/400x130" alt=""/>
-      <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel placerat massa. Morbi ac luctus libero. Donec et arcu quis eros euismod sodales. Vivamus pellentesque, massa in rhoncus molestie, orci turpis elementum ligula, at iaculis purus metus ut libero.</p>
-      <a href="#">Visita il loro sito</a>
-    </div>
-  </div>
-  
-  <div class="sponsor">
-    <img class="sponsor-image" src="https://via.placeholder.com/500x500" alt=""/>
-    <div class="sponsor-details">
-      <img src="https://via.placeholder.com/400x130" alt=""/>
-      <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel placerat massa. Morbi ac luctus libero. Donec et arcu quis eros euismod sodales. Vivamus pellentesque, massa in rhoncus molestie, orci turpis elementum ligula, at iaculis purus metus ut libero.</p>
-      <a href="#">Visita il loro sito</a>
-    </div>
-  </div>
-  
-  <div class="sponsor">
-    <img class="sponsor-image" src="https://via.placeholder.com/500x500" alt=""/>
-    <div class="sponsor-details">
-      <img src="https://via.placeholder.com/400x130" alt=""/>
-      <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel placerat massa. Morbi ac luctus libero. Donec et arcu quis eros euismod sodales. Vivamus pellentesque, massa in rhoncus molestie, orci turpis elementum ligula, at iaculis purus metus ut libero.</p>
-      <a href="#">Visita il loro sito</a>
-    </div>
-  </div>
-  
-  <div class="sponsor">
-    <img class="sponsor-image" src="https://via.placeholder.com/500x500" alt=""/>
-    <div class="sponsor-details">
-      <img src="https://via.placeholder.com/400x130" alt=""/>
-      <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel placerat massa. Morbi ac luctus libero. Donec et arcu quis eros euismod sodales. Vivamus pellentesque, massa in rhoncus molestie, orci turpis elementum ligula, at iaculis purus metus ut libero.</p>
-      <a href="#">Visita il loro sito</a>
-    </div>
-  </div>
-  
-  <div class="sponsor">
-    <img class="sponsor-image" src="https://via.placeholder.com/500x500" alt=""/>
-    <div class="sponsor-details">
-      <img src="https://via.placeholder.com/400x130" alt=""/>
-      <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel placerat massa. Morbi ac luctus libero. Donec et arcu quis eros euismod sodales. Vivamus pellentesque, massa in rhoncus molestie, orci turpis elementum ligula, at iaculis purus metus ut libero.</p>
-      <a href="#">Visita il loro sito</a>
-    </div>
-  </div>
-  
-  <div class="sponsor">
-    <img class="sponsor-image" src="https://via.placeholder.com/500x500" alt=""/>
-    <div class="sponsor-details">
-      <img src="https://via.placeholder.com/400x130" alt=""/>
-      <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel placerat massa. Morbi ac luctus libero. Donec et arcu quis eros euismod sodales. Vivamus pellentesque, massa in rhoncus molestie, orci turpis elementum ligula, at iaculis purus metus ut libero.</p>
-      <a href="#">Visita il loro sito</a>
-    </div>
-  </div>
 
-  <div class="sponsor">
-    <img class="sponsor-image" src="https://via.placeholder.com/500x500" alt=""/>
-    <div class="sponsor-details">
-      <img src="https://via.placeholder.com/400x130" alt=""/>
-      <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel placerat massa. Morbi ac luctus libero. Donec et arcu quis eros euismod sodales. Vivamus pellentesque, massa in rhoncus molestie, orci turpis elementum ligula, at iaculis purus metus ut libero.</p>
-      <a href="#">Visita il loro sito</a>
+  {% for sponsor in sponsors %}
+
+    <div class="sponsor">
+      <img class="sponsor-image" src="{{ sponsor.image.url }}?fit=crop&w=500&h=500" alt="{{ sponsor.name }} {{ 'image' | i18n }}"/>
+      <div class="sponsor-details">
+        <img src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }} logo"/>
+        <p>{% if locale=="it" %}{{ sponsor.description_it | striptags(true) | escape | nl2br }}{% else %}{{ sponsor.description_en | striptags(true) | escape | nl2br }}{% endif %}</p>
+        <a target="_blank" href="{{ sponsor.website }}">{{ 'visit_their_website' | i18n }}</a>
+      </div>
     </div>
-  </div>
+  
+  {% endfor %}
+
 </section>
 
 {# for the partners see layouts/sponsors.njk #}
