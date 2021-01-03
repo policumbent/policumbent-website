@@ -7,8 +7,12 @@ pagination:
   addAllPagesToCollections: true
 permalink: "/it/blog/{{ article.slug_it }}/"
 eleventyComputed:
-  title: "{{ article.title_it }}"
+  metadata:
+    title: "{{ article.title_it }}"  
+    description: "{{ article.seo_it.description }}"
+    image: "{{ article.image.src | to-og-image }}"
   noLangUrl: "/blog/{{ article.slug_it | slug }}/"
+  noLangUrl_en: "/blog/{{ article.slug_en | slug }}/"
 ---
 
 {{ article.content_it }}

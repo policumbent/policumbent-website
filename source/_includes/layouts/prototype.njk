@@ -46,7 +46,7 @@ layout: base.njk
     <div class="spacer-1"></div>
     <div class="prototype-gallery__wrapper">
         {% for image in prototype.gallery %}
-            <img src="{{ image.preview }}" alt="{{ image.alt }}"/>
+            <a href="{{ image.url }}?w=1600&h=1400" title="{{ image.alt }}"><img src="{{ image.preview }}" alt="{{ image.alt }}"/></a>
         {% endfor %}
       </div>
 </div>

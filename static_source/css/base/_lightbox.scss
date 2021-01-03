@@ -1,0 +1,44 @@
+.slbImageWrap:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 5em;
+    bottom: 5em;
+    display: block;
+    z-index: -1;
+    box-shadow: 0 0em 0em rgba(0, 0, 0, 0) !important;
+    background-color: #FFF;
+}
+
+
+.slbOverlay {
+    background-color: #000;
+    opacity: 0.9 !important;
+}
+
+.slbCloseBtn {
+    font-size: $d_p-font-size !important;
+    line-height: $d_p-line-height !important;
+    margin: 0 !important;
+    animation: unset !important;
+    width: unset !important;
+    height: unset !important;
+
+    position: fixed !important;
+    right: $d_gutter !important;
+    top: $d_gutter !important;
+
+    color: #fff !important;
+}
+
+@mixin lightbox--mobile{
+    .slbCloseBtn {
+        font-size: $m_p-font-size !important;
+        line-height: $m_p-line-height !important;
+        right: $m_gutter !important;
+        top: $m_gutter !important;
+    
+        color: #fff !important;
+    }
+}

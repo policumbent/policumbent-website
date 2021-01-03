@@ -10,24 +10,26 @@ sitemap:
     {%- unless item.data.sitemap.ignore == true %}
           <url>
               <loc>{{ site.root }}{{ item.url }}</loc>
-              {% if item.data.pagination.alias == "post" %}
+              {% if item.data.pagination.alias == "article" %}
                 {% comment %} If item is a post then manage different slug language {% endcomment %}
                 {% comment %} TODO:  Also manage the fact that english version is not mandatory {% endcomment %}
-                {% if item.data.locale == "it" %}
+                {% if item.data.locale == "it" and item.data.noLangUrl_en %}
                   <xhtml:link 
                   rel="alternate"
                   hreflang="en"
-                  href="{{ site.root }}/en/blog/{{ item.data.post.data.en.title | slug }}"/>
-                {% else %}
+                  href="{{ site.root }}/en{{ item.data.noLangUrl_en }}"/>
+                {% else if item.data.locale == "en" and item.data.noLangUrl_it %}
                   <xhtml:link 
                   rel="alternate"
                   hreflang="it"
-                  href="{{ site.root }}/it/blog/{{ item.data.post.data.it.title | slug }}"/>
-                {% endif %}                
-                <xhtml:link 
-                  rel="alternate"
-                  hreflang="x-default"
-                  href="{{ site.root }}/it/blog/{{ item.data.post.data.it.title | slug }}"/>
+                  href="{{ site.root }}/it{{ item.data.noLangUrl_it }}"/>
+                {% endif %}
+                {% if item.data.noLangUrl_it %}         
+                  <xhtml:link 
+                    rel="alternate"
+                    hreflang="x-default"
+                    href="{{ site.root }}/it{{ item.data.noLangUrl_it }}"/>
+                {% endif %}
               {% else %}
                 {% comment %} If item is not a post simply replace /lang / prefix {% endcomment %}
                 {% for lang2 in site.languages %}

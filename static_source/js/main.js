@@ -10,6 +10,12 @@ document.getElementById("header__close-menu").onclick = function(){
 	document.getElementById("header__open-menu").classList.remove("hidden");
 };
 
+// if code is in prototype page
+if(document.getElementsByClassName("prototype-gallery").length > 0){
+	new SimpleLightbox({elements: '.prototype-gallery__wrapper a'});
+}
+
+// if code is in homepage
 if(document.getElementById("home-intro")){
 	var winHeight = window.innerHeight;
 	var animDuration = winHeight * 3;

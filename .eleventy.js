@@ -16,9 +16,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({"source/_redirects": "_redirects"});
     //ISO format date {{ page.date | dateISO }}
     eleventyConfig.addFilter('dateISO', (date) => moment(date).toISOString() )
-    //human readable date {{ page.date | dateReadable }}
-    //TODO: language based dates
-    eleventyConfig.addFilter('dateReadable', (date) => moment(date).locale('it').format('LL') )
+    //human readable date {% dateReadable date=page.date locale=locale %}
+    eleventyConfig.addNunjucksShortcode('dateReadable', ({date, locale}) => moment(date).locale(locale).format('LL') )
     // render value as markdown
     eleventyConfig.addFilter('markdown', function(value) {
         let markdown = require('markdown-it')({
@@ -26,9 +25,13 @@ module.exports = function (eleventyConfig) {
         });
         return markdown.render(value);
     });
-    // capitalize first char
+    // capitalize first letter
     eleventyConfig.addFilter('upfirst', function(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    });
+    // to og image (adds crop query at the end of image url)
+    eleventyConfig.addFilter('to-og-image', function(url) {
+        return url+"?fit=crop&w=1200&h=630";
     });
     
     eleventyConfig.addPlugin(i18n, {

@@ -40,14 +40,17 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: $d_p-line-height;
-    img{
+    a{
         width: calc(25% - 18px);
         margin-right: $d_margin;
         margin-bottom: $d_margin;
         height: 100%;
-        border-radius: 8px;
         &:nth-child(4n){
             margin-right: 0px;
+        }
+        img{
+            width: 100%;
+            border-radius: 8px;
         }
     }
 }
@@ -88,7 +91,7 @@
 
     .prototype-gallery{
         margin-bottom: $m_p-line-height;
-        img{
+        a{
             width: calc(50% - #{$m_margin/2});
             margin-right: $m_margin;
             margin-bottom: $m_p-line-height;

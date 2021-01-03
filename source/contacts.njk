@@ -11,6 +11,9 @@ sitemap:
   priority: 0.8
   changefreq: daily
 eleventyComputed:
+  metadata:
+    title: "{{ 'contacts' | i18n | upfirst | safe }}"
+    description: "{{ 'contacts_description' | i18n | upfirst | safe }}"
   locale: "{{lang.locale}}"
 ---
 

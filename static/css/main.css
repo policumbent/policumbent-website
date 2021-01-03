@@ -555,6 +555,34 @@ body {
 .footer {
   flex-shrink: 0; }
 
+.slbImageWrap:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5em;
+  bottom: 5em;
+  display: block;
+  z-index: -1;
+  box-shadow: 0 0em 0em rgba(0, 0, 0, 0) !important;
+  background-color: #FFF; }
+
+.slbOverlay {
+  background-color: #000;
+  opacity: 0.9 !important; }
+
+.slbCloseBtn {
+  font-size: 28px !important;
+  line-height: 32px !important;
+  margin: 0 !important;
+  animation: unset !important;
+  width: unset !important;
+  height: unset !important;
+  position: fixed !important;
+  right: 32px !important;
+  top: 32px !important;
+  color: #fff !important; }
+
 .person-card {
   width: calc((((100% - (24px * 11)) / 12) * 3) + (24px * 2));
   margin-bottom: 32px;
@@ -881,14 +909,16 @@ header {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 32px; }
-  .prototype-gallery__wrapper img {
+  .prototype-gallery__wrapper a {
     width: calc(25% - 18px);
     margin-right: 24px;
     margin-bottom: 24px;
-    height: 100%;
-    border-radius: 8px; }
-    .prototype-gallery__wrapper img:nth-child(4n) {
+    height: 100%; }
+    .prototype-gallery__wrapper a:nth-child(4n) {
       margin-right: 0px; }
+    .prototype-gallery__wrapper a img {
+      width: 100%;
+      border-radius: 8px; }
 
 .race-parts-wrapper > div {
   margin-bottom: 64px; }
@@ -1203,13 +1233,13 @@ header {
     height: 66px; }
   .prototype-gallery {
     margin-bottom: 22px; }
-    .prototype-gallery img {
+    .prototype-gallery a {
       width: calc(50% - 9px);
       margin-right: 18px;
       margin-bottom: 22px; }
-      .prototype-gallery img:nth-child(3n) {
+      .prototype-gallery a:nth-child(3n) {
         margin-right: 18px; }
-      .prototype-gallery img:nth-child(even) {
+      .prototype-gallery a:nth-child(even) {
         margin-right: 0px; }
   .sponsor:nth-child(odd) {
     flex-direction: column !important; }
@@ -1353,4 +1383,21 @@ header {
       .sponsor .sponsor-details img {
         margin-top: 22px;
         width: 100%;
-        max-height: 90px; } }
+        max-height: 90px; }
+  .contact {
+    flex-direction: column;
+    margin-bottom: 36px; }
+    .contact img {
+      border-radius: 8px;
+      width: 100%; }
+    .contact .contact-details {
+      width: 100%;
+      margin-top: 18px; }
+    .contact .contacts-list {
+      margin-top: 0px; }
+  .slbCloseBtn {
+    font-size: 18px !important;
+    line-height: 22px !important;
+    right: 22px !important;
+    top: 22px !important;
+    color: #fff !important; } }

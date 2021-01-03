@@ -11,6 +11,9 @@ sitemap:
   priority: 0.9
   changefreq: daily
 eleventyComputed:
+  metadata:
+    title: "Team"
+    description: "{{ 'team_description' | i18n | upfirst | safe }}"
   locale: "{{lang.locale}}"
 ---
 

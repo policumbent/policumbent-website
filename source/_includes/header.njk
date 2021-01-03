@@ -25,11 +25,11 @@
             {% if locale=="it" %}
                 <span class="active">IT</span>
                 <span class="separator"></span>
-                <span><a href="/en{{ noLangUrl }}">EN</a></span>
+                <span><a href="/en{{ noLangUrl_en if noLangUrl_en|length else noLangUrl }}">EN</a></span>
             {% else %}
                 <span class="active">EN</span>
                 <span class="separator"></span>
-                <span><a href="/it{{ noLangUrl }}">IT</a></span>
+                <span><a href="/it{{ noLangUrl_it if noLangUrl_it|length else noLangUrl }}">IT</a></span>
             {% endif %}
         </div>
     </div>
@@ -88,11 +88,11 @@
                     {% if locale=="it" %}
                         <span class="active">Italiano</span>
                         <span class="separator"></span>
-                        <span><a href="/en{{ noLangUrl }}">English</a></span>
+                        <span><a href="/en{{ noLangUrl_en if noLangUrl_en|length else noLangUrl }}">English</a></span>
                     {% else %}
                         <span class="active">English</span>
                         <span class="separator"></span>
-                        <span><a href="/it{{ noLangUrl }}">Italiano</a></span>
+                        <span><a href="/it{{ noLangUrl_it if noLangUrl_it|length else noLangUrl }}">Italiano</a></span>
                     {% endif %}
                 </div>
             </div>

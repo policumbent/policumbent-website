@@ -51,5 +51,29 @@ module.exports = {
   image:{
     'it': "immagine",
     'en': "image"
+  },
+  History:{
+    'it': "Storia",
+    'en': "History"
+  },
+  Gallery:{
+    'it': "Galleria",
+    'en': "Gallery"
+  },
+  contacts_description:{
+    'it': "Chiamaci oppure scrivici un'email per qualsiasi informazione",
+    'en': "Call us or write an email for any informations"
+  },
+  prototypes_description:{
+    'it': "I prototipi del team Policumbent sviluppati nel corso degli anni",
+    'en': "Policumbent's prototypes developing during years"
+  },
+  sponsors_description:{
+    'it': "Gli sponsor che sostengono economicamente e tecnicamente il team",
+    'en': "The sponsors that support our project."
+  },
+  team_description:{
+    'it': "Siamo un team studentesco del Politecnico di Torino formato da circa 60 persone. Ogni anno partecipiamo alla WHPSC con un prototipo creato da noi.",
+    'en': "We're a students team from Politecnico di Torino. Every year we partecipate to the WHPSC with a prototype created by us."
   }
 };

@@ -15,12 +15,17 @@
     <!-- Open graph tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ site.root }}{{ page.url }}">
-    <meta property="og:title" content="{{ metadata.title or site[locale].basetitle }}">
+    {% if metadata.title %}
+      <meta property="og:title" content="{{ metadata.title }} | {{ site[locale].basetitle }}">
+    {% else %}
+      <meta property="og:title" content="{{ site[locale].basetitle }}">
+    {% endif %}
     <meta property="og:description" content="{{ metadata.description or site[locale].description }}">
     <meta property="og:image" content="{{ metadata.image or site.logo }}">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" type="text/css" href="/static/css/main.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/simpleLightbox.min.css">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicon/apple-touch-icon.png">
@@ -54,6 +59,7 @@
     {% include "footer.njk" %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin.min.js"></script> 
+    <script src="/static/js/simpleLightbox.min.js"></script>
     <script src="/static/js/main.min.js"></script>
   </body>
 </html>

@@ -25,3 +25,22 @@
         margin-top: #{1*$d_margin};
     }
 }
+
+@mixin contact--mobile{
+    .contact{
+        flex-direction: column;
+        margin-bottom: #{2*$m_margin};
+    
+        img{
+            border-radius: 8px;
+            width: 100%;
+        }
+        .contact-details{
+            width: 100%;
+            margin-top: #{1*$m_margin};
+        }
+        .contacts-list{
+            margin-top: 0px;
+        }
+    }
+}
