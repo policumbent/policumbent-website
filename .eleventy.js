@@ -33,13 +33,29 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('to-og-image', function(url) {
         return url+"?fit=crop&w=1200&h=630";
     });
-    
+    eleventyConfig.setBrowserSyncConfig({
+        startPath: "/it/"
+    });
     eleventyConfig.addPlugin(i18n, {
         translations,
         fallbackLocales: {
-          '*': 'it'
+            '*': 'it'
         }
-      });
+    });
+    let markdownIt = require("markdown-it");
+    let markdownItOptions = {
+      html: true
+    };
+    let mila = require("markdown-it-link-attributes");
+    let milaOptions = {
+        pattern: /^(?!(https:\/\/policumbent\.netlify\.app|#)).*$/gm,
+        attrs: {
+          target: '_blank',
+          rel: 'noopener noreferrer',
+        },
+    };
+    let markdownLib = markdownIt(markdownItOptions).use(mila, milaOptions);
+    eleventyConfig.setLibrary("md", markdownLib);
 
     return {
         dir: {

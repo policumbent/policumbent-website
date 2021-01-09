@@ -11,10 +11,10 @@ sitemap:
   priority: 0.9
   changefreq: daily
 eleventyComputed:
-  metadata:
-    title: "{{ 'prototypes' | i18n | upfirst }}"
-    description: "{{ 'prototypes_description' | i18n | upfirst | safe }}"
   locale: "{{lang.locale}}"
+  metadata:
+    title: "{{ 'our_prototypes' | i18n | upfirst }}"
+    description: "{{ 'prototypes_description' | i18n | upfirst | safe }}"
 ---
 
 <h1 class="upfirst">{{ 'our_prototypes' | i18n }}</h1>

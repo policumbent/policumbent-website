@@ -75,5 +75,9 @@ module.exports = {
   team_description:{
     'it': "Siamo un team studentesco del Politecnico di Torino formato da circa 60 persone. Ogni anno partecipiamo alla WHPSC con un prototipo creato da noi.",
     'en': "We're a students team from Politecnico di Torino. Every year we partecipate to the WHPSC with a prototype created by us."
+  },
+  sponsors:{
+    'it': "sponsor",
+    'en': "sponsors"
   }
 };
