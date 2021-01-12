@@ -5,14 +5,14 @@ pagination:
   alias: lang
   addAllPagesToCollections: true
 layout: sponsors.njk
-permalink: "/{{ lang.locale }}/sponsors/"
-noLangUrl: /sponsors/
+permalink: "/{{ lang.locale }}/partners/"
+noLangUrl: /partners/
 sitemap:
   priority: 0.9
   changefreq: daily
 eleventyComputed:
   metadata:
-    title: "Sponsors"
+    title: "{{ 'our_partners' | i18n | upfirst | safe }}"
     description: "{{ 'sponsors_description' | i18n | upfirst | safe }}"
   locale: "{{lang.locale}}"
 ---

@@ -79,5 +79,9 @@ module.exports = {
   sponsors:{
     'it': "sponsor",
     'en': "sponsors"
+  },
+  our_partners:{
+    'it': "I nostri partners",
+    'en': "Our partners"
   }
 };
