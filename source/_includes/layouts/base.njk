@@ -52,6 +52,9 @@
   <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
     {% include "header.njk" %}
     {% block pre_container %}{% endblock %}
+    {% if page.url=="/it/" or page.url=="/en/" %}
+      {% include "home-animation.njk" %}
+    {% endif %}
     <div id="container">      
       {{ content | safe }}
     </div>

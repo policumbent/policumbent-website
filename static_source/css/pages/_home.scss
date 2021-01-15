@@ -16,26 +16,44 @@
 }
 
 .home-intro{
-    min-height: 800px;
+    flex: 1 0 auto;
     width: 100%;
+    margin-top: $header-height;
 
     #animation-container {
-        height: 100vh;
+        height: calc(100vh - #{$header-height});
+        top: $header-height;
         position: sticky;
-        top: 0;
-    
-        svg{
-            width: 100%;
-            position: sticky;
-            height: calc(100vh - 256px) !important;
-            top: 256px;
+
+        #back, #external {
+            z-index: 2;
+        }
+
+        .image-container{
+            position: relative;
+            height: calc(100vh - #{$header-height + 232px});
+            overflow: hidden;
+
+            img{
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 24px;
+                right: 0;
+                width: 100%;
+                margin: auto;
+                max-width: $max-width;
+            }
         }
     }
     
     #intro-text {
-        height: 256px;
-        max-width: 100%;
-        float: right;
+        position: absolute;
+        bottom: 32px;
+        right: 0;
+        height: 200px;
+        width: 100%;
+        max-width: $max-width;
     }
     
 }
