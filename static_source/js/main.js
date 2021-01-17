@@ -28,11 +28,12 @@ if(document.getElementById("home-intro")){
 		$(window).scroll(function () {
 			
 			var window_width = $(window).width();
-			var window_height = $(window).width();
+			var window_height = $(window).height();
 
 			var scroll_position = $(window).scrollTop();
 			var object_position_left = window_width * (scroll_position / height);
 			var object_position_top = window_height * (scroll_position / height);
+			var opacity = 1-0.0015*object_position_top;
 	
 			$('#external').css({
 				'top': 0.05*speed*object_position_top + 'px'
@@ -40,6 +41,9 @@ if(document.getElementById("home-intro")){
 			// $('#back').css({
 			// 	'top': -0.2*speed*object_position_top + 'px'
 			// });
+			$('#back').css({
+				'opacity': (opacity < 0.01 ? 0 : opacity) + ''
+			});
 			$('#external').css({
 				'left': 0.9*speed*object_position_left + 'px'
 			}); 

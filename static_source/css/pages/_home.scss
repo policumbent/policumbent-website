@@ -31,29 +31,39 @@
 
         .image-container{
             position: relative;
-            height: calc(100vh - #{$header-height + 232px});
+            height: calc(100vh - #{$header-height + 200px + $d_margin});
             overflow: hidden;
 
             img{
                 position: absolute;
                 left: 0;
-                top: 0;
-                bottom: 24px;
+                top: 0px;
+                bottom: 0px;
                 right: 0;
                 width: 100%;
                 margin: auto;
                 max-width: $max-width;
+                max-height: 100%;
+                object-fit: contain;
             }
         }
     }
-    
-    #intro-text {
-        position: absolute;
-        bottom: 32px;
-        right: 0;
-        height: 200px;
+
+    .intro-text-wrapper{
+        bottom: 0;
         width: 100%;
         max-width: $max-width;
+        margin: auto;
+        left: 0;
+        right: 0;
+        padding-left: $d_margin;
+        padding-bottom: $d_margin;
+        box-sizing: border-box;
+    }
+    
+    #intro-text {
+        height: 200px;
+        max-width: 100%
     }
     
 }
@@ -67,5 +77,29 @@
     .home-link{
         font-size: 26px;
         float: right;
+    }
+    .home-intro{
+        margin-top: $m_margin;
+    
+        #animation-container {
+            height: calc(100vh - #{65px+$m_margin});
+            top: 65px;
+    
+            .image-container{
+                height: calc(100vh - #{65px + 200px + $m_margin});
+            }
+        }
+    
+        .intro-text-wrapper{
+            padding-left: $m_margin;
+            padding-bottom: $m_margin;
+            padding-right: $m_margin;
+        }
+        
+        #intro-text {
+            height: 200px;
+            max-width: 100%
+        }
+        
     }
 }

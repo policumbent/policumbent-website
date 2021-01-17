@@ -872,24 +872,32 @@ header {
       z-index: 2; }
     .home-intro #animation-container .image-container {
       position: relative;
-      height: calc(100vh - 352px);
+      height: calc(100vh - 344px);
       overflow: hidden; }
       .home-intro #animation-container .image-container img {
         position: absolute;
         left: 0;
-        top: 0;
-        bottom: 24px;
+        top: 0px;
+        bottom: 0px;
         right: 0;
         width: 100%;
         margin: auto;
-        max-width: 1440px; }
-  .home-intro #intro-text {
-    position: absolute;
-    bottom: 32px;
-    right: 0;
-    height: 200px;
+        max-width: 1440px;
+        max-height: 100%;
+        object-fit: contain; }
+  .home-intro .intro-text-wrapper {
+    bottom: 0;
     width: 100%;
-    max-width: 1440px; }
+    max-width: 1440px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    padding-left: 24px;
+    padding-bottom: 24px;
+    box-sizing: border-box; }
+  .home-intro #intro-text {
+    height: 200px;
+    max-width: 100%; }
 
 .prototype-intro {
   width: 100%;
@@ -1193,6 +1201,20 @@ header {
   .home-link {
     font-size: 26px;
     float: right; }
+  .home-intro {
+    margin-top: 18px; }
+    .home-intro #animation-container {
+      height: calc(100vh - 83px);
+      top: 65px; }
+      .home-intro #animation-container .image-container {
+        height: calc(100vh - 283px); }
+    .home-intro .intro-text-wrapper {
+      padding-left: 18px;
+      padding-bottom: 18px;
+      padding-right: 18px; }
+    .home-intro #intro-text {
+      height: 200px;
+      max-width: 100%; }
   .race-parts-wrapper > div {
     margin-bottom: 44px; }
   .open-icon, .close-icon {
