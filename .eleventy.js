@@ -44,7 +44,8 @@ module.exports = function (eleventyConfig) {
     });
     let markdownIt = require("markdown-it");
     let markdownItOptions = {
-      html: true
+      html: true,
+      breaks: true,
     };
     let mila = require("markdown-it-link-attributes");
     let milaOptions = {

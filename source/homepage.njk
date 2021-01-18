@@ -52,7 +52,9 @@ eleventyComputed:
 <h1>Blog</h1>
 <div class="spacer-2"></div>
 
-{% for article in articles %}
+{% set length = articles.length if articles.length < 2 else 2 %} 
+    {% for i in range(0, length) %}
+      {% set article = articles[i] %}
   {% include "article_preview.njk" %}
 {% endfor %}
 

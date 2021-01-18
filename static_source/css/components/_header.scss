@@ -171,6 +171,10 @@ header{
                 padding: 3px 0px 3px 0px;
             }
 
+            .header__links > a, .header__switcher > span{
+                padding-top: 0px;
+            }
+
             & .label{
                 color: #6B6B6B;
                 width: calc(50% - #{$m_gutter/2});

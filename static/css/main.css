@@ -872,7 +872,7 @@ header {
       z-index: 2; }
     .home-intro #animation-container .image-container {
       position: relative;
-      height: calc(100vh - 344px);
+      height: calc(100vh - 216px);
       overflow: hidden; }
       .home-intro #animation-container .image-container img {
         position: absolute;
@@ -892,11 +892,12 @@ header {
     margin: auto;
     left: 0;
     right: 0;
-    padding-left: 24px;
-    padding-bottom: 24px;
+    padding: 0 24px 24px 24px;
     box-sizing: border-box; }
-  .home-intro #intro-text {
-    height: 200px;
+  .home-intro #intro-text-mobile {
+    display: none; }
+  .home-intro #intro-text-desktop {
+    display: block;
     max-width: 100%; }
 
 .prototype-intro {
@@ -999,6 +1000,9 @@ header {
 
 .article-content {
   margin-bottom: 180px; }
+  .article-content h1 {
+    margin-bottom: 32px;
+    font-size: 38px; }
   .article-content p {
     margin-bottom: 32px; }
     .article-content p img {
@@ -1154,6 +1158,8 @@ header {
         margin-bottom: 22px; }
       .header--mobile .header__overlay .header__links a, .header--mobile .header__overlay .header__switcher span {
         padding: 3px 0px 3px 0px; }
+      .header--mobile .header__overlay .header__links > a, .header--mobile .header__overlay .header__switcher > span {
+        padding-top: 0px; }
       .header--mobile .header__overlay .label {
         color: #6B6B6B;
         width: calc(50% - 11px);
@@ -1212,9 +1218,12 @@ header {
       padding-left: 18px;
       padding-bottom: 18px;
       padding-right: 18px; }
-    .home-intro #intro-text {
+    .home-intro #intro-text-mobile {
       height: 200px;
-      max-width: 100%; }
+      max-width: 100%;
+      display: block; }
+    .home-intro #intro-text-desktop {
+      display: none; }
   .race-parts-wrapper > div {
     margin-bottom: 44px; }
   .open-icon, .close-icon {
@@ -1241,6 +1250,9 @@ header {
   .article-content {
     margin-bottom: 80px;
     width: 100%; }
+    .article-content h1 {
+      margin-bottom: 22px;
+      font-size: 22px; }
     .article-content p {
       margin-bottom: 22px; }
     .article-content img {

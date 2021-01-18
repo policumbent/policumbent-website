@@ -31,7 +31,7 @@
 
         .image-container{
             position: relative;
-            height: calc(100vh - #{$header-height + 200px + $d_margin});
+            height: calc(100vh - #{$header-height + 72px + $d_margin});
             overflow: hidden;
 
             img{
@@ -56,16 +56,17 @@
         margin: auto;
         left: 0;
         right: 0;
-        padding-left: $d_margin;
-        padding-bottom: $d_margin;
+        padding: 0 $d_margin $d_margin $d_margin;
         box-sizing: border-box;
     }
     
-    #intro-text {
-        height: 200px;
-        max-width: 100%
+    #intro-text-mobile{
+        display: none;
     }
-    
+    #intro-text-desktop{
+        display: block;
+        max-width: 100%;
+    }
 }
 
 @mixin home--mobile(){
@@ -96,9 +97,13 @@
             padding-right: $m_margin;
         }
         
-        #intro-text {
+        #intro-text-mobile{
             height: 200px;
-            max-width: 100%
+            max-width: 100%;
+            display: block;
+        }
+        #intro-text-desktop{
+            display: none;
         }
         
     }
