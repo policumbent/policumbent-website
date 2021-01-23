@@ -15,41 +15,38 @@ if(document.getElementsByClassName("prototype-gallery").length > 0){
 	new SimpleLightbox({elements: '.prototype-gallery__wrapper a'});
 }
 
+
 // if code is in homepage
 if(document.getElementById("home-intro")){
 
 	$(function () {
-		var height = 3500;
-		var speed = 1.5;
+		// It's possible to adjust the animation speed by changing wrapper height
+		var height = 1500; 
 		$("#home-intro").css({
-			'height': height + 'px'
+			'height': height + $(window).height() + 'px'
 		}); 
 
 		$(window).scroll(function () {
-			
-			var window_width = $(window).width();
-			var window_height = $(window).height();
-
 			var scroll_position = $(window).scrollTop();
-			var object_position_left = window_width * (scroll_position / height);
-			var object_position_top = window_height * (scroll_position / height);
-			var opacity = 1-0.0015*object_position_top;
-	
-			$('#external').css({
-				'top': 0.05*speed*object_position_top + 'px'
-			});
-			// $('#back').css({
-			// 	'top': -0.2*speed*object_position_top + 'px'
-			// });
+			if (scroll_position > height) return; // If animation passed don't go on
+			var width = $("#home-intro").width();
+			var progress = scroll_position/height;
+			// apply easeOutQuad function see: https://easings.net/#easeOutQuad
+			progress = 1 - (1-progress)*(1-progress);
+			
+			var object_position_left = progress*width;
+			var object_position_top = 0.2*object_position_left;
+
+			// back opacity is twice fastest
+			var opacity = 1-progress*2;
+
 			$('#back').css({
-				'opacity': (opacity < 0.01 ? 0 : opacity) + ''
+				'opacity': (opacity < 0.05 ? 0 : opacity) + ''
 			});
 			$('#external').css({
-				'left': 0.9*speed*object_position_left + 'px'
+				'left': object_position_left + 'px',
+				'top': object_position_top + 'px'
 			}); 
-			// $('#back').css({
-			// 	'left': -0.5*speed*object_position_left + 'px'
-			// });
 		});
 	});
 

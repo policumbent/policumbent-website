@@ -526,7 +526,7 @@ h2 {
   font-weight: 900; }
 
 body, span, p, li {
-  font-size: 28px;
+  font-size: 26px;
   line-height: 32px;
   margin: 0;
   font-weight: 400; }
@@ -572,7 +572,7 @@ body {
   opacity: 0.9 !important; }
 
 .slbCloseBtn {
-  font-size: 28px !important;
+  font-size: 26px !important;
   line-height: 32px !important;
   margin: 0 !important;
   animation: unset !important;
@@ -1024,7 +1024,7 @@ header {
       height: 15px; }
 
 .featured-image {
-  width: calc((((100% - (24px * 11)) / 12) * 10) + (24px * 9)); }
+  width: 100%; }
   .featured-image picture {
     position: absolute;
     left: 0;

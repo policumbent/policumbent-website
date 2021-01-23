@@ -37,7 +37,8 @@
 }
 
 .featured-image{
-    width: calculate_width($d_columns, 10, $d_margin);
+    // width: calculate_width($d_columns, 10, $d_margin);
+    width: 100%;
     picture {
         position: absolute;
         left: 0;
