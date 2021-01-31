@@ -27,150 +27,22 @@ eleventyComputed:
 <div class="spacer-4"></div>
 
 <section class="people-container">
-  <div class="department-container">
-    <h1>Direttivo</h1>
-    <div class="cards-container indented-2">
-
-      <div class="person-card">
-        <img src="/static/img/test-team-1.jpg" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
+  {% for department in team %}
+    {% if department.members.length > 0 %}
+      <div class="department-container">
+        <h1>{% if locale=="it" %}{{ department.name_it }}{% else %}{{ department.name_en }}{% endif %}</h1>
+        <div class="cards-container indented-2">
+          {% for member in department.members %}
+            <div class="person-card">
+              <img src="{{ member.photo.url }}" alt="{{ member.name }} {{ member.surname }} portrait"/>
+              <p>{{ member.name }}&nbsp;{{ member.surname }}</p>
+              {% if member.urlText and member.url %}
+                <a href="{{ member.url }}" target="_blank">{{ member.urlText }}</a>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
       </div>
-            
-      <div class="person-card">
-        <img src="/static/img/test-team-2.jpg" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-      
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-      
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-      
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-      
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-
-    </div>
-  </div>
-  
-  <div class="department-container">
-    <h1>Elettronica</h1>
-    <div class="cards-container indented-2">
-
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-            
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-      
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-      
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-      
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-      
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="department-container">
-    <h1>Analisi dati</h1>
-    <div class="cards-container indented-2">
-
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-            
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-      
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-      
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-      
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-      
-      <div class="person-card">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <p>Nome Cognome</p>
-        <a href="https://linkedin.com/" target="_blank">Linkedin</a>
-      </div>
-
-    </div>
-  </div>
+    {% endif %}
+  {% endfor %}
 </section>
