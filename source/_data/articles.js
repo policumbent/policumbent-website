@@ -1,118 +1,65 @@
-// Code source:
-// https://www.webstoemp.com/blog/headless-cms-graphql-api-eleventy/
+const fetchFromDato = require('./api')
 
-// required packages
-const fetch = require("node-fetch");
 
-// DatoCMS token
-const token = process.env.DATO_CMS_TOKEN;
-
-// get articles
-// see https://www.datocms.com/docs/content-delivery-api/first-request#vanilla-js-example
-async function getAllArticles() {
-  // max number of records to fetch per query
-  const recordsPerQuery = 100;
-
-  // number of records to skip (start at 0)
-  let recordsToSkip = 0;
-
-  // do we make a query ?
-  let makeNewQuery = true;
+module.exports = async function getAllArticles() {
 
   // articles array
   let articles = [];
-
-  // make queries until makeNewQuery is set to false
-  while (makeNewQuery) {
-    try {
-      // initiate fetch
-      const dato = await fetch("https://graphql.datocms.com/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          query: `query allArticles {
-            allArticles(first: ${recordsPerQuery}, skip: ${recordsToSkip}, orderBy: date_DESC, filter: {_status: {eq: published}}) {
-                id
-                date
-                imagePreview: image {
-                  responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 600, h: 600}) {
-                    src
-                  }
-                }
-                image {
-                  responsiveImage(
-                    sizes: "(max-width: 768px) 100vw, (max-width: 1440px) 80vw, 1200px",
-                    imgixParams: {fm: jpg, fit: crop, w: 1200, h: 500 }
-                  ) {
-                    srcSet             # <- HTML5 src/srcset/sizes attributes
-                    webpSrcSet         #
-                    sizes              #
-                    src                #
-                    width              # <- size information
-                    height             #
-                    aspectRatio        #
-                    alt                # <- SEO attributes
-                    bgColor            # <- background color placeholder
-                    base64             # <- blur-up placeholder, base64-encoded JPEG
-                  }
-                }
-                title_it: title(locale: it)
-                title_en: title(locale: en)
-                slug_it: slug(locale: it)
-                slug_en: slug(locale: en)
-                seo_it: seo(locale: it) {
-                  ...seoFields
-                }
-                seo_en: seo(locale: en) {
-                  ...seoFields
-                }
-                content_it: content(locale: it)
-                content_en: content(locale: en)
-            }
+  
+  const query = `query allArticles {
+    allArticles(orderBy: date_DESC, filter: {_status: {eq: published}}) {
+        id
+        date
+        imagePreview: image {
+          responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 600, h: 600}) {
+            src
           }
-          
-          fragment seoFields on SeoField {
-            title
-            description
-            image {
-              alt
-              url
-            }
-            twitterCard
-          }`
-        })
-      });
-
-      // store the JSON response when promise resolves
-      const response = await dato.json();
-
-      // handle DatoCMS errors
-      if (response.errors) {
-        let errors = response.errors;
-        errors.map((error) => {
-          console.log(error.message);
-        });
-        throw new Error("Aborting: DatoCMS errors");
-      }
-
-      // update blogpost array with the data from the JSON response
-      articles = articles.concat(response.data.allArticles);
-
-      // prepare for next query
-      recordsToSkip += recordsPerQuery;
-
-      // stop querying if we are getting back less than the records we fetch per query
-      if (response.data.allArticles.length < recordsPerQuery) {
-        makeNewQuery = false;
-      }
-    } catch (error) {
-      throw new Error(error);
+        }
+        image {
+          responsiveImage(
+            sizes: "(max-width: 768px) 100vw, (max-width: 1440px) 80vw, 1200px",
+            imgixParams: {fm: jpg, fit: crop, w: 1200, h: 500 }
+          ) {
+            srcSet             # <- HTML5 src/srcset/sizes attributes
+            webpSrcSet         #
+            sizes              #
+            src                #
+            width              # <- size information
+            height             #
+            aspectRatio        #
+            alt                # <- SEO attributes
+            bgColor            # <- background color placeholder
+            base64             # <- blur-up placeholder, base64-encoded JPEG
+          }
+        }
+        title_it: title(locale: it)
+        title_en: title(locale: en)
+        slug_it: slug(locale: it)
+        slug_en: slug(locale: en)
+        seo_it: seo(locale: it) {
+          ...seoFields
+        }
+        seo_en: seo(locale: en) {
+          ...seoFields
+        }
+        content_it: content(locale: it)
+        content_en: content(locale: en)
     }
   }
+  
+  fragment seoFields on SeoField {
+    title
+    description
+    image {
+      alt
+      url
+    }
+    twitterCard
+  }`;
+
+  const response = await fetchFromDato(query);
+  
+  articles = articles.concat(response.data.allArticles);
 
   // format articles objects
   const articlesFormatted = articles.map((item) => {
@@ -135,6 +82,3 @@ async function getAllArticles() {
   // return formatted articles
   return articlesFormatted;
 }
-
-// export for 11ty
-module.exports = getAllArticles;

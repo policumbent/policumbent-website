@@ -6,19 +6,21 @@ header{
     user-select: none;
 }
 
-.header--desktop{
-    height: $header-height;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    z-index: 10;
+.header--desktop--wrapper{
+    height: 120px;
     position: fixed;
-    left: 0;
-    right: 0;
+    width: 100%;
     background-color: $header-bg;
     backdrop-filter: $header-blur;
     -webkit-backdrop-filter: $header-blur;
     z-index: 999;
+}
+
+.header--desktop{
+    height: $header-height;
+    margin: auto;
+    display: flex;
+    align-items: center;    
     max-width: 1440px;
 
     span, a {
@@ -91,7 +93,7 @@ header{
     #container{
         margin-top: 65px;
     }
-    .header--desktop{
+    .header--desktop, .header--desktop--wrapper{
         display: none;
     }
     .header--mobile{
@@ -131,13 +133,13 @@ header{
             align-items: center;
 
             span {
-                margin-right: 14px;
+                padding-right: 10px;
+                border-right: 1px solid #000;
             }
             svg{
-                width: 47px;
+                width: 40px;
                 padding: 7px;
-                padding-left: 14px;
-                border-left: 1px solid #000;
+                margin-left: 3px;
                 box-sizing: border-box;
                 cursor: pointer;
             }

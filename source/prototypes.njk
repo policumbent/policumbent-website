@@ -17,9 +17,9 @@ eleventyComputed:
     description: "{{ 'prototypes_description' | i18n | upfirst | safe }}"
 ---
 
-<h1 class="upfirst">{{ 'our_prototypes' | i18n }}</h1>
+<h1 class="upfirst">{{ prototypes_page[locale].title }}</h1>
 <div class="spacer-1"></div>
-<p class="col-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel placerat massa. Morbi ac luctus libero. Donec et arcu quis eros euismod sodales. Vivamus pellentesque, massa in rhoncus molestie, orci turpis elementum ligula, at iaculis purus metus ut libero. Donec pharetra quam augue, nec imperdiet lectus egestas tincidunt.</p>
+<p class="col-7">{{ prototypes_page[locale].introText }}</p>
 <div class="spacer-2"></div>
 <div class="prototypes-wrapper">
   {% for prototype in prototypes %}

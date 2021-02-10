@@ -14,11 +14,11 @@ module.exports = {
     ],
     en: {
         basetitle: "Policumbent",
-        description: "We build the World's fastest bikes. We're a student team at Politecnico di Torino."
+        description: "We're a student team at Politecnico di Torino and we build the world's fastest bikes"
     },
     it: {
         basetitle: "Policumbent",
-        description: "Costruiamo le bici più veloci del mondo. Siamo un team studentesco del Politecnico di Torino."
+        description: "Siamo un team studentesco del Politecnico di Torino e costruiamo le bici più veloci del mondo. "
     },
     root: "https://www.policumbent.it",
     logo: "https://www.policumbent.it/static/img/og-logo.png"

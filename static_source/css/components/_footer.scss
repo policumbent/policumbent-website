@@ -8,6 +8,7 @@
 }
 
 .footer .content{
+    box-sizing: border-box;
     width: 100%;
     max-width: $max-width;
     margin: auto;
@@ -26,6 +27,8 @@
     }
     a::after{
         content: "->";
+        vertical-align: top;
+        margin-left: 4px;
     }
 }
 
@@ -55,6 +58,9 @@
     display: flex;
     flex-direction: column;
     align-self: flex-end;
+    a{
+        text-decoration: underline !important;
+    }
 }
 
 @mixin footer--1200(){

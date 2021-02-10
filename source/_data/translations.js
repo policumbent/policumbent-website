@@ -12,6 +12,10 @@ module.exports = {
     'it': "prototipi",
     'en': "prototypes"
   },
+  the_prototypes:{
+    'it': "I prototipi",
+    'en': "The prototypes"
+  },
   about_us:{
     'it': "Il team",
     'en': "The team"
@@ -83,5 +87,21 @@ module.exports = {
   our_partners:{
     'it': "I nostri partners",
     'en': "Our partners"
+  },
+  show_more:{
+    'it': "Mostra altri",
+    'en': "Show more"
+  },
+  team_short_description:{
+    'it': "Siamo un team studentesco del Politecnico di Torino formato da circa 60 persone. Ogni anno partecipiamo alla WHPSC con un prototipo creato da noi.",
+    'en': "We're a students team of Politecnico di Torino made up of around 60 people. Every year we partecipate to the WHPSC with a prototype made by us."
+  },
+  find_out_more:{
+    'it': "Scopri di più",
+    'en': "Find out more"
+  },
+  who_we_are:{
+    'it': "Chi siamo",
+    'en': "Who we are"
   }
 };

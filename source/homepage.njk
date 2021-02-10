@@ -16,15 +16,15 @@ eleventyComputed:
 
 <div class="spacer-4"></div>
 
-<h1>Chi siamo</h1>
+<h1>{{ "who_we_are" | i18n }}</h1>
 <div class="spacer-1"></div>
 <div class="row home-team">
   <img src="/static/img/team.jpg" class="col-7"/>
   <p class="col-3 align-bottom">
-    Siamo un team studentesco del Politecnico di Torino formato da circa 60 persone. Ogni anno partecipiamo alla WHPSC con un prototipo creato da noi.
+    {{ "team_short_description" | i18n }}
     <br/>
     <br/>
-    <a href="/{{locale}}/team/" class="home-link">Scopri di più</a>
+    <a href="/{{locale}}/team/" class="home-link">{{ "find_out_more" | i18n }}</a>
   </p>
   <div class="col-2">
   </div>
@@ -33,7 +33,7 @@ eleventyComputed:
 <div class="spacer-5"></div>
 
 <div class="indented-3">
-  <h1>I prototipi</h1>
+  <h1>{{ "the_prototypes" | i18n }}</h1>
   <div class="spacer-2"></div>
   <div class="row">
 
@@ -44,7 +44,7 @@ eleventyComputed:
     {% endfor %}
   </div>
   <div class="spacer-2"></div>
-  <a href="/{{locale}}/prototypes/" class="text-right float-right home-link">Guardali tutti</a>
+  <a href="/{{locale}}/prototypes/" class="text-right float-right home-link">{{ "show_more" | i18n }}</a>
 </div>
 
 <div class="spacer-5"></div>
@@ -53,12 +53,12 @@ eleventyComputed:
 <div class="spacer-2"></div>
 
 {% set length = articles.length if articles.length < 2 else 2 %} 
-    {% for i in range(0, length) %}
-      {% set article = articles[i] %}
+{% for i in range(0, length) %}
+  {% set article = articles[i] %}
   {% include "article_preview.njk" %}
 {% endfor %}
 
-<div class="spacer-1"></div>
-<a href="/{{locale}}/blog/" class="home-link float-right">Scopri di più</a>
+<div class="spacer-2"></div>
+<a href="/{{locale}}/blog/" class="home-link col-10">{{ "show_more" | i18n }}</a>
 
 <div class="spacer-4"></div>

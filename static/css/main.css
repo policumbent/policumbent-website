@@ -495,14 +495,12 @@ template {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 900;
-  font-display: swap;
   src: local("Inter"), url("/static/font/inter-black/InterDisplay-Black.woff2") format("woff2"), url("/static/font/inter-black/InterDisplay-Black.woff") format("woff"); }
 
 @font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
   src: local("Inter"), url("/static/font/inter-regular/InterDisplay-Regular.woff2") format("woff2"), url("/static/font/inter-regular/InterDisplay-Regular.woff") format("woff"); }
 
 * {
@@ -714,7 +712,8 @@ body {
       margin-left: auto;
       margin-right: auto;
       display: block;
-      max-width: 100%; }
+      max-width: 100%;
+      object-fit: contain; }
     .sponsor .sponsor-details a {
       text-align: right; }
       .sponsor .sponsor-details a::after {
@@ -740,19 +739,20 @@ p a {
 header {
   user-select: none; }
 
+.header--desktop--wrapper {
+  height: 120px;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  z-index: 999; }
+
 .header--desktop {
   height: 120px;
   margin: auto;
   display: flex;
   align-items: center;
-  z-index: 10;
-  position: fixed;
-  left: 0;
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
-  z-index: 999;
   max-width: 1440px; }
   .header--desktop span, .header--desktop a {
     font-size: 20px;
@@ -809,6 +809,7 @@ header {
   align-items: center; }
 
 .footer .content {
+  box-sizing: border-box;
   width: 100%;
   max-width: 1440px;
   margin: auto;
@@ -823,7 +824,9 @@ header {
   .footer .content h2 {
     font-size: 64px; }
   .footer .content a::after {
-    content: "->"; }
+    content: "->";
+    vertical-align: top;
+    margin-left: 4px; }
 
 .footer__address {
   flex-grow: 2;
@@ -847,11 +850,16 @@ header {
   display: flex;
   flex-direction: column;
   align-self: flex-end; }
+  .footer__infos a {
+    text-decoration: underline !important; }
 
 .home-link {
   font-size: 36px;
   color: black;
-  text-decoration: none; }
+  text-decoration: none;
+  font-size: 36px;
+  text-align: right;
+  display: block; }
   .home-link::after {
     content: "->";
     margin-left: 10px;
@@ -1093,7 +1101,7 @@ header {
 @media only screen and (max-width: 1024px) {
   #container {
     margin-top: 65px; }
-  .header--desktop {
+  .header--desktop, .header--desktop--wrapper {
     display: none; }
   .header--mobile {
     display: block; }
@@ -1123,12 +1131,12 @@ header {
       display: flex;
       align-items: center; }
       .header--mobile .header__buttons span {
-        margin-right: 14px; }
+        padding-right: 10px;
+        border-right: 1px solid #000; }
       .header--mobile .header__buttons svg {
-        width: 47px;
+        width: 40px;
         padding: 7px;
-        padding-left: 14px;
-        border-left: 1px solid #000;
+        margin-left: 3px;
         box-sizing: border-box;
         cursor: pointer; }
     .header--mobile .header__overlay {
