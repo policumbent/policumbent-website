@@ -41,6 +41,9 @@
     p::first-letter{
         text-transform: uppercase;
     }
+    svg{
+        display: none;
+    }
 }
 
 .footer__links{
@@ -94,6 +97,15 @@
                 font-size: 38px;
                 line-height: 44px;
                 margin-bottom: $m_margin;
+            }
+        }
+        .footer__address{
+            svg{
+                display: block;
+                width: 60%;
+                margin: auto;
+                padding: 24px 0px;
+                max-width: 200px;
             }
         }
     }

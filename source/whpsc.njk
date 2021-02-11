@@ -9,203 +9,85 @@ permalink: "/{{ lang.locale }}/whpsc/"
 noLangUrl: /whpsc/
 sitemap:
   priority: 0.8
-  changefreq: daily
+  changefreq: weekly
 eleventyComputed:
+  metadata:
+    title: "WHPSC"
+    description: "{{ 'whpsc_description' | i18n | upfirst | safe }}"
   locale: "{{lang.locale}}"
 ---
 
-<h1 class="upfirst">WHPSC</h1>
+<h1 class="upfirst">{{ whpsc_page[locale].title }}</h1>
 <div class="spacer-1"></div>
-<img class="col-12 border-radius" src="/static/img/whpsc.jpg" alt=""/>
+<div class="col-12 border-radius" style="position: relative; background-image: url({{ whpsc_page[locale].image.responsiveImage.base64 }}); background-size: cover;">
+  <div style="padding-top: {{ 100.0 / whpsc_page[locale].image.responsiveImage.aspectRatio }}%;">
+    <picture style="position: absolute; left: 0; top: 0; width: 100%">
+      <source srcset="{{ whpsc_page[locale].image.responsiveImage.webpSrcSet }}" type="image/webp" sizes="{{ whpsc_page[locale].image.responsiveImage.sizes }}">
+      <source srcset="{{ whpsc_page[locale].image.responsiveImage.srcSet }}" sizes="{{ whpsc_page[locale].image.responsiveImage.sizes }}">
+      <img class="col-12 border-radius" src="{{ whpsc_page[locale].image.responsiveImage.src }}" alt="{{ whpsc_page[locale].image.responsiveImage.alt }}">
+    </picture>
+  </div>
+</div>
 <div class="spacer-1"></div>
-<p class="indented-3">Ogni anno partecipiamo alla <a href="http://ihpva.org/whpsc/" target="_blank">WHPSC</a> (World Human Powered Speed Challenge), una competizione che si svolge a Battle Mountain, in Nevada, lungo un retilineo di 5 miglia ad un’altitudine di 1408 metri. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus sed ante sagittis rutrum. Cras ut massa eget mi dignissim iaculis sit amet at erat. Sed venenatis molestie dolor. Phasellus ut pharetra enim, vitae sodales diam. Pellentesque vitae sem faucibus lectus auctor ullamcorper id non arcu. Morbi quis placerat nibh, eu aliquet justo. Integer pulvinar, lectus at sagittis eleifend, nibh sem hendrerit quam, eget maximus metus ex vel urna.</p>
-<div class="spacer-1"></div>
+<div class="indented-3">{{ whpsc_page[locale].introText | upfirst | markdown | safe }}</div>
+<div class="spacer-2"></div>
 <img class="indented-3" src="/static/img/usa-map.svg" alt=""/>
 
 <div class="spacer-3"></div>
 
-<h1 class="upfirst">La gara</h1>
+<h1 class="upfirst">{{ whpsc_page[locale].raceTitle }}</h1>
 <div class="spacer-1"></div>
-<p class="col-12">La corsa è divisa in quattro fasi principali:</p>
+<p class="col-12">{{ whpsc_page[locale].raceIntroText | upfirst }}</p>
 <div class="spacer-2"></div>
 
 <div class="race-parts-wrapper indented-2">
-  <div class="row">
-    <div class="race-part-info col-6">
-      <h2>Start</h2>
-      <p>Prototypes are brought to the start, where each team helps their cyclists to start. The prototype can be hold by a single person for no more than 15 meters.</p>
-    </div>
-    <img class="col-6" src="/static/img/start.jpg" alt=""/>
-  </div>
-
-  <div class="row">
-    <div class="race-part-info col-6">
-        <h2>Run</h2>
-        <p>Cyclists begin their 8-kilometer run-up. The power profile to be followed is carefully calculated by analysis performance algorithms.</p>
+  {% for race_part in whpsc_page[locale].raceParts %}
+    <div class="row">
+      <div class="race-part-info col-6">
+        <h2>{{ race_part.name }}</h2>
+        <p>{{ race_part.description }}</p>
       </div>
-      <img class="col-6" src="/static/img/run.jpg" alt=""/>
-  </div>
-
-  <div class="row">
-    <div class="race-part-info col-6">
-      <h2>Timing</h2>
-      <p>Prototypes are brought to the start, where each team helps their cyclists to start. The prototype can be hold by a single person for no more than 15 meters.</p>
+      <picture class="col-6">
+        <source srcset="{{ race_part.image.url }}?fm=webp&q=70&w=800&h=500&fit=crop" type="image/webp">
+        <source srcset="{{ race_part.image.url }}?fm=jpg&q=60&w=800&h=500&fit=crop" type="image/jpeg">
+        <img src="{{ race_part.image.url }}?fm=jpg&q=60&w=400&h=250&fit=crop" alt="{{ race_part.image.alt }}"/>
+      </picture>
     </div>
-    <img class="col-6" src="/static/img/timing.jpg" alt=""/>
-  </div>
-
-  <div class="row">
-    <div class="race-part-info col-6">
-        <h2>Catching</h2>
-        <p>Cyclists begin their 8-kilometer run-up. The power profile to be followed is carefully calculated by analysis performance algorithms.</p>
-      </div>
-      <img class="col-6" src="/static/img/catching.jpg" alt=""/>
-  </div>
+  {% endfor %}
 </div>
 
 <div class="spacer-3"></div>
 
-<h1 class="upfirst">I nostri risultati</h1>
+<h1 class="upfirst">{{ whpsc_page[locale].resultsTitle }}</h1>
 <div class="spacer-1"></div>
-<p class="col-12">Partecipiamo dal 2015, ecco i nostri risultati:</p>
+<p class="col-12">{{ whpsc_page[locale].resultsIntroText | upfirst }}</p>
 <div class="spacer-2"></div>
 
 <div class="past-race-wrapper indented-2">
-  <div class="race">
-    <input type="checkbox" checked="true" name="collapse" id="handle1">
-    <div class="race__title"><label for="handle1"><h1>Edizione 2019</h1><img class="open-icon" src ="/static/img/open-arrow.svg" alt=""/><img class="close-icon" src ="/static/img/close-arrow.svg" alt=""/></label></div>
+  {% for race_edition in whpsc_page[locale].raceEditions %}
+    <div class="race">
+    <input type="checkbox" {% if loop.index == 1 %} checked="true" {% endif %} name="collapse" id="handle{{ loop.index }}">
+    <div class="race__title"><label for="handle{{ loop.index }}"><h1>{{ race_edition.title }}</h1><img class="open-icon" src ="/static/img/open-arrow.svg" alt=""/><img class="close-icon" src ="/static/img/close-arrow.svg" alt=""/></label></div>
     <div class="race__content">
       <div>
-        <p>Nel 2019 ci siamo presentato con ... e ..., siamo riusciti a ... Abbiamo imparato ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus sed ante sagittis rutrum. Cras ut massa eget mi dignissim iaculis sit amet at erat. Sed venenatis molestie dolor. Phasellus ut pharetra enim, vitae sodales diam. Pellentesque vitae sem faucibus lectus auctor ullamcorper id non arcu. Morbi quis placerat nibh, eu aliquet justo. Integer pulvinar, lectus at sagittis eleifend, nibh sem hendrerit quam, eget maximus metus ex vel urna:</p>
-        <ul>
-          <li>Massima velocià maschile: 450 km/h</li>
-          <li>Massima velocià femminile: 492 km/h</li>
-        </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus sed ante sagittis rutrum. Cras ut massa eget mi dignissim iaculis sit amet at erat. Sed venenatis molestie dolor. Phasellus ut pharetra enim, vitae sodales diam. Pellentesque vitae sem faucibus lectus auctor ullamcorper id non arcu. Morbi quis placerat nibh, eu aliquet justo. Integer pulvinar, lectus at sagittis eleifend, nibh sem hendrerit quam, eget maximus metus ex vel urna</p>
+        {{ race_edition.text | upfirst | markdown | safe  }}
       </div>
-      <h2>Galleria</h2>
+      <h2>{{ "gallery" | i18n | upfirst }}</h2>
+      <div class="spacer-1"></div>
       <div class="race__gallery">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
+        {% for image in race_edition.gallery %}
+            <a href="{{ image.url }}?w=1600&h=1400" title="{{ image.alt }}">
+              <picture>
+                <source srcset="{{ image.url }}?w=300&h=300&fit=crop&fm=webp" type="image/webp"/>
+                <source srcset="{{ image.url }}?w=300&h=300&fit=crop&fm=jpg&q=60" type="image/webp"/>
+                <img src="{{ image.url }}?w=300&h=300&fit=crop&fm=jpg&q=50" alt="{{ image.alt }}" loading="lazy"/>
+              </picture>
+            </a>
+        {% endfor %}
       </div>
     </div>
   </div>
-  <div class="race">
-    <input type="checkbox" name="collapse" id="handle2">
-    <div class="race__title"><label for="handle2"><h1>Edizione 2018</h1><img class="open-icon" src ="/static/img/open-arrow.svg" alt=""/><img class="close-icon" src ="/static/img/close-arrow.svg" alt=""/></label></div>
-    <div class="race__content">
-      <div>
-        <p>Nel 2019 ci siamo presentato con ... e ..., siamo riusciti a ... Abbiamo imparato ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus sed ante sagittis rutrum. Cras ut massa eget mi dignissim iaculis sit amet at erat. Sed venenatis molestie dolor. Phasellus ut pharetra enim, vitae sodales diam. Pellentesque vitae sem faucibus lectus auctor ullamcorper id non arcu. Morbi quis placerat nibh, eu aliquet justo. Integer pulvinar, lectus at sagittis eleifend, nibh sem hendrerit quam, eget maximus metus ex vel urna:</p>
-        <ul>
-          <li>Massima velocià maschile: 450 km/h</li>
-          <li>Massima velocià femminile: 492 km/h</li>
-        </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus sed ante sagittis rutrum. Cras ut massa eget mi dignissim iaculis sit amet at erat. Sed venenatis molestie dolor. Phasellus ut pharetra enim, vitae sodales diam. Pellentesque vitae sem faucibus lectus auctor ullamcorper id non arcu. Morbi quis placerat nibh, eu aliquet justo. Integer pulvinar, lectus at sagittis eleifend, nibh sem hendrerit quam, eget maximus metus ex vel urna</p>
-      </div>
-      <h2>Galleria</h2>
-      <div class="race__gallery">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-      </div>
-    </div>
-  </div>
-  <div class="race">
-    <input type="checkbox" name="collapse" id="handle3">
-    <div class="race__title"><label for="handle3"><h1>Edizione 2017</h1><img class="open-icon" src ="/static/img/open-arrow.svg" alt=""/><img class="close-icon" src ="/static/img/close-arrow.svg" alt=""/></label></div>
-    <div class="race__content">
-      <div>
-        <p>Nel 2019 ci siamo presentato con ... e ..., siamo riusciti a ... Abbiamo imparato ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus sed ante sagittis rutrum. Cras ut massa eget mi dignissim iaculis sit amet at erat. Sed venenatis molestie dolor. Phasellus ut pharetra enim, vitae sodales diam. Pellentesque vitae sem faucibus lectus auctor ullamcorper id non arcu. Morbi quis placerat nibh, eu aliquet justo. Integer pulvinar, lectus at sagittis eleifend, nibh sem hendrerit quam, eget maximus metus ex vel urna:</p>
-        <ul>
-          <li>Massima velocià maschile: 450 km/h</li>
-          <li>Massima velocià femminile: 492 km/h</li>
-        </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus sed ante sagittis rutrum. Cras ut massa eget mi dignissim iaculis sit amet at erat. Sed venenatis molestie dolor. Phasellus ut pharetra enim, vitae sodales diam. Pellentesque vitae sem faucibus lectus auctor ullamcorper id non arcu. Morbi quis placerat nibh, eu aliquet justo. Integer pulvinar, lectus at sagittis eleifend, nibh sem hendrerit quam, eget maximus metus ex vel urna</p>
-      </div>
-      <h2>Galleria</h2>
-      <div class="race__gallery">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-      </div>
-    </div>
-  </div>
-  <div class="race">
-    <input type="checkbox" name="collapse" id="handle4">
-    <div class="race__title"><label for="handle4"><h1>Edizione 2016</h1><img class="open-icon" src ="/static/img/open-arrow.svg" alt=""/><img class="close-icon" src ="/static/img/close-arrow.svg" alt=""/></label></div>
-    <div class="race__content">
-      <div>
-        <p>Nel 2019 ci siamo presentato con ... e ..., siamo riusciti a ... Abbiamo imparato ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus sed ante sagittis rutrum. Cras ut massa eget mi dignissim iaculis sit amet at erat. Sed venenatis molestie dolor. Phasellus ut pharetra enim, vitae sodales diam. Pellentesque vitae sem faucibus lectus auctor ullamcorper id non arcu. Morbi quis placerat nibh, eu aliquet justo. Integer pulvinar, lectus at sagittis eleifend, nibh sem hendrerit quam, eget maximus metus ex vel urna:</p>
-        <ul>
-          <li>Massima velocià maschile: 450 km/h</li>
-          <li>Massima velocià femminile: 492 km/h</li>
-        </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus sed ante sagittis rutrum. Cras ut massa eget mi dignissim iaculis sit amet at erat. Sed venenatis molestie dolor. Phasellus ut pharetra enim, vitae sodales diam. Pellentesque vitae sem faucibus lectus auctor ullamcorper id non arcu. Morbi quis placerat nibh, eu aliquet justo. Integer pulvinar, lectus at sagittis eleifend, nibh sem hendrerit quam, eget maximus metus ex vel urna</p>
-      </div>
-      <h2>Galleria</h2>
-      <div class="race__gallery">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-      </div>
-    </div>
-  </div>
-  <div class="race">
-    <input type="checkbox" name="collapse" id="handle5">
-    <div class="race__title"><label for="handle5"><h1>Edizione 2015</h1><img class="open-icon" src ="/static/img/open-arrow.svg" alt=""/><img class="close-icon" src ="/static/img/close-arrow.svg" alt=""/></label></div>
-    <div class="race__content">
-      <div>
-        <p>Nel 2019 ci siamo presentato con ... e ..., siamo riusciti a ... Abbiamo imparato ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus sed ante sagittis rutrum. Cras ut massa eget mi dignissim iaculis sit amet at erat. Sed venenatis molestie dolor. Phasellus ut pharetra enim, vitae sodales diam. Pellentesque vitae sem faucibus lectus auctor ullamcorper id non arcu. Morbi quis placerat nibh, eu aliquet justo. Integer pulvinar, lectus at sagittis eleifend, nibh sem hendrerit quam, eget maximus metus ex vel urna:</p>
-        <ul>
-          <li>Massima velocià maschile: 450 km/h</li>
-          <li>Massima velocià femminile: 492 km/h</li>
-        </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus sed ante sagittis rutrum. Cras ut massa eget mi dignissim iaculis sit amet at erat. Sed venenatis molestie dolor. Phasellus ut pharetra enim, vitae sodales diam. Pellentesque vitae sem faucibus lectus auctor ullamcorper id non arcu. Morbi quis placerat nibh, eu aliquet justo. Integer pulvinar, lectus at sagittis eleifend, nibh sem hendrerit quam, eget maximus metus ex vel urna</p>
-      </div>
-      <h2>Galleria</h2>
-      <div class="race__gallery">
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-        <img src="https://via.placeholder.com/300x300" alt=""/>
-      </div>
-    </div>
-  </div>
+  {% endfor %}
 </div>
 
 <div class="spacer-3"></div>

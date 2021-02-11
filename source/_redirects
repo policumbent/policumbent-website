@@ -1,3 +1,4 @@
+/admin  https://policumbent.admin.datocms.com/editor 200!
 /       /en/                301         Language=en
 /       /it/                301
 /en/*   /en/404.html        404

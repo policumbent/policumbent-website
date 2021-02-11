@@ -10,8 +10,8 @@ layout: base.njk
         <div class="spacer-1"></div>
         <img src="/static/img/prototype-arrow.svg" />
         <p>
-            <span>Stagione:</span><b>{{ prototype.season }}</b><br/>
-            <span>Velocità:</span><b>{{ prototype.speed }}km/h</b>
+            <span>{{ "season" | i18n | upfirst }}:</span><b>{{ prototype.season }}</b><br/>
+            <span>{{ "speed" | i18n | upfirst }}:</span><b>{{ prototype.speed }}km/h</b>
         </p>
     </div>
     <img class="col-8 prototype-intro__img"src="{{ prototype.image.url }}" alt="{{ prototype.name }}"/>
@@ -20,7 +20,7 @@ layout: base.njk
 
 <div class="prototype-features col-8">
     <div class="spacer-7"></div>
-    <h1>{{ 'Features' | i18n }}</h1>
+    <h1>{{ 'Features' | i18n | upfirst }}</h1>
     {% if locale=="it" %}
         {{ prototype.features_it | markdown | safe }}
     {% else %}
@@ -31,7 +31,7 @@ layout: base.njk
 
 <div class="prototype-history col-8 indented-4">
     <div class="spacer-8"></div>
-    <h1>{{ 'History' | i18n }}</h1>
+    <h1>{{ 'History' | i18n | upfirst }}</h1>
     {% if locale=="it" %}
         {{ prototype.history_it | markdown | safe  }}
     {% else %}

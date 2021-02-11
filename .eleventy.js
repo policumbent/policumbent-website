@@ -18,13 +18,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('dateISO', (date) => moment(date).toISOString() )
     //human readable date {% dateReadable date=page.date locale=locale %}
     eleventyConfig.addNunjucksShortcode('dateReadable', ({date, locale}) => moment(date).locale(locale).format('LL') )
-    // render value as markdown
-    eleventyConfig.addFilter('markdown', function(value) {
-        let markdown = require('markdown-it')({
-            html: true
-        });
-        return markdown.render(value);
-    });
     // capitalize first letter
     eleventyConfig.addFilter('upfirst', function(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -57,6 +50,11 @@ module.exports = function (eleventyConfig) {
     };
     let markdownLib = markdownIt(markdownItOptions).use(mila, milaOptions);
     eleventyConfig.setLibrary("md", markdownLib);
+
+    // render value as markdown filter use as: {{ md_data | markdown }}
+    eleventyConfig.addFilter('markdown', function(value) {
+        return markdownLib.render(value);
+    });
 
     return {
         dir: {

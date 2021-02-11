@@ -694,7 +694,7 @@ body {
 .sponsor {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 96px; }
+  margin-bottom: 128px; }
   .sponsor .sponsor-image {
     width: calc(50% - 12px);
     height: 100%;
@@ -836,6 +836,8 @@ header {
   align-self: flex-end; }
   .footer__address p::first-letter {
     text-transform: uppercase; }
+  .footer__address svg {
+    display: none; }
 
 .footer__links {
   flex-grow: 1;
@@ -955,7 +957,8 @@ header {
   margin-bottom: 64px; }
 
 .race-parts-wrapper img {
-  border-radius: 8px; }
+  border-radius: 8px;
+  width: 100%; }
 
 .race-parts-wrapper .race-part-info p {
   margin-bottom: 22px; }
@@ -965,6 +968,7 @@ header {
   .race .race__title label {
     display: flex;
     align-items: center;
+    user-select: none;
     cursor: pointer;
     margin: 32px 0px 32px 0px; }
     .race .race__title label h1 {
@@ -997,14 +1001,17 @@ header {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 32px; }
-    .race .race__gallery img {
+    .race .race__gallery a {
       width: calc(33.3% - 16px);
       margin-right: 24px;
       margin-bottom: 24px;
-      height: 100%;
-      border-radius: 8px; }
-      .race .race__gallery img:nth-child(3n) {
+      height: 100%; }
+      .race .race__gallery a:nth-child(3n) {
         margin-right: 0px; }
+      .race .race__gallery a img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px; }
 
 .article-content {
   margin-bottom: 180px; }
@@ -1201,6 +1208,12 @@ header {
         font-size: 38px;
         line-height: 44px;
         margin-bottom: 18px; }
+    .footer .footer__address svg {
+      display: block;
+      width: 60%;
+      margin: auto;
+      padding: 24px 0px;
+      max-width: 200px; }
   h1 {
     font-size: 38px;
     line-height: 44px; }
@@ -1243,13 +1256,13 @@ header {
     margin-bottom: 22px; }
   .race .race__gallery {
     margin-bottom: 22px; }
-    .race .race__gallery img {
+    .race .race__gallery a {
       width: calc(50% - 9px);
       margin-right: 18px;
       margin-bottom: 22px; }
-      .race .race__gallery img:nth-child(3n) {
+      .race .race__gallery a:nth-child(3n) {
         margin-right: 18px; }
-      .race .race__gallery img:nth-child(even) {
+      .race .race__gallery a:nth-child(even) {
         margin-right: 0px; }
   .featured-image {
     width: 100%;

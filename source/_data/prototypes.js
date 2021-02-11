@@ -5,7 +5,7 @@ module.exports = async function getAllPrototypes() {
 
   let prototypes = [];
 
-  const query = `query MyQuery {
+  const query = `query {
     allPrototypes(orderBy: position_ASC, filter: {_status: {eq: published}}) {
       id
       slug
@@ -22,6 +22,7 @@ module.exports = async function getAllPrototypes() {
         alt
       }
       image {
+        preview: url(imgixParams: {fm: jpg, w: 800, h:800, fit: crop})
         alt
         url
       }
@@ -41,6 +42,7 @@ module.exports = async function getAllPrototypes() {
       season: item.season,
       image: {
         url: item.image.url,
+        preview: item.image.preview,
         alt: item.image.alt
       },
       features_it: item.features_it,

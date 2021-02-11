@@ -103,5 +103,21 @@ module.exports = {
   who_we_are:{
     'it': "Chi siamo",
     'en': "Who we are"
+  },
+  gallery:{
+    'it': "galleria",
+    'en': "gallery"
+  },
+  speed:{
+    'it': "velocità",
+    'en': "speed"
+  },
+  season:{
+    'it': "stagione",
+    'en': "season"
+  },
+  whpsc_description:{
+    'it': "Ogni anno partecipiamo alla WHPSC, una competizione che si svolge a Battle Mountain, in Nevada, lungo un rettilineo di 5 miglia ad un’altitudine di 1408 metri.",
+    'en': "Every year we partecipate to the WHPSC, a competition that takes place in Battle Mountain, in Nevada, along a 5 mile straight at an altitude of 1408 meters."
   }
 };

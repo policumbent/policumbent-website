@@ -15,6 +15,14 @@ if(document.getElementsByClassName("prototype-gallery").length > 0){
 	new SimpleLightbox({elements: '.prototype-gallery__wrapper a'});
 }
 
+// if code is in whpsc page
+if(document.getElementsByClassName("race-parts-wrapper").length > 0){
+	var galleries = document.getElementsByClassName("race__gallery");
+	for (var i=0; i < galleries.length; i++){
+		new SimpleLightbox({elements: galleries[i].querySelectorAll('a')});
+	}
+}
+
 
 // if code is in homepage
 if(document.getElementById("home-intro")){

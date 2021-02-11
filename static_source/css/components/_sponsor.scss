@@ -1,7 +1,7 @@
 .sponsor{
     display: flex;
     justify-content: space-between;
-    margin-bottom: #{3*$d-p_line_height};
+    margin-bottom: #{4*$d-p_line_height};
     .sponsor-image{
         width: calc(50% - #{$d_margin/2});
         height: 100%;
