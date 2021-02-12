@@ -5,6 +5,9 @@
     &:nth-child(4n){
         margin-right: 0px;
     }
+    p{
+        word-wrap: break-word;
+    }
     img{
         object-fit: cover;
         border-radius: 8px;

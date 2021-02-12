@@ -17,7 +17,7 @@ module.exports = async function getAllArticles() {
         }
         image {
           responsiveImage(
-            sizes: "(max-width: 768px) 100vw, (max-width: 1440px) 80vw, 1200px",
+            sizes: "(max-width: 768px) 100vw, (max-width: 1440px) 80vw, 1440px",
             imgixParams: {fm: jpg, fit: crop, w: 1200, h: 500 }
           ) {
             srcSet             # <- HTML5 src/srcset/sizes attributes
