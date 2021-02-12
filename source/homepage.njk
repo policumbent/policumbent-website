@@ -14,17 +14,19 @@ eleventyComputed:
   locale: "{{ lang.locale }}"
 ---
 
+{# {{ homepage[locale] | log }} #}
+
 <div class="spacer-4"></div>
 
-<h1>{{ "who_we_are" | i18n }}</h1>
+<h1>{{ homepage[locale].teamTitle }}</h1>
 <div class="spacer-1"></div>
 <div class="row home-team">
-  <img src="/static/img/team.jpg" class="col-7"/>
+  <img src="{{ homepage[locale].teamImage.url }}" alt="{{ homepage[locale].teamImage.alt }}" class="col-7"/>
   <p class="col-3 align-bottom">
-    {{ "team_short_description" | i18n }}
+    {{ homepage[locale].teamDescription }}
     <br/>
     <br/>
-    <a href="/{{locale}}/team/" class="home-link">{{ "find_out_more" | i18n }}</a>
+    <a href="/{{locale}}/team/" class="home-link">{{ homepage[locale].teamButtonText }}</a>
   </p>
   <div class="col-2">
   </div>
