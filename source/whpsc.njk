@@ -50,7 +50,7 @@ eleventyComputed:
       <picture class="col-6">
         <source srcset="{{ race_part.image.url }}?fm=webp&q=70&w=800&h=500&fit=crop" type="image/webp">
         <source srcset="{{ race_part.image.url }}?fm=jpg&q=60&w=800&h=500&fit=crop" type="image/jpeg">
-        <img src="{{ race_part.image.url }}?fm=jpg&q=60&w=400&h=250&fit=crop" alt="{{ race_part.image.alt }}"/>
+        <img src="{{ race_part.image.url }}?fm=jpg&q=60&w=400&h=250&fit=crop" alt="{{ race_part.image.alt }}" loading="lazy"/>
       </picture>
     </div>
   {% endfor %}

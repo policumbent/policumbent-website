@@ -45,7 +45,13 @@ eleventyComputed:
         <div class="cards-container indented-2">
           {% for member in department.members %}
             <div class="person-card">
-              <img src="{{ member.photo.url }}" alt="{{ member.name }} {{ member.surname }} portrait"/>
+              <picture>
+                <source type="image/webp" media="(min-width: 401px)" srcset="{{ member.photo.url }}?fm=webp&q=70&w=270 1x, {{ member.photo.url }}?fm=webp&q=70&w=540 2x">
+                <source type="image/webp" media="(max-width: 400px)" srcset="{{ member.photo.url }}?fm=webp&q=70&w=170 1x, {{ member.photo.url }}?fm=webp&q=70&w=340 2x">
+                <source type="image/jpeg" media="(min-width: 401px)" srcset="{{ member.photo.url }}?fm=jpg&fl=progressive&q=60&w=270 1x, {{ member.photo.url }}?fm=jpg&fl=progressive&q=60&w=540 2x">
+                <source type="image/jpeg" media="(max-width: 400px)" srcset="{{ member.photo.url }}?fm=jpg&fl=progressive&q=60&w=170 1x, {{ member.photo.url }}?fm=jpg&fl=progressive&q=60&w=340 2x">
+                <img src="{{ member.photo.url }}?fm=jpg&q=60&w=200" alt="{{ member.name }} {{ member.surname }} {{ "photo" | i18n }}" loading="lazy"/>
+              </picture>
               <p>{{ member.name }}&nbsp;{{ member.surname }}</p>
               {% if member.urlText and member.url %}
                 <a href="{{ member.url }}" target="_blank">{{ member.urlText }}</a>
