@@ -53,6 +53,11 @@ eleventyComputed:
                 <img src="{{ member.photo.url }}?fm=jpg&q=60&w=200" alt="{{ member.name }} {{ member.surname }} {{ "photo" | i18n }}" loading="lazy"/>
               </picture>
               <p>{{ member.name }}&nbsp;{{ member.surname }}</p>
+              {% if locale=="it" and member.role_it %}
+                <p><strong>{{ member.role_it }}</strong></p>
+              {% elif locale=="en" and member.role_en %}
+                <p><strong>{{ member.role_en }}</strong></p>              
+              {% endif %}              
               {% if member.urlText and member.url %}
                 <a href="{{ member.url }}" target="_blank">{{ member.urlText }}</a>
               {% endif %}

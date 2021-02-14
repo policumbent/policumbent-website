@@ -44,7 +44,36 @@ module.exports = async function getAllArticles() {
         }
         content_it: content(locale: it)
         content_en: content(locale: en)
+        body_it: body(locale: it){
+          ...on ImageBlockRecord{
+            ...imageBlockFields
+          }
+          ...on TextBlockRecord{
+            ...textBlockFields
+          }
+        }
+        body_en: body(locale: en){
+          ...on ImageBlockRecord{
+            ...imageBlockFields
+          }
+          ...on TextBlockRecord{
+            ...textBlockFields
+          }
+        }
     }
+  }
+
+  fragment imageBlockFields on ImageBlockRecord{
+    __typename
+    images{
+      url
+      alt
+    }
+  }
+  
+  fragment textBlockFields on TextBlockRecord{
+    __typename
+    text
   }
   
   fragment seoFields on SeoField {
@@ -68,14 +97,19 @@ module.exports = async function getAllArticles() {
       date: item.date,
       image: item.image.responsiveImage,
       image_preview: item.imagePreview.responsiveImage,
-      title_en: item.title_en,
-      title_it: item.title_it,
-      slug_en: item.slug_en,
-      slug_it: item.slug_it,
-      seo_en: item.seo_en,
-      seo_it: item.seo_it,
-      content_en: item.content_en,
-      content_it: item.content_it
+      it: {
+        title: item.title_it,
+        slug: item.slug_it,
+        seo: item.seo_it,
+        body: item.body_it,
+      },
+      en: {
+        title: item.title_en,
+        slug: item.slug_en,
+        seo: item.seo_en,
+        body: item.body_en,
+      }
+      
     };
   });
 

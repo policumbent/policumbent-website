@@ -42,6 +42,8 @@ async function getAllDepartments() {
                 members {
                   surname
                   name
+                  role_it: role(locale: it)
+                  role_en: role(locale: en)
                   photo {
                     title
                     url

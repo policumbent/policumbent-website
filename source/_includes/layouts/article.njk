@@ -6,7 +6,7 @@ layout: base.njk
 <div class="spacer-2"></div>
 <p><time datetime="{{ article.date | dateISO }}">{% dateReadable date=article.date, locale=locale %}</time></p>
 <div class="spacer-1"></div>
-<h1>{{ article.title_it if locale=="it" else article.title_en }}</h1>
+<h1>{{ article[locale].title }}</h1>
 <div class="spacer-2"></div>
 
 <div class="featured-image" style="position: relative; background-image: url({{ article.image.base64 }}); background-size: cover;">
@@ -21,4 +21,16 @@ layout: base.njk
 
 <div class="spacer-2"></div>
 {# <article class="article-content col-8 indented-3">{{ content | safe }}</article> #}
-<article class="article-content col-8 indented-2">{{ content | safe }}</article>
+<article class="article-content col-8 indented-2">
+  {% for part in article[locale].body %}
+    {% if part.__typename == "TextBlockRecord" %}
+      {{ part.text | markdown | safe }}
+    {% elif part.__typename == "ImageBlockRecord" %}
+      <div class="article-images-wrapper article-images-{{ part.images|length }}">
+        {% for image in part.images %}
+          <img src="{{ image.url }}" alt="{{ img.alt? }}" />
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</article>

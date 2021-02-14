@@ -5,14 +5,12 @@ pagination:
   size: 1
   alias: article
   addAllPagesToCollections: true
-permalink: "/en/blog/{{ article.slug_en }}/"
+permalink: "/en/blog/{{ article[locale].slug }}/"
 eleventyComputed:
   metadata:
-    title: "{{ article.title_en }}"
-    description: "{{ article.seo_en.description }}"
+    title: "{{ article[locale].title }}"
+    description: "{{ article[locale].seo.description }}"
     image: "{{ article.image.src | to-og-image }}"
-  noLangUrl: "/blog/{{ article.slug_en | slug }}/"
-  noLangUrl_it: "/blog/{{ article.slug_it | slug }}/"
+  noLangUrl: "/blog/{{ article[locale].slug | slug }}/"
+  noLangUrl_it: "/blog/{{ article[locale].slug | slug }}/"
 ---
-
-{{ article.content_en }}
