@@ -20,7 +20,6 @@ layout: base.njk
 </div>
 
 <div class="spacer-2"></div>
-{# <article class="article-content col-8 indented-3">{{ content | safe }}</article> #}
 <article class="article-content col-8 indented-2">
   {% for part in article[locale].body %}
     {% if part.__typename == "TextBlockRecord" %}
@@ -28,9 +27,17 @@ layout: base.njk
     {% elif part.__typename == "ImageBlockRecord" %}
       <div class="article-images-wrapper article-images-{{ part.images|length }}">
         {% for image in part.images %}
-          <img src="{{ image.url }}" alt="{{ img.alt? }}" />
+          <picture>
+            <source type="image/webp" media="(min-width: 785px)" srcset="{{ image.url }}?fm=webp&q=70&w=920 1x, {{ image.url }}?fm=webp&q=70&w=1940 2x">
+            <source type="image/webp" media="(max-width: 784px)" srcset="{{ image.url }}?fm=webp&q=70&w=500 1x, {{ image.url }}?fm=webp&q=70&w=1000 2x">
+            <source type="image/jpeg" media="(min-width: 785px)" srcset="{{ image.url }}?fm=jpg&fl=progressive&q=60&w=920 1x, {{ image.url }}?fm=jpg&fl=progressive&q=60&w=1940 2x">
+            <source type="image/jpeg" media="(max-width: 784px)" srcset="{{ image.url }}?fm=jpg&fl=progressive&q=60&w=500 1x, {{ image.url }}?fm=jpg&fl=progressive&q=60&w=1000 2x">
+            <img src="{{ image.url }}?fm=jpg&q=60&w=1000" alt="{{ img.alt? }}" loading="lazy"/>
+          </picture>
         {% endfor %}
       </div>
+    {% elif part.__typename == "CodeBlockRecord" %}
+      {{ part | renderCode | safe }}
     {% endif %}
   {% endfor %}
 </article>

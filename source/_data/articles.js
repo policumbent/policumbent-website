@@ -42,14 +42,15 @@ module.exports = async function getAllArticles() {
         seo_en: seo(locale: en) {
           ...seoFields
         }
-        content_it: content(locale: it)
-        content_en: content(locale: en)
         body_it: body(locale: it){
           ...on ImageBlockRecord{
             ...imageBlockFields
           }
           ...on TextBlockRecord{
             ...textBlockFields
+          }
+          ...on CodeBlockRecord{
+            ...codeBlockFields
           }
         }
         body_en: body(locale: en){
@@ -58,6 +59,9 @@ module.exports = async function getAllArticles() {
           }
           ...on TextBlockRecord{
             ...textBlockFields
+          }
+          ...on CodeBlockRecord{
+            ...codeBlockFields
           }
         }
     }
@@ -69,6 +73,13 @@ module.exports = async function getAllArticles() {
       url
       alt
     }
+  }
+
+  fragment codeBlockFields on CodeBlockRecord{
+    __typename
+    language
+    file
+    code
   }
   
   fragment textBlockFields on TextBlockRecord{

@@ -18,7 +18,7 @@
 
     h1{
         margin-bottom: $d_p-line-height;
-        margin-top: $d_p-line-height;
+        margin-top: #{2*$d_p-line-height};
         font-size: $d_h2-font-size;
     }
 
@@ -90,7 +90,7 @@
         width: 100%;
         h1{
             margin-bottom: $m_p-line-height;
-            margin-top: $m_p-line-height;
+            margin-top: #{2*$m_p-line-height};
             font-size: $m_h2-font-size;
             line-height: 28px;
         }
@@ -105,3 +105,171 @@
         }
     }
 }
+
+.code-first-line{
+    span{
+        align-self: center;
+        &:first-child{
+            width: calc(100% - 74px);
+            word-break: break-all;
+            word-break: break-word;
+            white-space: normal;
+        }
+    }
+    display: flex;
+    justify-content: space-between;
+    color: #f97d02;
+    background: #1e1e1e;
+    padding: 0px 24px 24px 24px;
+}
+
+.code-buttons-copy {
+    z-index: 100;
+    background-position: center;    
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M3%2010.5V4H2C0.895503%204%200%204.8955%200%206V14C0%2015.1045%200.895503%2016%202%2016H10C11.1045%2016%2012%2015.1045%2012%2014V13H5.5C4.3955%2013%203%2011.6045%203%2010.5ZM14%200H6C4.8955%200%204%200.895503%204%202V10C4%2011.1045%204.8955%2012%206%2012H14C15.1045%2012%2016%2011.1045%2016%2010V2C16%200.895503%2015.1045%200%2014%200Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+    background-size: 20px;
+    pointer-events: initial;
+  }
+
+  .ok-icon{
+    background-image: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%2224%22%20height%3D%2218%22%20viewBox%3D%220%200%2024%2018%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0%209.7657L8.21865%2018L24%202.23433L21.7343%200L8.21865%2013.4999L2.23429%207.51564L0%209.7657Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E") !important;
+  }
+
+//code highlight
+.hljs::-webkit-scrollbar {
+    width: 14px;
+    height: 18px;
+  }
+  .hljs::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 4px solid #7F7F7F;
+    background-clip: padding-box;
+    -webkit-border-radius: 7px;
+    background-color: #7F7F7F;
+    -webkit-box-shadow: inset -1px -1px 0px #7F7F7F, inset 1px 1px 0px #7F7F7F;
+  }
+  ::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  .hljs {
+    scrollbar-width: thin;
+    scrollbar-color: #7F7F7F;
+    position: relative;
+    display: block;
+    overflow-x: auto;
+    background: #1E1E1E;
+    color: #DCDCDC;
+    padding: 0px 24px 24px 24px;
+  }
+  
+  .hljs-keyword,
+  .hljs-literal,
+  .hljs-symbol,
+  .hljs-name {
+    color: #569CD6;
+  }
+  .hljs-link {
+    color: #569CD6;
+    text-decoration: underline;
+  }
+  
+  .hljs-built_in,
+  .hljs-type {
+    color: #4EC9B0;
+  }
+  
+  .hljs-number,
+  .hljs-class {
+    color: #B8D7A3;
+  }
+  
+  .hljs-string,
+  .hljs-meta-string {
+    color: #D69D85;
+  }
+  
+  .hljs-regexp,
+  .hljs-template-tag {
+    color: #9A5334;
+  }
+  
+  .hljs-subst,
+  .hljs-function,
+  .hljs-title,
+  .hljs-params,
+  .hljs-formula {
+    color: #DCDCDC;
+  }
+  
+  .hljs-comment,
+  .hljs-quote {
+    color: #57A64A;
+    font-style: italic;
+  }
+  
+  .hljs-doctag {
+    color: #608B4E;
+  }
+  
+  .hljs-meta,
+  .hljs-meta-keyword,
+  .hljs-tag {
+    color: #9B9B9B;
+  }
+  
+  .hljs-variable,
+  .hljs-template-variable {
+    color: #BD63C5;
+  }
+  
+  .hljs-attr,
+  .hljs-attribute,
+  .hljs-builtin-name {
+    color: #9CDCFE;
+  }
+  
+  .hljs-section {
+    color: gold;
+  }
+  
+  .hljs-emphasis {
+    font-style: italic;
+  }
+  
+  .hljs-strong {
+    font-weight: bold;
+  }
+  
+  /*.hljs-code {
+    font-family:'Monospace';
+  }*/
+  
+  .hljs-bullet,
+  .hljs-selector-tag,
+  .hljs-selector-id,
+  .hljs-selector-class,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo {
+    color: #D7BA7D;
+  }
+  
+  .hljs-addition {
+    background-color: #144212;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .hljs-deletion {
+    background-color: #600;
+    display: inline-block;
+    width: 100%;
+  }

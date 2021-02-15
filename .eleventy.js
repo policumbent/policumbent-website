@@ -2,7 +2,23 @@ require('dotenv').config();
 const i18n = require('eleventy-plugin-i18n');
 const translations = require('./source/_data/translations.js');
 const fs = require('fs-extra');
+const hljs = require('highlight.js');
 var moment = require('moment');
+
+const renderCode = function({ language, file, code}){
+    let first_line = `<div class="code-first-line"><span>`;
+    first_line = file ? first_line.concat(file, " ") : first_line;
+    first_line = language ? first_line.concat("[" + language + "]", "</span><span class=\"code-buttons-copy\"></span></div>") : first_line.concat("<span class=\"code-buttons-copy\"></span></div>");
+    let formatted_code = '';
+    try {
+        formatted_code = fields.hljslanguage ? hljs.highlight(language, code, true).value : hljs.highlightAuto(code).value;
+    }
+    catch (err){
+        formatted_code = hljs.highlightAuto(code).value;
+    }
+    return `<section><pre>${first_line}<code class="hljs">${formatted_code}</code></pre></section>`;
+            
+}
 
 module.exports = function (eleventyConfig) {
     // delete the old build directory
@@ -21,6 +37,9 @@ module.exports = function (eleventyConfig) {
     // capitalize first letter
     eleventyConfig.addFilter('upfirst', function(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    });
+    eleventyConfig.addFilter('renderCode', function(data) {
+        return renderCode(data);
     });
     // to og image (adds crop query at the end of image url)
     eleventyConfig.addFilter('to-og-image', function(url) {

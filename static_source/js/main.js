@@ -15,6 +15,42 @@ if(document.getElementsByClassName("prototype-gallery").length > 0){
 	new SimpleLightbox({elements: '.prototype-gallery__wrapper a'});
 }
 
+// if code is in article page
+if(document.getElementsByClassName("article-content").length > 0){
+	var btns_copy = document.getElementsByClassName("code-buttons-copy");
+	for (var i = 0; i < btns_copy.length; i++) {
+		btns_copy.item(i).addEventListener("click", function(e){
+			//select the hljs block
+			var elem = e.target.parentNode.nextElementSibling || e.target.parentNode.nextSibling;
+			var text = elem.textContent || elem.innerText;
+	
+			// Create a textblock and assign the text and add to document
+			var el = document.createElement('textarea');
+			el.value = text.trim();
+			document.body.appendChild(el);
+			el.style.display = "block";
+	
+			// select the entire textblock
+			if (window.document.documentMode)
+				el.setSelectionRange(0, el.value.length);
+			else
+				el.select();
+	
+			// copy to clipboard
+			document.execCommand('copy');
+	
+			// clean up element
+			document.body.removeChild(el);
+			
+			e.target.classList.add("ok-icon");
+	
+			setTimeout( function(){ 
+				e.target.classList.remove("ok-icon");
+			}, 4000);
+		});
+	}
+}
+
 // if code is in whpsc page
 if(document.getElementsByClassName("race-parts-wrapper").length > 0){
 	var galleries = document.getElementsByClassName("race__gallery");

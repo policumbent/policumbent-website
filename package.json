@@ -35,5 +35,8 @@
     "postcss": "^7.0.32",
     "postcss-cli": "^7.1.1",
     "uglify-js": "^3.10.2"
+  },
+  "dependencies": {
+    "highlight.js": "^10.6.0"
   }
 }
