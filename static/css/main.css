@@ -1044,7 +1044,8 @@ header {
     display: block;
     width: 100%;
     max-width: 100%;
-    max-height: 80vh; }
+    max-height: 800px;
+    object-fit: contain; }
   .article-content a {
     text-decoration: underline;
     color: #009400; }

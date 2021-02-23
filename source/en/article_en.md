@@ -12,5 +12,5 @@ eleventyComputed:
     description: "{{ article[locale].seo.description }}"
     image: "{{ article.image.src | to-og-image }}"
   noLangUrl: "/blog/{{ article[locale].slug | slug }}/"
-  noLangUrl_it: "/blog/{{ article[locale].slug | slug }}/"
+  noLangUrl_it: "/blog/{{ article.it.slug | slug }}/"
 ---
