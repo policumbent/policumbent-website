@@ -7,8 +7,13 @@
       </div>    
       {# <h1>we build the world’s fastest bikes</h1> #}
       <div class="intro-text-wrapper">
-        <img id="intro-text-mobile" src="/static/img/home-intro_new.svg" alt="we build the fastest bikes in the world"/>
-        <img id="intro-text-desktop" src="/static/img/home-intro_desktop.svg" alt="we build the fastest bikes in the world"/>
+        {% if locale=="en" %}
+          <img id="intro-text-desktop" src="/static/img/home-intro_desktop_en.svg" alt="we build the fastest bikes in the world"/>
+          <img id="intro-text-mobile" src="/static/img/home-intro_mobile_en.svg" alt="we build the fastest bikes in the world"/>
+        {% else %}
+          <img id="intro-text-desktop" src="/static/img/home-intro_desktop_it.svg" alt="we build the fastest bikes in the world"/>
+          <img id="intro-text-mobile" src="/static/img/home-intro_mobile_it.svg" alt="we build the fastest bikes in the world"/>
+        {% endif %}
       </div>
     </div>
     
