@@ -5,11 +5,11 @@
 
     img{
         border-radius: 8px;
-        width: calc(50% - #{$d_margin/2});
+        width: calc(30% - #{$d_margin/2});
         height: 100%;
     }
     .contact-details{
-        width: calc(50% - #{$d_margin/2});
+        width: calc(70% - #{$d_margin/2});
         a {
             text-decoration: underline;
             color: $green;

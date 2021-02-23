@@ -678,10 +678,10 @@ body {
   margin-bottom: 48px; }
   .contact img {
     border-radius: 8px;
-    width: calc(50% - 12px);
+    width: calc(30% - 12px);
     height: 100%; }
   .contact .contact-details {
-    width: calc(50% - 12px); }
+    width: calc(70% - 12px); }
     .contact .contact-details a {
       text-decoration: underline;
       color: #009400; }
