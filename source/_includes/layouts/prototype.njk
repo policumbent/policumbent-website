@@ -11,25 +11,13 @@ layout: base.njk
         <img src="/static/img/prototype-arrow.svg" />
         <p>
             <span>{{ "season" | i18n | upfirst }}:</span><b>{{ prototype.season }}</b><br/>
-            <span>{{ "speed" | i18n | upfirst }}:</span><b>{{ prototype.speed }}km/h</b>
+            {% if prototype.speed %}<span>{{ "speed" | i18n | upfirst }}:</span><b>{{ prototype.speed }}km/h</b>{% endif %}
         </p>
     </div>
     <img class="col-8 prototype-intro__img"src="{{ prototype.image.url }}" alt="{{ prototype.name }}"/>
 </div>
 
-
-<div class="prototype-features col-8">
-    <div class="spacer-7"></div>
-    <h1>{{ 'Features' | i18n | upfirst }}</h1>
-    {% if locale=="it" %}
-        {{ prototype.features_it | markdown | safe }}
-    {% else %}
-        {{ prototype.features_en | markdown | safe }}
-    {% endif %}
-</div>
-
-
-<div class="prototype-history col-8 indented-4">
+<div class="prototype-history col-8">
     <div class="spacer-8"></div>
     <h1>{{ 'History' | i18n | upfirst }}</h1>
     {% if locale=="it" %}
@@ -40,13 +28,26 @@ layout: base.njk
 </div>
 
 
-<div class="prototype-gallery">
-    <div class="spacer-8"></div>
-    <h1>{{ 'Gallery' | i18n }}</h1>
-    <div class="spacer-1"></div>
-    <div class="prototype-gallery__wrapper">
-        {% for image in prototype.gallery %}
-            <a href="{{ image.url }}?w=1600&h=1400" title="{{ image.alt }}"><img src="{{ image.preview }}" alt="{{ image.alt }}"/></a>
-        {% endfor %}
-      </div>
+<div class="prototype-features col-8 indented-4">
+    <div class="spacer-7"></div>
+    <h1>{{ 'Features' | i18n | upfirst }}</h1>
+    {% if locale=="it" %}
+        {{ prototype.features_it | markdown | safe }}
+    {% else %}
+        {{ prototype.features_en | markdown | safe }}
+    {% endif %}
 </div>
+
+<div class="spacer-8"></div>
+
+{% if prototype.gallery.length > 0 %}
+    <div class="prototype-gallery">
+        <h1>{{ 'Gallery' | i18n }}</h1>
+        <div class="spacer-1"></div>
+        <div class="prototype-gallery__wrapper">
+            {% for image in prototype.gallery %}
+                <a href="{{ image.url }}?w=1600&h=1400" title="{{ image.alt }}"><img src="{{ image.preview }}" alt="{{ image.alt }}"/></a>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

@@ -940,6 +940,9 @@ header {
 .prototype-history ul, .prototype-features ul {
   margin: 0; }
 
+.prototype-history p, .prototype-history ul, .prototype-features p, .prototype-features ul {
+  margin-bottom: 32px; }
+
 .prototype-gallery__wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -1468,6 +1471,8 @@ header {
         min-width: 50%;
         max-width: fit-content;
         margin: 24px 0px 24px 0px; }
+  .prototype-features p, .prototype-features ul, .prototype-history p, .prototype-history ul, .prototype-gallery p, .prototype-gallery ul {
+    margin-bottom: 22px; }
   .prototype-features .spacer-7, .prototype-features .spacer-8, .prototype-history .spacer-7, .prototype-history .spacer-8, .prototype-gallery .spacer-7, .prototype-gallery .spacer-8 {
     height: 66px; }
   .prototype-gallery {

@@ -34,6 +34,9 @@
     ul{
         margin: 0;
     }
+    p, ul{
+        margin-bottom: $d_p-line-height;
+    }
 }
 
 .prototype-gallery__wrapper{
@@ -84,6 +87,9 @@
     }
 
     .prototype-features, .prototype-history, .prototype-gallery{
+        p, ul{
+            margin-bottom: $m_p-line-height;
+        }
         .spacer-7, .spacer-8{
             height: #{3*$m_p-line-height};
         }
