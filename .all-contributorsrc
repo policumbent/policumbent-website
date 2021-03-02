@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "davideaimar",
+      "name": "davide.aimar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17318562?v=4",
+      "profile": "https://github.com/davideaimar",
+      "contributions": [
+        "code",
+        "design",
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "policumbent-website",
+  "projectOwner": "policumbent",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
