@@ -20,6 +20,11 @@
                 height: 15px;
             }
         }
+        .cryptedmail:after {
+            content: attr(data-name) "@" attr(data-domain) " ↗";
+            display: inline-block;
+            vertical-align: 0px;
+        }
     }
     .contacts-list{
         margin-top: #{1*$d_margin};

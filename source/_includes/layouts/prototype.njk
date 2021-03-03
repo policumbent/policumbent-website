@@ -14,7 +14,15 @@ layout: base.njk
             {% if prototype.speed %}<span>{{ "speed" | i18n | upfirst }}:</span><b>{{ prototype.speed }}km/h</b>{% endif %}
         </p>
     </div>
-    <img class="col-8 prototype-intro__img"src="{{ prototype.image.url }}" alt="{{ prototype.name }}"/>
+    <div style="border-radius: 8px; position: relative; background-image: url({{prototype.image.responsiveImage.base64}}); background-size: cover;">
+        <div style="padding-top: {{100.0 / prototype.image.responsiveImage.aspectRatio}}%;">
+            <picture style="position: absolute; left: 0; top: 0; width: 100%">
+                <source srcset="{{prototype.image.responsiveImage.webpSrcSet}}" type="image/webp" sizes="{{ prototype.image.responsiveImage.sizes }}">
+                <source srcset="{{prototype.image.responsiveImage.srcSet}}" sizes="{{ prototype.image.responsiveImage.sizes }}">
+                <img class="prototype-intro__img" src="{{prototype.image.responsiveImage.src}}" alt="{{ prototype[locale].image.alt }}">
+            </picture>
+        </div>
+    </div>
 </div>
 
 <div class="prototype-history col-8">

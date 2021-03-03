@@ -29,7 +29,7 @@ eleventyComputed:
         <h2>{{ referent.name }}</h2>
         <div class="contacts-list">
           {% for contact in referent.contacts_it if locale=="it" else referent.contacts_en %}
-            <p>{{ contact.contactType }}: <a href="{{ contact.contactUrl }}">{{ contact.contactToShow }}</a></p>
+            <p>{{ contact.contactType }}: {% if "@" in contact.contactToShow %}{{ contact.contactToShow | cryptedMail | safe }}{%else%}<a href="{{ contact.contactUrl }}">{{ contact.contactToShow }}</a>{% endif %}</p>
           {% endfor %}
         </div>
       </div>

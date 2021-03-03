@@ -690,6 +690,10 @@ body {
         display: inline-block;
         vertical-align: -3px;
         height: 15px; }
+    .contact .contact-details .cryptedmail:after {
+      content: attr(data-name) "@" attr(data-domain) " ↗";
+      display: inline-block;
+      vertical-align: 0px; }
   .contact .contacts-list {
     margin-top: 24px; }
 
@@ -870,7 +874,9 @@ header {
     color: #009400; }
 
 .home-team img {
-  border-radius: 8px; }
+  border-radius: 8px;
+  width: 100%;
+  object-fit: contain; }
 
 .home-intro {
   flex: 1 0 auto;
@@ -930,8 +936,9 @@ header {
     .prototype-intro .prototype-intro__text b {
       float: right;
       margin-left: 24px; }
-  .prototype-intro > img {
+  .prototype-intro img {
     width: 100%;
+    object-fit: contain;
     border-radius: 8px; }
 
 .prototype-history h1, .prototype-features h1 {
@@ -1346,7 +1353,16 @@ header {
         width: calc(50% - 11px);
         align-items: flex-start;
         display: flex;
-        flex-direction: column; } }
+        flex-direction: column; }
+  h1 {
+    font-size: 38px;
+    line-height: 44px; }
+  h2 {
+    font-size: 22px;
+    line-height: 44px; }
+  body, span, p, li {
+    font-size: 18px;
+    line-height: 22px; } }
 
 @media only screen and (max-width: 768px) {
   #container {
@@ -1377,15 +1393,6 @@ header {
       margin: auto;
       padding: 24px 0px;
       max-width: 200px; }
-  h1 {
-    font-size: 38px;
-    line-height: 44px; }
-  h2 {
-    font-size: 22px;
-    line-height: 44px; }
-  body, span, p, li {
-    font-size: 18px;
-    line-height: 22px; }
   .home-team img {
     margin-bottom: 22px; }
   .home-link {

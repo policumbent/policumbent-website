@@ -11,8 +11,7 @@ sitemap:
           <url>
               <loc>{{ site.root }}{{ item.url }}</loc>
               {% if item.data.pagination.alias == "article" %}
-                {% comment %} If item is a post then manage different slug language {% endcomment %}
-                {% comment %} TODO:  Also manage the fact that english version is not mandatory {% endcomment %}
+                {% comment %} If item is an article ost then manage different slug language {% endcomment %}
                 {% if item.data.locale == "it" and item.data.noLangUrl_en %}
                   <xhtml:link 
                   rel="alternate"
@@ -31,7 +30,7 @@ sitemap:
                     href="{{ site.root }}/it{{ item.data.noLangUrl_it }}"/>
                 {% endif %}
               {% else %}
-                {% comment %} If item is not a post simply replace /lang / prefix {% endcomment %}
+                {% comment %} If item is not an article simply replace /lang / prefix {% endcomment %}
                 {% for lang2 in site.languages %}
                   {% if lang2.locale != item.data.locale %}
                     <xhtml:link 

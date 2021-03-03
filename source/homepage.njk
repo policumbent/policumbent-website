@@ -21,7 +21,13 @@ eleventyComputed:
 <h1>{{ homepage[locale].teamTitle }}</h1>
 <div class="spacer-1"></div>
 <div class="row home-team">
-  <img src="{{ homepage[locale].teamImage.url }}" alt="{{ homepage[locale].teamImage.alt }}" class="col-7"/>
+  <picture class="col-7">
+    <source type="image/webp" media="(min-width: 500px)" srcset="{{ homepage[locale].teamImage.url }}?w=800&fm=webp 1x, {{ homepage[locale].teamImage.url }}?w=1600&fm=webp 2x">
+    <source type="image/webp" media="(max-width: 500px)"srcset="{{ homepage[locale].teamImage.url }}?w=500&fm=webp 1x, {{ homepage[locale].teamImage.url }}?w=1000&fm=webp 2x">
+    <source type="image/jpeg" media="(min-width: 500px)" srcset="{{ homepage[locale].teamImage.url }}?w=800&fm=jpg 1x, {{ homepage[locale].teamImage.url }}?w=1600&fm=jpg 2x">
+    <source type="image/jpeg" media="(max-width: 500px)" srcset="{{ homepage[locale].teamImage.url }}?w=500&fm=jpg 1x, {{ homepage[locale].teamImage.url }}?w=1000&fm=jpg 2x">
+    <img src="{{ homepage[locale].teamImage.url }}?fm=jpg&w=800" alt="{{ homepage[locale].teamImage.alt }}"/>
+  </picture>
   <p class="col-3 align-bottom">
     {{ homepage[locale].teamDescription }}
     <br/>
@@ -46,7 +52,7 @@ eleventyComputed:
     {% endfor %}
   </div>
   <div class="spacer-2"></div>
-  <a href="/{{locale}}/prototypes/" class="text-right float-right home-link">{{ "show_more" | i18n }}</a>
+  <a href="/{{locale}}/prototypes/" class="text-right float-right home-link">{{ "show_more_f" | i18n }}</a>
 </div>
 
 <div class="spacer-5"></div>

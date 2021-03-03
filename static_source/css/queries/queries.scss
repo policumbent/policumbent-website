@@ -5,7 +5,7 @@
 
 @media only screen and (max-width: 1024px) {
     @include header--1024();
-    
+    @include typography--mobile();
 }
 
 
@@ -14,7 +14,6 @@
         padding: $m_margin;
     }
     @include footer--768();
-    @include typography--mobile();
     @include home--mobile();
     @include whpsc--mobile();
     @include article--mobile();

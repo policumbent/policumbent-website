@@ -24,10 +24,30 @@ module.exports = async function getAllPrototypes() {
       image {
         preview: url(imgixParams: {fm: jpg, w: 800, h:800, fit: crop})
         alt
+        responsiveImage(
+          sizes: "(max-width: 768px) 100vw, (max-width: 1440px) 80vw, 1440px",
+          imgixParams: {fm: jpg, fit: crop, w: 1200, h: 900 }
+        ){
+        	...responsiveImageFragment
+        }
         url
       }
     }
-  }`
+  }
+  
+fragment responsiveImageFragment on ResponsiveImage {
+    srcSet
+    webpSrcSet
+    sizes
+    src
+    width
+    height
+    aspectRatio
+    alt
+    title
+    bgColor
+    base64
+}`
 
   const response = await fetchFromDato(query);
   
@@ -42,6 +62,7 @@ module.exports = async function getAllPrototypes() {
       season: item.season,
       image: {
         url: item.image.url,
+        responsiveImage: item.image.responsiveImage,
         preview: item.image.preview,
         alt: item.image.alt
       },

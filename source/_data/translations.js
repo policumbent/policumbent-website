@@ -9,12 +9,12 @@ module.exports = {
     'en': "Articles"
   },
   prototypes:{
-    'it': "prototipi",
-    'en': "prototypes"
+    'it': "le bici",
+    'en': "bikes"
   },
   the_prototypes:{
-    'it': "I prototipi",
-    'en': "The prototypes"
+    'it': "Le bici",
+    'en': "The bikes"
   },
   about_us:{
     'it': "Il team",
@@ -41,8 +41,8 @@ module.exports = {
     'en': "Back to articles"
   },
   our_prototypes:{
-    'it': "i nostri prototipi",
-    'en': "our prototypes"
+    'it': "le nostre bici",
+    'en': "our bikes"
   },
   Features:{
     'it': "Specifiche",
@@ -69,8 +69,8 @@ module.exports = {
     'en': "Call us or write an email for any informations"
   },
   prototypes_description:{
-    'it': "I prototipi del team Policumbent sviluppati nel corso degli anni",
-    'en': "Policumbent's prototypes developing during years"
+    'it': "Le bici del team Policumbent sviluppati nel corso degli anni",
+    'en': "Policumbent's bikes developed during years"
   },
   sponsors_description:{
     'it': "Gli sponsor che sostengono economicamente e tecnicamente il team",
@@ -90,6 +90,10 @@ module.exports = {
   },
   show_more:{
     'it': "Mostra altri",
+    'en': "Show more"
+  },
+  show_more_f:{
+    'it': "Mostra altre",
     'en': "Show more"
   },
   team_short_description:{
@@ -123,5 +127,9 @@ module.exports = {
   whpsc_description:{
     'it': "Ogni anno partecipiamo alla WHPSC, una competizione che si svolge a Battle Mountain, in Nevada, lungo un rettilineo di 5 miglia ad un’altitudine di 1408 metri.",
     'en': "Every year we partecipate to the WHPSC, a competition that takes place in Battle Mountain, in Nevada, along a 5 mile straight at an altitude of 1408 meters."
+  },
+  privacy_message:{
+    'it': "Non usiamo cookie e non tracciamo gli utenti",
+    'en': "We don't use cookies and we don't track you"
   }
 };

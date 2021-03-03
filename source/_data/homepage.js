@@ -8,7 +8,7 @@ module.exports = async function getHomePage() {
     	teamTitle
     	teamDescription
     	teamImage {
-    	  url: url(imgixParams: {fm: jpg, w: 1000})
+    	  url
         alt
     	}
     	teamButtonText
