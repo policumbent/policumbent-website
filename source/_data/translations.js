@@ -9,7 +9,7 @@ module.exports = {
     'en': "Articles"
   },
   prototypes:{
-    'it': "le bici",
+    'it': "biciclette",
     'en': "bikes"
   },
   the_prototypes:{
