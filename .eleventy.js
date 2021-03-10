@@ -57,8 +57,8 @@ module.exports = function (eleventyConfig) {
         return renderCryptedMail(data);
     });
     // to og image (adds crop query at the end of image url)
-    eleventyConfig.addFilter('to-og-image', function(url) {
-        return url+"?fit=crop&w=1200&h=630";
+    eleventyConfig.addFilter('ogImage', function(url) {
+        return url+"?fit=crop&w=1200&h=630&fm=jpg";
     });
     // set local initial path to http://localhost:8080/it/
     eleventyConfig.setBrowserSyncConfig({

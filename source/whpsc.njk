@@ -14,6 +14,7 @@ eleventyComputed:
   metadata:
     title: "WHPSC"
     description: "{{ 'whpsc_description' | i18n | upfirst | safe }}"
+    image: "{{ whpsc_page.it.og_image.url | safe }}"
   locale: "{{lang.locale}}"
 ---
 

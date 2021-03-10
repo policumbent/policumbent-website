@@ -14,12 +14,12 @@
 
             <div class="header__links">
                 <a class="{{ 'active' if page.url | length == 4 }}" href="/{{locale}}/">Home</a>
-                <a class="{{ 'active' if '/prototypes' in page.url }}" href="/{{locale}}/prototypes/">{{ "prototypes" | i18n }}</a>
-                <a class="{{ 'active' if '/team' in page.url }}" href="/{{locale}}/team/">Team</a>
-                <a class="{{ 'active' if '/whpsc' in page.url }}" href="/{{locale}}/whpsc/">WHPSC</a>
-                <a class="{{ 'active' if '/partners' in page.url }}" href="/{{locale}}/partners/">partners</a>
-                <a class="{{ 'active' if '/blog' in page.url }}" href="/{{locale}}/blog/">Blog</a>
-                <a class="{{ 'active' if '/contacts' in page.url }}" href="/{{locale}}/contacts/">{{ "contacts" | i18n }}</a>
+                <a class="{{ 'active' if '/prototypes/' in page.url }}" href="/{{locale}}/prototypes/">{{ "prototypes" | i18n }}</a>
+                <a class="{{ 'active' if '/team/' in page.url }}" href="/{{locale}}/team/">Team</a>
+                <a class="{{ 'active' if '/whpsc/' in page.url }}" href="/{{locale}}/whpsc/">WHPSC</a>
+                <a class="{{ 'active' if '/partners/' in page.url }}" href="/{{locale}}/partners/">partners</a>
+                <a class="{{ 'active' if '/blog/' in page.url }}" href="/{{locale}}/blog/">Blog</a>
+                <a class="{{ 'active' if '/contacts/' in page.url }}" href="/{{locale}}/contacts/">{{ "contacts" | i18n }}</a>
             </div>
 
             <div class="header__switcher">
@@ -49,12 +49,12 @@
             <div class="header__buttons">
                 <span class="upfirst">
                 {{ 'home' if page.url | length == 4 }}
-                {{ "prototypes" | i18n if '/prototypes' in page.url }}
-                {{ 'Team' if '/team' in page.url }}
-                {{ "WHPSC" if '/whpsc' in page.url }}
-                {{ 'partners' if '/partners' in page.url }}
-                {{ 'Blog' if '/blog' in page.url }}
-                {{ "contacts" | i18n if '/contacts' in page.url }}
+                {{ "prototypes" | i18n if '/prototypes/' in page.url }}
+                {{ 'Team' if '/team/' in page.url }}
+                {{ "WHPSC" if '/whpsc/' in page.url }}
+                {{ 'partners' if '/partners/' in page.url }}
+                {{ 'Blog' if '/blog/' in page.url }}
+                {{ "contacts" | i18n if '/contacts/' in page.url }}
                 </span>
                 <svg id="header__open-menu" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <line x1="1.31134e-07" y1="1.5" x2="26" y2="1.5" stroke="black" stroke-width="3"/>
@@ -72,19 +72,19 @@
 
         <div id="header__overlay" class="header__overlay header__overlay--hidden">
             <div class="pages">
-                <span class="label">Pagina:</span>
+                <span class="label">{{ "page" | i18n }}:</span>
                 <div class="header__links right-block">
                     <a class="upfirst {{ 'active' if page.url | length == 4 }}" href="/{{locale}}/">Home</a>
-                    <a class="upfirst {{ 'active' if '/prototypes' in page.url }}" href="/{{locale}}/prototypes/">{{ "prototypes" | i18n }}</a>
-                    <a class="upfirst {{ 'active' if '/team' in page.url }}" href="/{{locale}}/team/">Team</a>
-                    <a class="upfirst {{ 'active' if '/whpsc' in page.url }}" href="/{{locale}}/whpsc/">WHPSC</a>
-                    <a class="upfirst {{ 'active' if '/partners' in page.url }}" href="/{{locale}}/partners/">partners</a>
-                    <a class="upfirst {{ 'active' if '/blog' in page.url }}" href="/{{locale}}/blog/">Blog</a>
-                    <a class="upfirst {{ 'active' if '/contacts' in page.url }}" href="/{{locale}}/contacts/">{{ "contacts" | i18n }}</a>
+                    <a class="upfirst {{ 'active' if '/prototypes/' in page.url }}" href="/{{locale}}/prototypes/">{{ "prototypes" | i18n }}</a>
+                    <a class="upfirst {{ 'active' if '/team/' in page.url }}" href="/{{locale}}/team/">Team</a>
+                    <a class="upfirst {{ 'active' if '/whpsc/' in page.url }}" href="/{{locale}}/whpsc/">WHPSC</a>
+                    <a class="upfirst {{ 'active' if '/partners/' in page.url }}" href="/{{locale}}/partners/">partners</a>
+                    <a class="upfirst {{ 'active' if '/blog/' in page.url }}" href="/{{locale}}/blog/">Blog</a>
+                    <a class="upfirst {{ 'active' if '/contacts/' in page.url }}" href="/{{locale}}/contacts/">{{ "contacts" | i18n }}</a>
                 </div>
             </div>
             <div class="languages">
-                <span class="label">Lingua:</span>
+                <span class="label">{{ "language" | i18n }}:</span>
                 <div class="header__switcher right-block">
                     {% if locale=="it" %}
                         <span class="active">Italiano</span>

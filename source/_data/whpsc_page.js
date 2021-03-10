@@ -15,6 +15,9 @@ module.exports = async function getWhpscPage() {
             ...responsiveImageFragment
           }
         }
+        og_image: image{
+          url(imgixParams: {fm: jpg, fit: crop, w: 1200, h: 630 })
+        }
         raceTitle
         raceIntroText
         raceParts{

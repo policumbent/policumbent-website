@@ -23,6 +23,9 @@ module.exports = async function getTeamPage() {
         	...responsiveImageFragment
         }
       }
+      og_image: image{
+        url(imgixParams: {fm: jpg, fit: crop, w: 1200, h: 630 })
+      }
     }
   }
   
@@ -53,7 +56,8 @@ module.exports = async function getTeamPage() {
       introText: response.data.teamPage.introText_en,
       image_alt: response.data.teamPage.image_alt_en
     },
-    image: response.data.teamPage.image.responsiveImage
+    image: response.data.teamPage.image.responsiveImage,
+    og_image: response.data.teamPage.og_image
   }
   
   return teamPage;

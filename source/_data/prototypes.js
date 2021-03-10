@@ -22,7 +22,10 @@ module.exports = async function getAllPrototypes() {
         alt
       }
       image {
-        preview: url(imgixParams: {fm: jpg, w: 800, h:800, fit: crop})
+        preview_2x_jpg: url(imgixParams: {fm: jpg, w: 1000, h:1000, fit: crop})
+        preview_2x_webp: url(imgixParams: {fm: webp, w: 1000, h:1000, fit: crop})
+        preview_1x_jpg: url(imgixParams: {fm: jpg, w: 500, h:500, fit: crop})
+        preview_1x_webp: url(imgixParams: {fm: webp, w: 500, h:500, fit: crop})
         alt
         responsiveImage(
           sizes: "(max-width: 768px) 100vw, (max-width: 1440px) 80vw, 1440px",
@@ -64,6 +67,10 @@ fragment responsiveImageFragment on ResponsiveImage {
         url: item.image.url,
         responsiveImage: item.image.responsiveImage,
         preview: item.image.preview,
+        preview_2x_jpg: item.image.preview_2x_jpg,
+        preview_2x_webp: item.image.preview_2x_webp,
+        preview_1x_jpg: item.image.preview_1x_jpg,
+        preview_1x_webp: item.image.preview_1x_webp,
         alt: item.image.alt
       },
       features_it: item.features_it,

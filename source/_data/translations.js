@@ -131,5 +131,13 @@ module.exports = {
   privacy_message:{
     'it': "Non usiamo cookie e non tracciamo gli utenti",
     'en': "We don't use cookies and we don't track you"
+  },
+  page:{
+    'it': "Pagina",
+    'en': "Page"
+  },
+  language:{
+    'it': "Lingua",
+    'en': "Language"
   }
 };

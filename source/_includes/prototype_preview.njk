@@ -1,6 +1,10 @@
 <div class="prototype-preview col-6">
   <a href="/{{ locale }}/prototypes/{{ prototype.name | slug }}/">
-    <img src="{{ prototype.image.preview }}" alt="{{ prototype.image.alt }}"/>
+    <picture>
+      <source type="image/webp" srcset="{{ prototype.image.preview_1x_webp }} 1x, {{ prototype.image.preview_2x_webp }} 2x">
+      <source type="image/jpeg" srcset="{{ prototype.image.preview_1x_jpg }} 1x, {{ prototype.image.preview_2x_jpg }} 2x">
+      <img src="{{ prototype.image.preview_1x_jpg }}" alt="{{ prototype.image.alt }}" loading="lazy"/>
+    </picture>
     <span>{{ prototype.name }}</span>
   </a>
 </div>
