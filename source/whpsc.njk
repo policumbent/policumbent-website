@@ -46,7 +46,7 @@ eleventyComputed:
     <div class="row">
       <div class="race-part-info col-6">
         <h2>{{ race_part.name }}</h2>
-        <p>{{ race_part.description }}</p>
+        <p>{{ race_part.description | striptags(true) | escape | nl2br }}</p>
       </div>
       <picture class="col-6">
         <source srcset="{{ race_part.image.url }}?fm=webp&q=70&w=800&h=500&fit=crop" type="image/webp">

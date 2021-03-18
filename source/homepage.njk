@@ -29,7 +29,7 @@ eleventyComputed:
     <img src="{{ homepage[locale].teamImage.url }}?fm=jpg&w=800" alt="{{ homepage[locale].teamImage.alt }}"/>
   </picture>
   <p class="col-3 align-bottom">
-    {{ homepage[locale].teamDescription }}
+    {{ homepage[locale].teamDescription  | striptags(true) | escape | nl2br }}
     <br/>
     <br/>
     <a href="/{{locale}}/team/" class="home-link">{{ homepage[locale].teamButtonText }}</a>
