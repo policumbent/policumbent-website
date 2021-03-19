@@ -65,17 +65,14 @@
     {% block post_container %}{% endblock %}
     {% include "footer.njk" %}
     <script src="/static/js/main.min.js"></script>
-    <!-- Google analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8WF3R4SLE"></script>
     <script>
-      (function(e,t,n,i,s,a,c){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)}
-      ;a=t.createElement(i);c=t.getElementsByTagName(i)[0];a.async=true;a.src=s
-      ;c.parentNode.insertBefore(a,c)
-      })(window,document,"galite","script","/static/js/ga-lite@2.js");
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-      galite('create', 'G-W8WF3R4SLE', 'auto');
-      galite('send', 'pageview', {
-        'anonymizeIp': true
-      });
-    </script>
+      gtag('config', 'G-W8WF3R4SLE');
+  </script> 
   </body>
 </html>
