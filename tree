@@ -1,0 +1,14 @@
+│
+├── // root project mainly directory for settings
+├── public
+│   └── // public files
+├── source
+│   ├── _data
+│   │   └── // js files that fetches data
+│   ├── _includes
+│   │   └── // layout templates
+│   └── // main eleventy working folder
+├── static
+│   └── // static resources ready for production
+└── static_source
+    └── //static resources to process before production

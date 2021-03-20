@@ -139,5 +139,9 @@ module.exports = {
   language:{
     'it': "Lingua",
     'en': "Language"
+  },
+  thanks_poli_message:{
+    'it': "Progetto realizzato con il contributo del ",
+    'en': "Project realized with the contribution of the "
   }
 };
