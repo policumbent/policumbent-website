@@ -1,0 +1,8 @@
+ci:
+  collect:
+    staticDistDir: ./public
+    settings:
+      skipAudits: [is-on-https]
+
+  upload:
+    target: temporary-public-storage
