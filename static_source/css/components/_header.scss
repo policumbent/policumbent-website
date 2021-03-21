@@ -10,10 +10,17 @@ header{
     height: 120px;
     position: fixed;
     width: 100%;
-    background-color: $header-bg;
-    backdrop-filter: $header-blur;
-    -webkit-backdrop-filter: $header-blur;
+    background-color: white;
     z-index: 999;
+}
+
+/* if backdrop support: very transparent and blurred */
+@supports ((-webkit-backdrop-filter: $header-blur) or (backdrop-filter: $header-blur)) {
+    .header--desktop--wrapper {
+        background-color: $header-bg;
+        backdrop-filter: $header-blur;
+        -webkit-backdrop-filter: $header-blur;
+    }
 }
 
 .header--desktop{

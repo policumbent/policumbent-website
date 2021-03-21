@@ -767,10 +767,15 @@ header {
   height: 120px;
   position: fixed;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
+  background-color: white;
   z-index: 999; }
+
+/* if backdrop support: very transparent and blurred */
+@supports (-webkit-backdrop-filter: blur(7px)) or (backdrop-filter: blur(7px)) {
+  .header--desktop--wrapper {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px); } }
 
 .header--desktop {
   height: 120px;
