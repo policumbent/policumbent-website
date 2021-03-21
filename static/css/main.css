@@ -494,14 +494,14 @@ template {
 @font-face {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 900;
-  src: local("Inter"), url("/static/font/inter-black/InterDisplay-Black.woff2") format("woff2"), url("/static/font/inter-black/InterDisplay-Black.woff") format("woff"); }
+  font-weight: 400;
+  src: url("/static/font/inter-regular/InterDisplay-Regular.woff2") format("woff2"), url("/static/font/inter-regular/InterDisplay-Regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 400;
-  src: local("Inter"), url("/static/font/inter-regular/InterDisplay-Regular.woff2") format("woff2"), url("/static/font/inter-regular/InterDisplay-Regular.woff") format("woff"); }
+  font-weight: 900;
+  src: url("/static/font/inter-black/InterDisplay-Black.woff2") format("woff2"), url("/static/font/inter-black/InterDisplay-Black.woff") format("woff"); }
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -552,6 +552,23 @@ body {
 
 .footer {
   flex-shrink: 0; }
+
+/* Works on Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #a4a4a4 white; }
+
+/* Works on Chrome, Edge, and Safari */
+html::-webkit-scrollbar {
+  width: 10px; }
+
+html::-webkit-scrollbar-thumb {
+  background: white; }
+
+html::-webkit-scrollbar-thumb {
+  background-color: #a4a4a4;
+  border-radius: 20px;
+  border: 3px solid white; }
 
 .slbImageWrap:after {
   content: "";
@@ -719,7 +736,8 @@ body {
       margin-right: auto;
       display: block;
       max-width: 100%;
-      object-fit: contain; }
+      object-fit: contain;
+      max-height: 180px; }
     .sponsor .sponsor-details a {
       text-align: right; }
       .sponsor .sponsor-details a::after {
@@ -852,7 +870,7 @@ header {
   align-self: flex-end; }
   .footer__infos a {
     text-decoration: underline !important; }
-  .footer__infos svg {
+  .footer__infos img {
     width: 200px;
     margin: auto; }
 
@@ -1369,12 +1387,12 @@ header {
     .footer .content h2 {
       text-align: center;
       font-weight: 400; }
-    .footer .content div {
+    .footer .content > div {
       padding-bottom: 18px;
       padding-top: 18px; }
-      .footer .content div:not(:last-child) {
+      .footer .content > div:not(:last-child) {
         border-bottom: 1px solid white; }
-      .footer .content div:last-child {
+      .footer .content > div:last-child {
         margin-bottom: 36px; }
     .footer .content h2 {
       font-size: 38px;

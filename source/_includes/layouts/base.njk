@@ -39,19 +39,6 @@
     <meta name="msapplication-config" content="/static/img/favicon/browserconfig.xml" />
     <meta name="msapplication-TileColor" content="009400">
     <meta name="theme-color" content="009400">
-
-    {# <script> 
-      // Google analytics (lite version)
-      (function(e,t,n,i,s,a,c){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)}
-      ;a=t.createElement(i);c=t.getElementsByTagName(i)[0];a.async=true;a.src=s
-      ;c.parentNode.insertBefore(a,c)
-      })(window,document,"galite","script","https://cdn.jsdelivr.net/npm/ga-lite@2/dist/ga-lite.min.js");
-
-      galite('create', 'XXXXXXXXXXX', 'auto');
-      galite('send', 'pageview', {
-        'anonymizeIp': true
-      });
-    </script>  #}
   </head>
   <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
     {% include "header.njk" %}

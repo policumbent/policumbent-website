@@ -56,7 +56,7 @@
     a{
         text-decoration: underline !important;
     }
-    svg{
+    img{
         width: 200px;
         margin: auto;
     }
@@ -78,7 +78,7 @@
                 text-align: center;
                 font-weight: 400;
             }
-            div {
+            > div {
                 padding-bottom: $m_margin;
                 padding-top: $m_margin;
                 &:not(:last-child) { 
