@@ -7,17 +7,15 @@ var moment = require('moment');
 
 // function that render a block of code in blog articles
 const renderCode = function({ language, file, code}){
-    let first_line = `<div class="code-first-line"><span>`;
-    first_line = file ? first_line.concat(file, " ") : first_line;
-    first_line = language ? first_line.concat("[" + language + "]", "</span><span class=\"code-buttons-copy\"></span></div>") : first_line.concat("<span class=\"code-buttons-copy\"></span></div>");
+    let first_line = `<div class="code-first-line">${file ? "<span>["+file+"]</span><span class=\"code-buttons-copy\"></span>" : "" }</div>`;
     let formatted_code = '';
     try {
-        formatted_code = fields.hljslanguage ? hljs.highlight(language, code, true).value : hljs.highlightAuto(code).value;
+        formatted_code = language ? hljs.highlight(language, code, true).value : hljs.highlightAuto(code).value;
     }
     catch (err){
         formatted_code = hljs.highlightAuto(code).value;
     }
-    return `<section><pre>${first_line}<code class="hljs">${formatted_code}</code></pre></section>`;
+    return `<section class="code-block"><pre>${first_line}<code class="hljs">${formatted_code}</code></pre></section>`;
             
 }
 
