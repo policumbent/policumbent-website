@@ -19,7 +19,7 @@ layout: base.njk
             <picture style="position: absolute; left: 0; top: 0; width: 100%">
                 <source srcset="{{prototype.image.responsiveImage.webpSrcSet}}" type="image/webp" sizes="{{ prototype.image.responsiveImage.sizes }}">
                 <source srcset="{{prototype.image.responsiveImage.srcSet}}" sizes="{{ prototype.image.responsiveImage.sizes }}">
-                <img class="prototype-intro__img" src="{{prototype.image.responsiveImage.src}}" alt="{{ prototype[locale].image.alt }}">
+                <img class="prototype-intro__img" src="{{prototype.image.responsiveImage.src}}" alt="{{ prototype.image.responsiveImage.alt }}">
             </picture>
         </div>
     </div>
