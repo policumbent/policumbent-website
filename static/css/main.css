@@ -170,6 +170,11 @@
 .border-radius {
   border-radius: 8px; }
 
+.hypens {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto; }
+
 .float-right {
   float: right; }
 
