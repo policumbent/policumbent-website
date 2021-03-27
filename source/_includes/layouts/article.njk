@@ -32,7 +32,7 @@ layout: base.njk
             <source type="image/webp" media="(max-width: 784px)" srcset="{{ image.url }}?fm=webp&q=70&w=500 1x, {{ image.url }}?fm=webp&q=70&w=1000 2x">
             <source type="image/jpeg" media="(min-width: 785px)" srcset="{{ image.url }}?fm=jpg&fl=progressive&q=60&w=920 1x, {{ image.url }}?fm=jpg&fl=progressive&q=60&w=1940 2x">
             <source type="image/jpeg" media="(max-width: 784px)" srcset="{{ image.url }}?fm=jpg&fl=progressive&q=60&w=500 1x, {{ image.url }}?fm=jpg&fl=progressive&q=60&w=1000 2x">
-            <img src="{{ image.url }}?fm=jpg&q=60&w=1000" alt="{{ img.alt? }}" loading="lazy"/>
+            <img src="{{ image.url }}?fm=jpg&q=60&w=1000" alt="{{ image.alt? }}" loading="lazy"/>
           </picture>
         {% endfor %}
       </div>
