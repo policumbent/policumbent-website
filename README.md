@@ -13,6 +13,10 @@ In production Netlify automatically redirects users from / to /it or /en based o
 
 Live preview: https://policumbent.netlify.app/it/
 
+## License
+
+This project is licensed under the terms of the Apache 2.0 license.
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
