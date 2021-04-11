@@ -9,13 +9,14 @@ npm install
 npm run dev
 ```
 Now you can visit localhost:8080/it/ or localhost:8080/en/ to see the website.\
-In production Netlify automatically redirects users from / to /it or /en based on user-language,
+In production Netlify automatically redirects users from / to /it or /en based on user-language.
 
 Live preview: https://www.policumbent.it/it/
 
 ## License
 
-This project is licensed under the terms of the Apache 2.0 license.
+This project is licensed under the terms of the Apache 2.0 license.\
+All images are property of Team Policumbent.
 
 ## Contributors ✨
 
