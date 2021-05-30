@@ -1,8 +1,9 @@
 # policumbent.it
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c26c92b9-95fc-438f-8289-f873975494bf/deploy-status)](https://app.netlify.com/sites/policumbent/deploys)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 Policumbent's new website repository.\
 To start the website locally run:
 ```
