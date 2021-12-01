@@ -9,7 +9,10 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+      
     # For all packages, ignore all patch updates
     ignore:
     - dependency-name: "*"
       update-types: ["version-update:semver-patch"]
+      
+    open-pull-requests-limit: 10
