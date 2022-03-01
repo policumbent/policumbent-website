@@ -128,6 +128,10 @@ module.exports = {
     'it': "Ogni anno partecipiamo alla WHPSC, una competizione che si svolge a Battle Mountain, in Nevada, lungo un rettilineo di 5 miglia ad un’altitudine di 1408 metri.",
     'en': "Every year we partecipate to the WHPSC, a competition that takes place in Battle Mountain, in Nevada, along a 5 mile straight at an altitude of 1408 meters."
   },
+  esb_description:{
+    'it': "Il Team Policumbent e il Politecnico di Torino hanno deciso di organizzare un evento in casa: l’European Speed Battle. ",
+    'en': "The Policumbent Team and the Polytechnic of Turin have decided to organize an event at home: the European Speed Battle."
+  },
   privacy_message:{
     'it': "Non usiamo cookie e non tracciamo gli utenti",
     'en': "We don't use cookies and we don't track you"
