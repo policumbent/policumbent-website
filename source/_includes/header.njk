@@ -17,6 +17,7 @@
                 <a class="{{ 'active' if '/prototypes/' in page.url }}" href="/{{locale}}/prototypes/">{{ "prototypes" | i18n }}</a>
                 <a class="{{ 'active' if '/team/' in page.url }}" href="/{{locale}}/team/">Team</a>
                 <a class="{{ 'active' if '/whpsc/' in page.url }}" href="/{{locale}}/whpsc/">WHPSC</a>
+                <a class="{{ 'active' if '/european-speed-battle/' in page.url }}" href="/{{locale}}/european-speed-battle/">ESB</a>
                 <a class="{{ 'active' if '/partners/' in page.url }}" href="/{{locale}}/partners/">partners</a>
                 <a class="{{ 'active' if '/blog/' in page.url }}" href="/{{locale}}/blog/">Blog</a>
                 <a class="{{ 'active' if '/contacts/' in page.url }}" href="/{{locale}}/contacts/">{{ "contacts" | i18n }}</a>
@@ -52,23 +53,22 @@
                 {{ "prototypes" | i18n if '/prototypes/' in page.url }}
                 {{ 'Team' if '/team/' in page.url }}
                 {{ "WHPSC" if '/whpsc/' in page.url }}
+                {{ "ESB" if '/european-speed-battle/' in page.url }}
                 {{ 'partners' if '/partners/' in page.url }}
                 {{ 'Blog' if '/blog/' in page.url }}
                 {{ "contacts" | i18n if '/contacts/' in page.url }}
                 </span>
                 <svg id="header__open-menu" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="1.31134e-07" y1="1.5" x2="26" y2="1.5" stroke="black" stroke-width="3"/>
-                    <line x1="8" y1="17.5" x2="26" y2="17.5" stroke="black" stroke-width="3"/>
-                    <line x1="4" y1="9.5" x2="26" y2="9.5" stroke="black" stroke-width="3"/>
+                    <line x1="1.31134e-07" y1="1.5" x2="26" y2="1.5" stroke="black" stroke-width="2"/>
+                    <line x1="8" y1="17.5" x2="26" y2="17.5" stroke="black" stroke-width="2"/>
+                    <line x1="4" y1="9.5" x2="26" y2="9.5" stroke="black" stroke-width="2"/>
                 </svg>
                 <svg id="header__close-menu" class="hidden" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="1.06066" y1="1.06043" x2="17.3241" y2="17.3239" stroke="black" stroke-width="3"/>
-                    <line x1="17.3241" y1="1.06066" x2="1.06063" y2="17.3241" stroke="black" stroke-width="3"/>
+                    <line x1="1.06066" y1="1.06043" x2="17.3241" y2="17.3239" stroke="black" stroke-width="2"/>
+                    <line x1="17.3241" y1="1.06066" x2="1.06063" y2="17.3241" stroke="black" stroke-width="2"/>
                 </svg>
             </div>
         </div>
-
-        
 
         <div id="header__overlay" class="header__overlay header__overlay--hidden">
             <div class="pages">
@@ -78,6 +78,7 @@
                     <a class="upfirst {{ 'active' if '/prototypes/' in page.url }}" href="/{{locale}}/prototypes/">{{ "prototypes" | i18n }}</a>
                     <a class="upfirst {{ 'active' if '/team/' in page.url }}" href="/{{locale}}/team/">Team</a>
                     <a class="upfirst {{ 'active' if '/whpsc/' in page.url }}" href="/{{locale}}/whpsc/">WHPSC</a>
+                    <a class="upfirst {{ 'active' if '/european-speed-battle/' in page.url }}" href="/{{locale}}/european-speed-battle/">ESB</a>
                     <a class="upfirst {{ 'active' if '/partners/' in page.url }}" href="/{{locale}}/partners/">partners</a>
                     <a class="upfirst {{ 'active' if '/blog/' in page.url }}" href="/{{locale}}/blog/">Blog</a>
                     <a class="upfirst {{ 'active' if '/contacts/' in page.url }}" href="/{{locale}}/contacts/">{{ "contacts" | i18n }}</a>

@@ -5,45 +5,44 @@ pagination:
   alias: lang
   addAllPagesToCollections: true
 layout: base.njk
-permalink: "/{{ lang.locale }}/whpsc/"
+permalink: "/{{ lang.locale }}/european-speed-battle/"
 noLangUrl: /whpsc/
 sitemap:
   priority: 0.8
   changefreq: weekly
 eleventyComputed:
   metadata:
-    title: "WHPSC"
-    description: "{{ 'whpsc_description' | i18n | upfirst | safe }}"
-    image: "{{ whpsc_page.it.og_image.url | safe }}"
+    title: "European Speed Battle"
+    description: "{{ 'esb_description' | i18n | upfirst | safe }}"
+    image: "{{ esb_page.it.og_image.url | safe }}"
   locale: "{{lang.locale}}"
 ---
 
 <div class="spacer-1"></div>
-<h1 class="upfirst">{{ whpsc_page[locale].title }}</h1>
+<h1 class="upfirst">{{ esb_page[locale].title }}</h1>
 <div class="spacer-2"></div>
-<div class="col-12 border-radius" style="position: relative; background-image: url({{ whpsc_page[locale].image.responsiveImage.base64 }}); background-size: cover;">
-  <div style="padding-top: {{ 100.0 / whpsc_page[locale].image.responsiveImage.aspectRatio }}%;">
+<div class="col-12 border-radius" style="position: relative; background-image: url({{ esb_page[locale].image.responsiveImage.base64 }}); background-size: cover;">
+  <div style="padding-top: {{ 100.0 / esb_page[locale].image.responsiveImage.aspectRatio }}%;">
     <picture style="position: absolute; left: 0; top: 0; width: 100%">
-      <source srcset="{{ whpsc_page[locale].image.responsiveImage.webpSrcSet }}" type="image/webp" sizes="{{ whpsc_page[locale].image.responsiveImage.sizes }}">
-      <source srcset="{{ whpsc_page[locale].image.responsiveImage.srcSet }}" sizes="{{ whpsc_page[locale].image.responsiveImage.sizes }}">
-      <img class="col-12 border-radius" src="{{ whpsc_page[locale].image.responsiveImage.src }}" alt="{{ whpsc_page[locale].image.responsiveImage.alt }}">
+      <source srcset="{{ esb_page[locale].image.responsiveImage.webpSrcSet }}" type="image/webp" sizes="{{ esb_page[locale].image.responsiveImage.sizes }}">
+      <source srcset="{{ esb_page[locale].image.responsiveImage.srcSet }}" sizes="{{ esb_page[locale].image.responsiveImage.sizes }}">
+      <img class="col-12 border-radius" src="{{ esb_page[locale].image.responsiveImage.src }}" alt="{{ esb_page[locale].image.responsiveImage.alt }}">
     </picture>
   </div>
 </div>
 <div class="spacer-1"></div>
-<div class="indented-3">{{ whpsc_page[locale].introText | upfirst | markdown | safe }}</div>
+<div class="indented-3">{{ esb_page[locale].introText | upfirst | markdown | safe }}</div>
 <div class="spacer-2"></div>
-<img class="indented-3" src="/static/img/usa-map.svg" alt=""/>
 
 <div class="spacer-3"></div>
 
-<h1 class="upfirst">{{ whpsc_page[locale].raceTitle }}</h1>
+<h1 class="upfirst">{{ esb_page[locale].raceTitle }}</h1>
 <div class="spacer-1"></div>
-<p class="col-12">{{ whpsc_page[locale].raceIntroText | upfirst }}</p>
+<p class="col-12">{{ esb_page[locale].raceIntroText | upfirst }}</p>
 <div class="spacer-2"></div>
 
 <div class="race-parts-wrapper indented-2">
-  {% for race_part in whpsc_page[locale].raceParts %}
+  {% for race_part in esb_page[locale].raceParts %}
     <div class="row">
       <div class="race-part-info col-6">
         <h2>{{ race_part.name }}</h2>
@@ -60,13 +59,13 @@ eleventyComputed:
 
 <div class="spacer-3"></div>
 
-<h1 class="upfirst">{{ whpsc_page[locale].resultsTitle }}</h1>
+<h1 class="upfirst">{{ esb_page[locale].resultsTitle }}</h1>
 <div class="spacer-1"></div>
-<p class="col-12">{{ whpsc_page[locale].resultsIntroText | upfirst }}</p>
+<p class="col-12">{{ esb_page[locale].resultsIntroText | upfirst }}</p>
 <div class="spacer-2"></div>
 
 <div class="past-race-wrapper indented-2">
-  {% for race_edition in whpsc_page[locale].raceEditions %}
+  {% for race_edition in esb_page[locale].raceEditions %}
     <div class="race">
     <input type="checkbox" {% if loop.index == 1 %} checked="true" {% endif %} name="collapse" id="handle{{ loop.index }}">
     <div class="race__title"><label for="handle{{ loop.index }}"><h1>{{ race_edition.title }}</h1><img class="open-icon" src ="/static/img/open-arrow.svg" alt=""/><img class="close-icon" src ="/static/img/close-arrow.svg" alt=""/></label></div>
