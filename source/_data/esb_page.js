@@ -1,7 +1,7 @@
 const fetchFromDato = require('./api')
 
 
-module.exports = async function getWhpscPage() {
+module.exports = async function getEsbPage() {
 
     const query = `query {
       esbPage (locale: %LOCALE%){
