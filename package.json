@@ -22,7 +22,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "autoprefixer": "^9.8.6",
-    "concurrently": "^6.3.0",
+    "concurrently": "^7.5.0",
     "cssnano": "^4.1.10",
     "dotenv": "^10.0.0",
     "eleventy-plugin-i18n": "^0.1.1",
