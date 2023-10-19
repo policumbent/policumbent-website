@@ -6,7 +6,7 @@ module.exports = async function getAllSponsors() {
   let sponsors = [];
 
   const query = `query allSponsors {
-    allSponsors(orderBy: position_ASC, filter: {_status: {eq: published}}) {
+    allSponsors(orderBy: position_ASC, filter: {_status: {eq: published}}, first: "30") {
       id
       name
       description_it: description(locale: it)
