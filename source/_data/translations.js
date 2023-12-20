@@ -9,8 +9,8 @@ module.exports = {
     'en': "Articles"
   },
   prototypes:{
-    'it': "biciclette",
-    'en': "bikes"
+    'it': "Prototipi",
+    'en': "Prototypes"
   },
   the_prototypes:{
     'it': "Le bici",
