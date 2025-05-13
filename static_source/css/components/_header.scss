@@ -142,6 +142,7 @@ header{
             span {
                 padding-right: 10px;
                 border-right: 1px solid #000;
+                color: $team-white
             }
             svg{
                 width: 40px;
@@ -177,6 +178,7 @@ header{
             }
 
             .header__links a, .header__switcher span{
+                color: $team-white;
                 padding: 3px 0px 3px 0px;
             }
 
